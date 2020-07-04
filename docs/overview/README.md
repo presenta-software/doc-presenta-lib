@@ -8,7 +8,7 @@ title: Overview
 
 It's opinionated and it comes with some defaults with extensibility in mind.
 
-It enforces some presentation and communication principles, thus, you need to worry about mainly of your content.
+It enforces some presentation and communication principles, thus, you need to worry about of your content first.
 
 <pDemo00 />
 
@@ -19,22 +19,11 @@ To give a rought idea, this code:
 
 ```js
 new Presenta('#app', {
-  adapt:true,
-  theme:'vibrant',
-  transition:'verticalIn',
-  router:{
-    keyboard:true,
-    arrows:true
-  },
-  scenes:[
-    {
+  scenes:[{
       blocks:[
         {
           type: 'text',
-          text: '<h1>Welcome</h1>',
-          props:{
-            colorvar:'.a'
-          }
+          text: '<h1>Welcome PRESENTA!</h1>'
         }
       ]
     },
@@ -42,14 +31,10 @@ new Presenta('#app', {
       blocks:[
         {
           type: 'text',
-          text: '<h1>AAAAA</h1>',
-          props:{
-            colorvar:'.c'
-          }
+          text: '<h1>Welcome PRESENTA!</h1>'
         }
       ]
-    }
-  ]
+    }]
 })
 ```
 
@@ -59,7 +44,7 @@ creates this document:
 
 ## The data source
 
-**PresentaLib** is a data-driven presentation library. By using a serializable object it allows to encode much more conventions, fostering easy interoperability.
+**PresentaLib** is a data-driven presentation library. It requires a serializable object on purpose to facilitate interoperability, data generation and transformation as well as fostering novel tools to create presentations.
 
 
 
@@ -67,7 +52,9 @@ creates this document:
 
 There are many presentation frameworks and library out there, so why another one?
 
-Motivations comes first from the struggle on the legacy tools (PPT, KEY): making presentation can be better.
+Motivations comes first from the struggle on the legacy tools (PPT, KEY):
+
+> making presentation can be better.
 
 Then, the desire to create something that incorporate as much as possibile efficiency and best practices in order to let the user work on the important part: the content.
 
@@ -77,14 +64,16 @@ The fine balance between sensible defaults and customization is the actual goal 
 
 ## Principles
 
+The content is king.
+
 ## General architecture
 
-A **PRESENTA** document contains a list of *scenes* that can be displayed one at a time. Each *scene* contains one or more *block* of content. The scene is responsible to keep blocks together. A *block* is the minimum unit that handles a specific content from presentation perspective.
+A **PRESENTA** document contains a list of *scenes* that can be displayed one at a time. Each *scene* contains one or more *block* of content. The scene is responsible to keep blocks together. A *block* is the minimum unit that renders a specific content from  a given data object.
 
-**PRESENTA** is designed to accept easily external blocks.
+**PRESENTA** is designed to be extensible by using plugins. There are three types of plugins in PresentaLib:
+
+- Block Types
+- Scene Modules
+- Router Extensions
 
 
-
-
-
-## License

@@ -4,7 +4,7 @@ title: Guide
 
 ## Create your first presentation
 
-In this section you'll learn, step-by-step, the main components to create an effective presentation with **PresentaLib**.
+In this section you'll learn, step-by-step, the main components to create a presentation with **PresentaLib**.
 
 ## Include the library
 
@@ -13,7 +13,7 @@ You can include the library in several ways:
 ### From `unpkg`:
 
 ```html
-<script src="https://unpkg.com/presenta-lib"></script>
+<script src="https://unpkg.com/@presenta/lib"></script>
 ```
 
 ### From `npm`:
@@ -22,46 +22,35 @@ You can include the library in several ways:
 npm install @presenta/lib
 ```
 
-then include in the browser:
+then include in the browser with:
 
 ```html
-<script src="/node_modules/@presenta/lib/dist/presenta-lib.js"></script>
+<script src="/node_modules/@presenta/lib/dist/presenta.min.js"></script>
 ```
 
 or using a bundler:
 
 ```js
-import PresentaLib from 'presenta-lib'
+import * as PresentaLib from '@presenta/lib'
 ```
 
-### Downloading the starterkit
 
-Download and unzip this starterkit for  quick and offline presentation: 
 
 ## Using the library
 
 First thing first: each **PresentaLib** presentation requires an HTML wrapper:
 
 ```html
-<div id="myPresentation"></div>
+<div id="app"></div>
 ```
 
 and here the way to bind it with a data source: 
 
 ```js
-var preso = new PresentaLib('#myPresentation', {
-    scenes: [],
-  	router: null,
-  	theme: null,
-  	transition: null
+var preso = new PresentaLib('#app', {
+    scenes: []
 })
 ```
-
-::: warning Note
-
-The `null` properties are not mandatory, they are specified for learning purpose about the main configurable functionality of the library.
-
-:::
 
 Not very useful for now. 
 
@@ -139,11 +128,43 @@ var preso = new Presenta('#myPresentation', {
 
 
 
-## Pick up a Theme
+## Themes
 
-## Activate the Transition system
+A theme defines the font set, the color scheme and further style properties. It can be included as a regular CSS file and it needs to be activated with its property:
 
-## Explore the Block types
+```javascript
+var preso = new Presenta('#myPresentation', {
+  	theme: 'vibrant',
+    scenes:[...]
+})
+```
 
-## Some common Extensions
+The **PresentaLib** bundle includes the following built-in themes:
+
+- original
+- vibrant
+
+## Transitions
+
+The transition system is responsible to define how each scene enter and leave the stage. It's completely based on CSS and, pretty much the theme, it needs to be included as CSS file and activated in the data object:
+
+```javascript
+var preso = new Presenta('#myPresentation', {
+  	transition: 'horizontalSlide',
+    scenes:[...]
+})
+```
+
+The **PresentaLib** bundle includes the following built-in transitions:
+
+- horizontalSlide
+- verticalIn
+
+## Block types
+
+## Scene modules
+
+## Router extensions
+
+
 
