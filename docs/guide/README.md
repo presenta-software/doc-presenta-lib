@@ -98,33 +98,17 @@ var preso = new Presenta('#myPresentation', {
 
 PresentaLib comes with an internal `router` that can be activated, configured and extended as well.
 
-To enable the routing feature, add the following property specifying also the controllers we want to use:
+This is the default router configuration that you can ovverride:
 
 ```js
-router:{
-  keyboard:true
-}
+router: {
+  keyboard: true,
+  arrows: true,
+  black: true
+},
 ```
 
-So, the previous script can be extended this way:
 
-```js
-var preso = new Presenta('#myPresentation', {
-  	router:{
-      keyboard:true
-    },
-    scenes:[
-      {
-        blocks:[
-          {
-            type: 'text',
-            text: '<h1>Welcome PRESENTA</h1>'
-          }
-        ]
-      }
-    ]
-})
-```
 
 
 

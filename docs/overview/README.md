@@ -10,7 +10,6 @@ It's opinionated and it comes with some defaults with extensibility in mind.
 
 It enforces some presentation and communication principles, thus, you need to worry about of your content first.
 
-<pDemo00 />
 
 
 ## The gist
@@ -18,29 +17,34 @@ It enforces some presentation and communication principles, thus, you need to wo
 To give a rought idea, this code:
 
 ```js
-new Presenta('#app', {
+new Presenta('#aDiv', {
   scenes:[{
-      blocks:[
-        {
-          type: 'text',
-          text: '<h1>Welcome PRESENTA!</h1>'
-        }
-      ]
-    },
-    {
-      blocks:[
-        {
-          type: 'text',
-          text: '<h1>Welcome PRESENTA!</h1>'
-        }
-      ]
+    variant: 'b',
+    blocks:[{
+      type:'text',
+      scale: 2,
+      text:'<h1>Hello <mark>PRESENTA Lib</mark></h1>'
     }]
+  },
+  {
+    blocks:[{
+      type:'text',
+      text:`<h1><mark>Principles:</mark></h1>
+      <ul>
+        <li>Content first, data-driven</li>
+        <li>Sensible defaults</li>
+        <li>Pluggable</li>
+      </ul>`
+    }]
+  }]
 })
 ```
 
 creates this document:
 
-<pDemo01 />
+<pDemo00 />
+
+
 
 ## The data source
 

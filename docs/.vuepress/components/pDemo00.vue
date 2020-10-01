@@ -15,9 +15,22 @@ export default {
         return{
             doc:{
               scenes:[{
+                variant: 'b',
                 blocks:[{
                   type:'text',
+                  scale: 2,
                   text:'<h1>Hello <mark>PRESENTA Lib</mark></h1>'
+                }]
+              },
+              {
+                blocks:[{
+                  type:'text',
+                  text:`<h1><mark>Principles:</mark></h1>
+                  <ul>
+                    <li>Content first, data-driven</li>
+                    <li>Sensible defaults</li>
+                    <li>Pluggable</li>
+                  </ul>`
                 }]
               }]
             }
