@@ -2,16 +2,16 @@
 title: Reference
 ---
 
-## Globals
+## Global
 
-Here the configuration options that affect the whole presentation alongside their defaults:
+Each Presenta presentation can be configured with some global settings. Here the list with their defaults and possible values:
 
 ```js
 {
   aspect: 1.6, // width/height ratio
   adapt: true, // override the aspect-ratio calculating it according to the container width/height
-  theme: '', // the string to identify the visual theme
-  transition: 'horizontalSlide',
+  theme: '', // a valid string to identify the visual theme (see below)
+  transition: 'horizontalSlide', // a valid string to identify a transition system (see below)
   mode: 'present' // can be 'preview' or 'present'
 }
 ```
@@ -19,9 +19,9 @@ Here the configuration options that affect the whole presentation alongside thei
 
 
 
-## Themes
+## Theme
 
-To configura a theme, you need to set the `theme` property with an available value:
+To configura a theme, you need to set the `theme` property with a valid value:
 
 ```js
 {
@@ -41,7 +41,51 @@ The library comes with a set of themes available:
 
 
 
-## Blocks
+## Scene
+
+A scene is a container for the
+
+```js
+{
+  props:{
+    colorvar: '.a', // .a|.b|.c
+    backcolor: '',
+    scenepadding: 0
+  }
+}
+```
+
+| Prop name    | Description                        | Default value          | Possible values             |
+| ------------ | ---------------------------------- | ---------------------- | --------------------------- |
+| colorvar     | Define the color palette variation | .a                     | .a, .b, .c                  |
+| backcolor    |                                    | inherit from the theme | any valid CSS color values  |
+| scenepadding | The scene padding                  | 0                      | any valid CSS padding value |
+|              |                                    |                        |                             |
+
+## Block
+
+A block is the minimal piece of content. It can sit together with other blocks in a scene. Each block depends of the block type (more on this later) as well as its configuration options. Nevertheless, there are some generic, block-related, properties that can be set for any type of blocks:
+
+```js
+{
+  props:{
+    colorvar: '.a', // .a|.b|.c
+    backcolor: '',
+    blockweight: 1
+    blockpadding: 0
+  }
+}
+```
+
+| Prop name    | Description                          | Default value          | Possible values             |
+| ------------ | ------------------------------------ | ---------------------- | --------------------------- |
+| colorvar     | Define the color palette variation   | .a                     | .a, .b, .c                  |
+| backcolor    |                                      | inherit from the theme | any valid CSS color values  |
+| blockweight  | Define the weight in the Flex layout | 1                      | any positive number         |
+| blockpadding | The block padding                    | 0                      | any valid CSS padding value |
+|              |                                      |                        |                             |
+
+
 
 ### Text
 
@@ -65,6 +109,20 @@ The text automatically scales according to the space available as well as the ad
 ```
 
 By default `scale` is `2` but to can increase or decrease as you wish.
+
+Furthermore, there are a number of properties for more fine-tuning:
+
+```js
+{
+  type: 'text',
+  props:{
+    textposition: '.cc',
+    textalign: 'center',
+    textpadding: '1rem',
+    backcolor: '<someColor>'
+  }
+}
+```
 
 
 ### Images
