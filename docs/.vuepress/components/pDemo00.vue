@@ -14,6 +14,7 @@ export default {
     data(){
         return{
             doc:{
+              theme: 'vibrant',
               scenes:[{
                 variant: 'b',
                 blocks:[{
@@ -25,7 +26,8 @@ export default {
               {
                 blocks:[{
                   type:'text',
-                  text:`<h1><mark>Principles:</mark></h1>
+                  scale: 3,
+                  text:`<h1><high>Principles:</high></h1>
                   <ul>
                     <li>Content first, data-driven</li>
                     <li>Sensible defaults</li>

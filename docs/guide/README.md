@@ -31,7 +31,7 @@ then include in the browser with:
 or using a bundler:
 
 ```js
-import * as PresentaLib from '@presenta/lib'
+import * as Presenta from '@presenta/lib'
 ```
 
 
@@ -47,7 +47,7 @@ First thing first: each **PresentaLib** presentation requires an HTML wrapper:
 and here the way to bind it with a data source: 
 
 ```js
-var preso = new PresentaLib('#app', {
+var preso = new Presenta('#app', {
     scenes: []
 })
 ```
@@ -73,7 +73,7 @@ Now we need to understand the `block` object that is the minimal unit of content
 
 ::: tip HTML in TEXT Block
 
-The `text` module render property a subset of HTML tags. Please check the details in its documentation here.
+The `text` module render property a subset of HTML tags. Please check the details in the documentation. There is also a markdown converter plugin to avoid writing HTML tags.
 
 :::
 
