@@ -2,54 +2,70 @@
 title: Reference
 ---
 
-## Global
+## Global properties
 
-Each Presenta presentation can be configured with some global settings. Here the list with their defaults and possible values:
-
-```js
-{
-  aspect: 1.6, // width/height ratio
-  adapt: true, // override the aspect-ratio calculating it according to the container width/height
-  theme: '', // a valid string to identify the visual theme (see below)
-  transition: 'horizontalSlide', // a valid string to identify a transition system (see below)
-  mode: 'present' // can be 'preview' or 'present'
-}
-```
-
-
-
-
-## Theme
-
-To configura a theme, you need to set the `theme` property with a valid value:
+Each **Presenta** presentation can be configured with some global settings. Here the list with their defaults and possible values:
 
 ```js
 {
-  theme: '<someThemeName>'
+  scenes:[...],
+  aspect: 1.6,
+  adapt: true,
+  scheme: '',
+  fontkit: '',
+  mode: 'present'
 }
 ```
 
-#### Built-in themes
+| Prop name | Description                                                  | Default value | Possible values       |
+| --------- | ------------------------------------------------------------ | ------------- | --------------------- |
+| aspect    | Define the ratio between width and height                    | 1.6           | Any number            |
+| adapt     | Override `aspect` inferring it from the container size       | true          | true,false            |
+| scheme    | The color scheme class to apply to the whole presentation, such as `.vibrant` |               | Any valid class value |
+| fontkit   | The fontkit class to apply to the whole presentation, such as `.original` |               | Any valid class value |
+| mode      | This property is used by some block to show two different states of the rendered content, useful when using the library to preview the `scenes` instead running the presentation | present       | present, preview      |
+|           |                                                              |               |                       |
 
-The library comes with a set of themes available:
 
-- `default` or leave empty
-- `vibrant`
-- `original`
+## Built-in color schemes
 
-#### Create your theme
+Presenta comes with a list of color schemes you can use out of the box using a class name:
+
+```js
+{
+  scheme: '.original'
+}
+```
+
+- `.default` or leave empty
+- `.vibrant`
+- `.original`
+
+## Built-in font kits
+
+Presenta comes with a list of font kits you can use out of the box using a class name:
+
+```js
+{
+  fontkit: '.original'
+}
+```
+
+- `.default` or leave empty
+- `.vibrant`
+- `.original`
 
 
 
 ## Scene
 
-A scene is a container for the
+A scene is the container of a slide or group of blocks. Alongside the required `blocks` you can configure some specific properties in this way:
 
 ```js
 {
+  blocks: [...],
   props:{
-    colorvar: '.a', // .a|.b|.c
-    backcolor: '',
+    colorvar: '.a',
     scenepadding: 0
   }
 }
@@ -62,7 +78,16 @@ A scene is a container for the
 | scenepadding | The scene padding                  | 0                      | any valid CSS padding value |
 |              |                                    |                        |                             |
 
-## Block
+::: tip Understanding the `props` field
+
+In general, any property in the `props` object will be injected according to these rules:
+
+- If the value starts with a `.` then a class name will be injected in the scene container concatenating the `key` with the `value` rsulting this class name: `.key__value`
+- If the value doesn't start with a `.` then a CSS custom property will be injected in the scene container using the `key` as property name alongside its value resultin in this CSS property: `--key: value;`
+
+:::
+
+## Blocks
 
 A block is the minimal piece of content. It can sit together with other blocks in a scene. Each block depends of the block type (more on this later) as well as its configuration options. Nevertheless, there are some generic, block-related, properties that can be set for any type of blocks:
 
@@ -70,9 +95,8 @@ A block is the minimal piece of content. It can sit together with other blocks i
 {
   props:{
     colorvar: '.a', // .a|.b|.c
-    backcolor: '',
     blockweight: 1
-    blockpadding: 0
+    blockopacity: 1
   }
 }
 ```
@@ -85,7 +109,14 @@ A block is the minimal piece of content. It can sit together with other blocks i
 | blockpadding | The block padding                    | 0                      | any valid CSS padding value |
 |              |                                      |                        |                             |
 
+::: tip Understanding the `props` field
 
+In general, any property in the `props` object will be injected according to these rules:
+
+- If the value starts with a `.` then a class name will be injected in the block container concatenating the `key` with the `value` rsulting this class name: `.key__value`
+- If the value doesn't start with a `.` then a CSS custom property will be injected in the block container using the `key` as property name alongside its value resultin in this CSS property: `--key: value;`
+
+:::
 
 ### Text
 
@@ -125,46 +156,37 @@ Furthermore, there are a number of properties for more fine-tuning:
 ```
 
 
-### Images
+### Image
 
-The `images` block allows to display, guess what, images.
+The `image` block allows to display, guess what, an image.
 You need to provide an array of objects such as:
 
 ```js
 {
-  type: 'images',
-  images: [
-  	{url: 'image1.jpg'},
-  	{url: 'image2.jpg'},
-  	{url: 'image3.jpg'}
-  ]
+  type: 'image',
+  url: 'https://www.example.com/image1.jpg'
 }
 ```
 
-The area available will be split equally according to the number of images.
-
-By default the images will `cover` the space available. You can change that behaviour using this setting:
+By default the image will `cover` the space available. You can change that behaviour using this setting:
 
 ```js
 {
-  type: 'images',
+  type: 'image',
   size: 'cover|contain|fill|none|scale-down'
-  images: [...]
+  url: '...'
 }
 ```
 
-You can also specify the `size` property per single image:
+| Prop name    | Description                          | Default value          | Possible values             |
+| ------------ | ------------------------------------ | ---------------------- | --------------------------- |
+| colorvar     | Define the color palette variation   | .a                     | .a, .b, .c                  |
+| backcolor    |                                      | inherit from the theme | any valid CSS color values  |
+| blockweight  | Define the weight in the Flex layout | 1                      | any positive number         |
+| blockpadding | The block padding                    | 0                      | any valid CSS padding value |
+|              |                                      |                        |                             |
 
-```js
-{
-  type: 'images',
-  images: [
-  	{url: 'image1.jpg', size: 'none'},
-  	{url: 'image2.jpg'},
-  	{url: 'image3.jpg', size: 'contain'}
-  ]
-}
-```
+
 
 ### Video
 
@@ -227,7 +249,9 @@ Additionally, you can provide a `poster` and `postersize` properties to load an 
 
 There are further blocks that can be included as external plugin. Here a list of the official supported external blocks:
 
-- Youtube Block
+- Youtube block
+- Vega-Lite block
+- Chart.js block
 
 #### Create your block
 

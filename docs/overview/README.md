@@ -4,7 +4,7 @@ title: Overview
 
 # Overview
 
-**PresentaLib** is a javascript library to create modern presentation documents using a **data** object.
+**PRESENTA** is a javascript library to create modern presentation documents using a **data** object.
 
 It's opinionated and it comes with some defaults with extensibility in mind.
 
@@ -47,7 +47,7 @@ creates this document:
 
 ## The data source
 
-**PresentaLib** is a data-driven presentation library. It requires a serializable object on purpose to facilitate interoperability, data generation and transformation as well as fostering novel tools to create presentations.
+**PRESENTA** is a data-driven presentation library. It requires a serializable object on purpose to facilitate interoperability, data generation and transformation as well as fostering novel tools to create presentations.
 
 
 
@@ -67,16 +67,17 @@ The fine balance between sensible defaults and customization is the actual goal 
 
 ## Principles
 
-The content is king.
+- Content is king
+- Automation where possible
 
 ## General architecture
 
 A **PRESENTA** document contains a list of *scenes* that can be displayed one at a time. Each *scene* contains one or more *block* of content. The scene is responsible to keep blocks together. A *block* is the minimum unit that renders a specific content from  a given data object.
 
-**PRESENTA** is designed to be extensible by using plugins. There are three types of plugins in PresentaLib:
+**PRESENTA** is designed to be extensible by using plugins. There are three types of plugins:
 
-- Block Types
-- Scene Modules
-- Router Extensions
+- Blocks (block types)
+- Modules (scene extensions)
+- Controllers (router controllers)
 
 

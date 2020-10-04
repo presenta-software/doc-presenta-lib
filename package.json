@@ -10,10 +10,10 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "vuepress": "^1.5.2"
+    "vuepress": "^1.6.0"
   },
   "dependencies": {
-    "@presenta/lib": "0.0.5",
+    "@presenta/lib": "0.0.12",
     "vue2-ace-editor": "0.0.15"
   }
 }

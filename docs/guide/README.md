@@ -47,7 +47,7 @@ First thing first: each **PresentaLib** presentation requires an HTML wrapper:
 and here the way to bind it with a data source: 
 
 ```js
-var preso = new Presenta('#app', {
+var myPreso = new Presenta('#app', {
     scenes: []
 })
 ```
@@ -57,18 +57,24 @@ Not very useful for now.
 We can add a `scene` that is an object that contains, at least, the `blocks` array:
 
 ```js
-{
-  blocks:[]
-}
+var myPreso = new Presenta('#app', {
+    scenes: [{
+    	blocks:[]
+    }]
+})
 ```
 
 Now we need to understand the `block` object that is the minimal unit of content. The are many block type we can use, e.g. a `text` one:
 
 ```js
-{
-  type: 'text',
-  text: '<h1>Welcome PRESENTA</h1>'
-}
+var myPreso = new Presenta('#app', {
+    scenes: [{
+    	blocks:[{
+		  type: 'text',
+		  text: '<h1>Welcome PRESENTA</h1>'
+		}]
+    }]
+})
 ```
 
 ::: tip HTML in TEXT Block
@@ -77,22 +83,7 @@ The `text` module render property a subset of HTML tags. Please check the detail
 
 :::
 
-Now let's wrap all together to create a presentation with a single `scene`:
 
-```js
-var preso = new Presenta('#myPresentation', {
-    scenes:[
-      {
-        blocks:[
-          {
-            type: 'text',
-            text: '<h1>Welcome PRESENTA</h1>'
-          }
-        ]
-      }
-    ]
-})
-```
 
 ## Controlling the presentation
 

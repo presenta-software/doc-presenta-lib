@@ -6,7 +6,7 @@ module.exports = {
     editLinks: true,
     repo: 'presenta-software/presenta-lib',
     repoLabel: 'Github',
-    docsRepo: 'presenta-software/presenta-reference',
+    docsRepo: 'presenta-software/doc-presenta-lib',
     docsDir: 'docs',
     docsBranch: 'master',
     editLinks: true,
