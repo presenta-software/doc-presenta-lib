@@ -110,7 +110,7 @@ This is the default router configuration that you can ovverride:
 }
 ```
 
-Please, refer in the reference to each router controllers for additional configuration.
+Please, refer in the Router section of the reference to learn more about each router controller as well as their additional configurations.
 
 
 

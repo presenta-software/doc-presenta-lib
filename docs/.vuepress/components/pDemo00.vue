@@ -22,20 +22,12 @@ export default {
                 },
                 progressbar: true,
                 props:{
-                  arrowsPosition: 'flex-start'
+                  arrowsPosition: 'flex-start',
+                  progressbarBottom: 0
                 },
               },
               
               scenes:[{
-                blocks:[{
-                  type:'text',
-                  scale: 3,
-                  text:'<h1>Build presentations the modern way!</h1>'
-                }],
-                props:{
-                  colorvar: '.b'
-                }
-              },{
                 blocks:[{
                   type:'text',
                   scale: 3,
@@ -78,7 +70,7 @@ export default {
                 blocks:[{
                   type:'text',
                   scale: 1,
-                  text:`<h1>Whant to know more?</h1>`
+                  text:`<h1>Want to know more?</h1>`
                 },{
                   type:'video',
                   autoplay: true,
