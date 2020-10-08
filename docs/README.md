@@ -1,11 +1,13 @@
 ---
 home: true
-heroImage: /logo.png
-heroText: Build presentations the modern way
-tagline: An opinionated, data-driven, javascript library to make effective presentational documents.
-footer: BSD 3-Clause Licensed | Copyright © 2020 Fabio Franchino
+heroImage: null
+heroText: null
+tagline: null
+footer: BSD 3-Clause Licensed | Copyright © 2020 presenta.cc
 sidebar: false
 ---
+
+<div style="margin-top:2rem;"></div>
 
 <pDemo00 />
 

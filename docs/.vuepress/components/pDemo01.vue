@@ -1,54 +1,43 @@
 <template>
-  <ClientOnly>
-      <pEditor :code="code" />
-  </ClientOnly>
+    <div class="prev">
+        <div ref="preso" class="preso"></div>
+    </div>
 </template>
 
 
 
 <script>
-import Vue from 'vue'
+import * as Presenta from '@presenta/lib'
 
 export default {
-    mounted () {
-      import('./pEditor').then(module => {
-        Vue.component('p-editor', module)
-      })
-    },
+    
     data(){
         return{
-            code:`{
-  adapt:true,
-  theme:'vibrant',
-  router:{
-    keyboard:true
-  },
-  scenes:[
-    {
-      blocks:[
-        {
-          type: 'text',
-          text: '<h1>Welcome</h1>',
-          props:{
-            colorvar:'.a'
-          }
+            doc:{
+              scenes:[{
+                blocks:[{
+                  type:'text',
+                  scale:2,
+                  text:`<h1>Hello there</h1>
+                  <p>This is a <mark>scene</mark> that contains a 'text' <mark>block</mark>...</p>`
+                }],
+                props:{
+                  colorvar: '.b'
+                }
+              }]
+            }
         }
-      ]
     },
-    {
-      blocks:[
-        {
-          type: 'text',
-          text: '<h1>AAAAA</h1>',
-          props:{
-            colorvar:'.c'
-          }
-        }
-      ]
-    }
-  ]         
-}`
-        }
+    mounted(){
+      new Presenta(this.$refs.preso, this.doc)
     }
 }
 </script>
+
+
+
+<style scoped>
+.preso{
+  height: 300px;
+}
+</style>

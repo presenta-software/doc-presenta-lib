@@ -4,7 +4,7 @@ title: Guide
 
 ## Create your first presentation
 
-In this section you'll learn, step-by-step, the main components to create a presentation with **PresentaLib**.
+In this section you'll learn, step-by-step, the basics to create a presentation with **PRESENTA Lib**.
 
 ## Include the library
 
@@ -38,7 +38,7 @@ import * as Presenta from '@presenta/lib'
 
 ## Using the library
 
-First thing first: each **PresentaLib** presentation requires an HTML wrapper:
+First thing first: each **PRESENTA Lib** presentation requires an HTML wrapper:
 
 ```html
 <div id="app"></div>
@@ -47,39 +47,43 @@ First thing first: each **PresentaLib** presentation requires an HTML wrapper:
 and here the way to bind it with a data source: 
 
 ```js
-var myPreso = new Presenta('#app', {
+var myPresentation = new Presenta('#app', {
     scenes: []
 })
 ```
 
-Not very useful for now. 
+::: tip About the size
+
+**PRESENTA** will use the wrapper size to build the presentation. If the size is not set, the fallback size will be used.
+
+::: 
 
 We can add a `scene` that is an object that contains, at least, the `blocks` array:
 
 ```js
-var myPreso = new Presenta('#app', {
+var myPresentation = new Presenta('#app', {
     scenes: [{
     	blocks:[]
     }]
 })
 ```
 
-Now we need to understand the `block` object that is the minimal unit of content. The are many block type we can use, e.g. a `text` one:
+Now we need to understand the `block` object that is the minimal unit of content. The are many block types we can use,  `text` is one of them:
 
 ```js
-var myPreso = new Presenta('#app', {
+var myPresentation = new Presenta('#app', {
     scenes: [{
-    	blocks:[{
-		  type: 'text',
-		  text: '<h1>Welcome PRESENTA</h1>'
-		}]
+      blocks:[{
+        type: 'text',
+        text: '<h1>Welcome PRESENTA</h1>'
+      }]
     }]
 })
 ```
 
 ::: tip HTML in TEXT Block
 
-The `text` module render property a subset of HTML tags. Please check the details in the documentation. There is also a markdown converter plugin to avoid writing HTML tags.
+The `text` module render property a subset of HTML tags. Please check the details in the documentation. There is also a markdown converter plugin to avoid writing raw HTML tags.
 
 :::
 
@@ -87,59 +91,77 @@ The `text` module render property a subset of HTML tags. Please check the detail
 
 ## Controlling the presentation
 
-PresentaLib comes with an internal `router` that can be activated, configured and extended as well.
+**PRESENTA Lib** comes with an internal `router` that can be configured and extended as well.
 
 This is the default router configuration that you can ovverride:
 
 ```js
-router: {
-  keyboard: true,
-  arrows: true,
-  black: true
-},
+{
+  scenes:[...],
+  router: {
+    keyboard: true,
+    arrows: true,
+    black: true,
+
+    autoplay:false,
+    pagenum:false,
+    progressbar:false
+  },
+}
 ```
 
+Please, refer in the reference to each router controllers for additional configuration.
 
 
 
+## Styles
 
-## Themes
+A **PRESENTA** document can be styled by leveraging three different property:
 
-A theme defines the font set, the color scheme and further style properties. It can be included as a regular CSS file and it needs to be activated with its property:
+- choosing a `scheme` colorset option
+- choosing a `fontkit` option
+- choosing a `theme` option
 
 ```javascript
-var preso = new Presenta('#myPresentation', {
-  	theme: 'vibrant',
+var myPresentation = new Presenta('#app', {
+  	scheme: '.vibrant',
+  	fontkit: '.vibrant',
+  	theme: '.vibrant',
     scenes:[...]
 })
 ```
 
-The **PresentaLib** bundle includes the following built-in themes:
+The **PRESENTA Lib** bundle includes the following built-in properties:
 
-- original
-- vibrant
+- `.original`
+- `.vibrant`
 
 ## Transitions
 
 The transition system is responsible to define how each scene enter and leave the stage. It's completely based on CSS and, pretty much the theme, it needs to be included as CSS file and activated in the data object:
 
 ```javascript
-var preso = new Presenta('#myPresentation', {
-  	transition: 'horizontalSlide',
+var myPresentation = new Presenta('#app', {
+  	transition: '.horizontalSlide',
     scenes:[...]
 })
 ```
 
-The **PresentaLib** bundle includes the following built-in transitions:
+The **PRESENTA Lib** bundle includes the following built-in transitions:
 
-- horizontalSlide
-- verticalIn
+- `.horizontalSlide`
+- `.verticalIn`
+
+
 
 ## Block types
 
-## Scene modules
+Block types are responsible to render a specific content or media. 
 
-## Router extensions
+The **PRESENTA Lib** bundle includes the following built-in blocks:
 
-
-
+- `text`
+- `image`
+- `video`
+- `embed`
+- `solid`

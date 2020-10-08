@@ -1,5 +1,5 @@
 module.exports = {
-  title: 'PRESENTA Lib.',
+  title: 'PRESENTA Lib',
   description: 'Buid presentation the modern way',
   themeConfig: {
     search: false,

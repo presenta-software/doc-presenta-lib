@@ -135,8 +135,7 @@ export default {
         flex-direction: row;
         height: 250px;
         border-top:1px solid #ddd;
-    border-bottom:1px solid #ddd;
-        
+        border-bottom:1px solid #ddd;
     }
     .edit{
         flex:3;    

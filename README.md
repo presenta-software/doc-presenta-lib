@@ -1,1 +1,1 @@
-## Presenta-Lib Documentation website
+## Presenta.js Documentation website

@@ -13,7 +13,7 @@
     "vuepress": "^1.6.0"
   },
   "dependencies": {
-    "@presenta/lib": "0.0.12",
+    "@presenta/lib": "0.0.20",
     "vue2-ace-editor": "0.0.15"
   }
 }

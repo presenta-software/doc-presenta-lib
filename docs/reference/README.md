@@ -13,6 +13,7 @@ Each **Presenta** presentation can be configured with some global settings. Here
   adapt: true,
   scheme: '',
   fontkit: '',
+  theme: '',
   mode: 'present'
 }
 ```
@@ -95,8 +96,8 @@ A block is the minimal piece of content. It can sit together with other blocks i
 {
   props:{
     colorvar: '.a', // .a|.b|.c
-    blockweight: 1
-    blockopacity: 1
+    blockWeight: 1
+    blockOpacity: 1
   }
 }
 ```
@@ -105,8 +106,8 @@ A block is the minimal piece of content. It can sit together with other blocks i
 | ------------ | ------------------------------------ | ---------------------- | --------------------------- |
 | colorvar     | Define the color palette variation   | .a                     | .a, .b, .c                  |
 | backcolor    |                                      | inherit from the theme | any valid CSS color values  |
-| blockweight  | Define the weight in the Flex layout | 1                      | any positive number         |
-| blockpadding | The block padding                    | 0                      | any valid CSS padding value |
+| blockWeight  | Define the weight in the Flex layout | 1                      | any positive number         |
+| blockPadding | The block padding                    | 0                      | any valid CSS padding value |
 |              |                                      |                        |                             |
 
 ::: tip Understanding the `props` field
@@ -206,8 +207,11 @@ Here the additional options for this block:
 {
 	loop: false,
 	autoplay: false,
-	size: 'cover', // it can be cover|contain|none
-	poster: '' // the video poster frame
+  poster: '', // the video poster frame
+  props:{
+    videoSize: 'cover',
+    videoPosition: 'center
+  }
 }
 ```
 
