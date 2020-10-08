@@ -43,9 +43,9 @@ export default {
                   scale: 1,
                   text:`<h1>A javascript library that is:</h1>
                   <ul>
-                    <li>open source</li>
                     <li>opinionated</li>
-                    <li>data-driven</li>
+                    <li>content-driven</li>
+                    <li>open source</li>
                   </ul>
                   <p></p>
                   <p>It helps making effective presentational documents.</p>`
@@ -57,13 +57,19 @@ export default {
               {
                 blocks:[{
                   type:'text',
-                  scale: 1,
+                  scale: 1.5,
                   text:`<h1><high>Principles:</high></h1>
                   <ul>
-                    <li>Content first, data first</li>
+                    <li>Content and data first</li>
                     <li>Sensible defaults</li>
                     <li>Pluggable</li>
-                  </ul>`
+                  </ul>`,
+                  props:{
+                    blockWeight:2
+                  }
+                },{
+                  type:'video',
+                  url: 'https://media.giphy.com/media/fsc7c7TYKulQ4lmmAo/giphy.mp4'
                 }]
               },
               {

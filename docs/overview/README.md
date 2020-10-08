@@ -64,7 +64,7 @@ The fine balance between **sensible defaults** and **customization** is the actu
 
 - Content is king
 - Less is more
-- Automation when possible to save time to people
+- Automation when possible to save people time
 - Slides aren’t speaker notes
 - Slides are for concise ideas
 
@@ -74,10 +74,10 @@ A **PRESENTA** document contains a list of *scenes* that can be displayed one at
 
 schema
 
-**PRESENTA Lib** is designed to be extensible by using external plugins. Currently there are three types of plugin:
+**PRESENTA Lib** is designed to be extensible by using external plugins. Currently there are three types of plugin depending of the type of the function you want to add:
 
 - Blocks (content types)
 - Modules (scene extensions)
-- Controllers (router or global extensions)
+- Controllers (router controllers or global functions)
 
 To learn more about extending **PRESENTA Lib**, jump to the [Extend](/extend) section, otherwise follow the [Guide](/guide) to start using the library.

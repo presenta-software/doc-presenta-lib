@@ -38,7 +38,7 @@ import * as Presenta from '@presenta/lib'
 
 ## Using the library
 
-First thing first: each **PRESENTA Lib** presentation requires an HTML wrapper:
+First thing first: each **PRESENTA Lib** document requires an HTML wrapper:
 
 ```html
 <div id="app"></div>

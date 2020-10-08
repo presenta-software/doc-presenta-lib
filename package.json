@@ -1,5 +1,5 @@
 {
-  "name": "doc-presenta-lib",
+  "name": "presenta-lib-reference",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -13,7 +13,7 @@
     "vuepress": "^1.6.0"
   },
   "dependencies": {
-    "@presenta/lib": "file:../presenta-lib",
+    "@presenta/lib": "0.0.21",
     "vue2-ace-editor": "0.0.15"
   }
 }

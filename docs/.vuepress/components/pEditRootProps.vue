@@ -18,35 +18,18 @@ export default {
     data(){
         return{
             code:`{
-  theme:'vibrant',
-  transition: false,
-  router:{
-    keyboard:true
-  },
-  scenes:[
-    {
-      blocks:[
-        {
+  aspect: 2,
+  adapt: false,
+  scheme:'.vibrant',
+  fontkit: '.original',
+  colorvar: '.a',
+  scenes:[{
+      blocks:[{
           type: 'text',
           text: '<h1>Welcome</h1>',
-          props:{
-            colorvar:'.a'
-          }
-        }
-      ]
-    },
-    {
-      blocks:[
-        {
-          type: 'text',
-          text: '<h1>AAAAA</h1>',
-          props:{
-            colorvar:'.c'
-          }
-        }
-      ]
-    }
-  ]         
+          scale: 3
+        }]
+    }]         
 }`
         }
     }

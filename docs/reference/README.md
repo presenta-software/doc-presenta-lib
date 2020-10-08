@@ -1,10 +1,17 @@
 ---
 title: Reference
+
 ---
 
-## Global properties
+::: tip Hold on!
 
-Each **Presenta** presentation can be configured with some global settings. Here the list with their defaults and possible values:
+This reference assumes you've some confidence with the basic setting of **PRESENTA Lib**. If not, you can learn quickly from the [Guide](/guide/) page.
+
+:::
+
+## Root properties
+
+Each **PRESENTA** document can be configured with some global settings defined in this way:
 
 ```js
 {
@@ -12,25 +19,38 @@ Each **Presenta** presentation can be configured with some global settings. Here
   aspect: 1.6,
   adapt: true,
   scheme: '',
-  fontkit: '',
-  theme: '',
-  mode: 'present'
+  ...
 }
 ```
 
-| Prop name | Description                                                  | Default value | Possible values       |
-| --------- | ------------------------------------------------------------ | ------------- | --------------------- |
-| aspect    | Define the ratio between width and height                    | 1.6           | Any number            |
-| adapt     | Override `aspect` inferring it from the container size       | true          | true,false            |
-| scheme    | The color scheme class to apply to the whole presentation, such as `.vibrant` |               | Any valid class value |
-| fontkit   | The fontkit class to apply to the whole presentation, such as `.original` |               | Any valid class value |
-| mode      | This property is used by some block to show two different states of the rendered content, useful when using the library to preview the `scenes` instead running the presentation | present       | present, preview      |
-|           |                                                              |               |                       |
+| Prop name  | Description                                                  | Default value | Possible values            |
+| ---------- | ------------------------------------------------------------ | ------------- | -------------------------- |
+| scenes     | The list of scene objects                                    | required      | Scene object array         |
+| aspect     | Define the ratio between width and height                    | 1.6           | Any number                 |
+| adapt      | Override `aspect` inferring it from the container size       | true          | true,false                 |
+| scheme     | The color scheme class to apply to the whole presentation, such as `.vibrant` |               | Any valid class value      |
+| fontkit    | The fontkit class to apply to the whole presentation, such as `.original` |               | Any valid class value      |
+| theme      | The theme class to apply to the whole presentation, such as `.original` |               | Any valid class value      |
+| colorvar   | The scheme color variation as defined in `scheme` CSS stylesheet | .a            | .a, .b, .c                 |
+| transition | The transition class to apply to the whole presentation, such as `.verticalIn` |               | See the transition section |
+| mode       | This property is used by some block to show two different states of the rendered content, useful when using the library to preview the `scenes` instead running the presentation | present       | present, preview           |
+|            |                                                              |               |                            |
+
+::: tip Let's Play! 
+
+The following widget is a tiny live editor! **Play with it!**
+
+:::
+
+<pEditRootProps />
+
 
 
 ## Built-in color schemes
 
-Presenta comes with a list of color schemes you can use out of the box using a class name:
+A **color scheme** is a set of CSS selectors and custom properties used across the whole presentation defining the color look&feel.
+
+**PRESENTA Lib** comes with a list of color schemes you can use out of the box by specifing its class name:
 
 ```js
 {
@@ -42,9 +62,13 @@ Presenta comes with a list of color schemes you can use out of the box using a c
 - `.vibrant`
 - `.original`
 
+<pEditSchemeCol />
+
 ## Built-in font kits
 
-Presenta comes with a list of font kits you can use out of the box using a class name:
+A **font kit** is a set of CSS properties and font files that define the fonts used in the presentation. 
+
+**PRESENTA Lib** comes with a list of font kits you can use out of the box by specifing its class name:
 
 ```js
 {
@@ -56,37 +80,41 @@ Presenta comes with a list of font kits you can use out of the box using a class
 - `.vibrant`
 - `.original`
 
+## Built-in themes
 
+A **theme** is a set of CSS custom properties that are able to affect some visual aspect of the presentation and its blocks.
+
+**PRESENTA Lib** comes with a list of font kits you can use out of the box using a class name:
+
+```js
+{
+  theme: '.alternate'
+}
+```
+
+- `.default` or leave empty
+- `.alternate`
 
 ## Scene
 
-A scene is the container of a slide or group of blocks. Alongside the required `blocks` you can configure some specific properties in this way:
+A scene is the container of group of blocks. Alongside the required `blocks` you can configure some specific properties in this way:
 
 ```js
 {
   blocks: [...],
   props:{
     colorvar: '.a',
-    scenepadding: 0
+    scenePadding: 0
   }
 }
 ```
 
-| Prop name    | Description                        | Default value          | Possible values             |
-| ------------ | ---------------------------------- | ---------------------- | --------------------------- |
-| colorvar     | Define the color palette variation | .a                     | .a, .b, .c                  |
-| backcolor    |                                    | inherit from the theme | any valid CSS color values  |
-| scenepadding | The scene padding                  | 0                      | any valid CSS padding value |
-|              |                                    |                        |                             |
-
-::: tip Understanding the `props` field
-
-In general, any property in the `props` object will be injected according to these rules:
-
-- If the value starts with a `.` then a class name will be injected in the scene container concatenating the `key` with the `value` rsulting this class name: `.key__value`
-- If the value doesn't start with a `.` then a CSS custom property will be injected in the scene container using the `key` as property name alongside its value resultin in this CSS property: `--key: value;`
-
-:::
+| Prop name    | Description                                                  | Default value                     | Possible values             |
+| ------------ | ------------------------------------------------------------ | --------------------------------- | --------------------------- |
+| colorvar     | Define the color palette variation at scene level. You can define it also at block level. | .a                                | .a, .b, .c                  |
+| backcolor    |                                                              | inherit from the `scheme` setting | any valid CSS color values  |
+| scenePadding | The scene padding                                            | 0                                 | any valid CSS padding value |
+|              |                                                              |                                   |                             |
 
 ## Blocks
 
