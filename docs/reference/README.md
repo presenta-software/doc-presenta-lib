@@ -3,9 +3,11 @@ title: Reference
 
 ---
 
+# Reference
+
 ::: tip Hold on!
 
-This reference assumes you've some confidence with the basic setting of **PRESENTA Lib**. If not, you can learn quickly from the [Guide](/guide/) page.
+This page assumes you've got some confidence with the [basic setting](/guide/) of the library.
 
 :::
 
@@ -46,7 +48,7 @@ The following widget is a tiny live editor! **Play with it!**
 
 
 
-## Built-in color schemes
+## Color schemes
 
 A **color scheme** is a set of CSS selectors and custom properties used across the whole presentation defining the color look&feel.
 
@@ -62,9 +64,11 @@ A **color scheme** is a set of CSS selectors and custom properties used across t
 - `.vibrant`
 - `.original`
 
+Try to change the `scheme` property using one of the above values:
+
 <pEditSchemeCol />
 
-## Built-in font kits
+## Font kits
 
 A **font kit** is a set of CSS properties and font files that define the fonts used in the presentation. 
 
@@ -80,7 +84,7 @@ A **font kit** is a set of CSS properties and font files that define the fonts u
 - `.vibrant`
 - `.original`
 
-## Built-in themes
+## Themes
 
 A **theme** is a set of CSS custom properties that are able to affect some visual aspect of the presentation and its blocks.
 
@@ -95,7 +99,7 @@ A **theme** is a set of CSS custom properties that are able to affect some visua
 - `.default` or leave empty
 - `.alternate`
 
-## Scene
+## Scenes
 
 A scene is the container of group of blocks. Alongside the required `blocks` you can configure some specific properties in this way:
 
@@ -147,7 +151,7 @@ In general, any property in the `props` object will be injected according to the
 
 :::
 
-### Text
+### Text block
 
 The `text` block is possibly the most obvious one allowing to display formatted text by using a subset of HTML tags. Here the basic configuration:
 
@@ -297,38 +301,233 @@ There are further blocks that can be included as external plugin. Here a list of
 
 
 
-## Router Controllers
+## Controlling the presentation
 
-#### Built-in controllers
+**PRESENTA Lib** includes some general functionalities that are common in a presentation document. These functions are called **Router Controllers** or just **Controllers** because they act globally on the whole presentation, usually referring to the internal router component that is responsible to control the document navigation.
 
-#### Create your controller
+Each Controller needs to be activated (and optionally configured) in the main config object under the `router` field, such as:
 
-
-
-## Scene Modules
-
-Scene modules can extend scenes in many ways. Each module needs to be activated across the whole project and it can be disabled per each slide as well.
-
-#### Built-in modules
-
-Right now, there's one built-in module in the package:
-
-### Pagenumber
-
-This module adds the page number to each slide. You can also disable it for specific slides as well as change some display options. Here how to activate it:
-
-```js
+``` js
 {
-	...,
-	modules:{
-		pagenumber:true
-	}
+  scenes:[...],
+  router:{
+    controller1: true,
+    controller2: {
+        somesetting:10
+    },
+    ...
+    props:{
+      
+    }
+  }
 }
 ```
 
-#### Create your module
+::: tip The `props` field
+
+There's a special field, `props` which is not a controller but the place to add CSS properties of the activated controllers.
+
+:::
+
+Here the documentation of built-in controllers you may activate or not. External Controllers can be found in the plugin section.
+
+### Keyboard
+
+It allows to navigate back and forth using the keyboard arrows keys.
+
+- `ArrowRight` and `ArrowDown` to go next
+- `ArrowLeft` and `ArrowUp` to go previous
+
+It's active by default, to disable, set it as `false`
+
+```js
+router:{
+	keyboard:false
+}
+```
 
 
 
-## Props
+### Arrows
+
+It allows to show two UI arrow elements to allows the back and forth navigation by clicking on them.
+
+It's active by default, to disable, set it as `false`
+
+```js
+router:{
+	arrows:false
+}
+```
+
+
+
+### Black
+
+It allows to show/hide a black screen by pressing the keyboard key `b`
+
+It's active by default, to disable, set it as `false`
+
+```js
+router:{
+	arrows:false
+}
+```
+
+You can configure the keyboard key this way:
+
+```js
+router:{
+  arrows:{
+    key: 'b'
+  }
+}
+```
+
+
+
+### Fullscreen
+
+It allows to run the presentation in fullscreen by pressing the keyboard key `f`
+
+It's active by default, to disable, set it as `false`
+
+```js
+router:{
+	arrows:false
+}
+```
+
+You can configure the keyboard key this way:
+
+```js
+router:{
+  arrows:{
+    key: 'f'
+  }
+}
+```
+
+
+
+### Autoplay
+
+It turns the navigation in auto-play.
+
+To activate it:
+
+```js
+router:{
+	autoplay:true
+}
+```
+
+To configure it overriding the defaults:
+
+```js
+router:{
+  autoplay:{
+    delay: 4000, // 4 seconds
+    noloop: false // it does loop by default
+  }
+}
+```
+
+This Controller reads also from the `scene` configuration in order to change the `delay` time on specific `scene`:
+
+```js
+{
+  scenes:[{
+    duration: 8000, // this scene will last 8 seconds instead the default delay
+    blocks:[...]
+  }]
+}
+```
+
+
+
+### Focus
+
+It allows to set the focus automatically instead waiting for the user click, allowing to use keyboard events without a first mouse interaction.
+
+To activate it:
+
+```js
+router:{
+	focus:true
+}
+```
+
+::: tip Multiple instances
+
+What happens when there are more that one instance on the page? Who gets the focus? 
+
+The detection is based on the viewport intersection, thus, the instance that is visible gets the focus. If there are two or more visible instances, the last one in the vertical will be picked up. 
+
+:::
+
+### Progressbar
+
+It shows a tiny progress bar representing the progression of the current navigation.
+
+To activate it:
+
+```js
+router:{
+	progressbar:true
+}
+```
+
+The following CSS properties can be changed in the `props` field:
+
+```js
+router:{
+  props:{
+    progressbarColor: 'var(--forecolor)',
+    progressbarHeight: '5px',
+    progressbarBottom: 'initial'
+  }
+}
+```
+
+
+
+### Pagenum
+
+It shows the current page number and total pages based on the current navigation.
+
+To activate it:
+
+```js
+router:{
+	pagenum:true
+}
+```
+
+To configure it overriding the defaults:
+
+```js
+router:{
+  pagenum:{
+    template: '%s / %S' // %s is the current page num, %S is the total pages num
+  }
+}
+```
+
+The following CSS properties can be changed in the `props` field:
+
+```js
+router:{
+  props:{
+    pagenumTextAlign: 'right',
+    pagenumPadding: '5px',
+    pagenumFontSize: '10px',
+    pagenumBackColor: 'none'
+  }
+}
+```
+
+
+
+#### 
 

@@ -21,7 +21,8 @@ module.exports = {
       '/overview/',
       '/guide/',
       '/reference/',
-      '/extend/'
+      '/extend/',
+      '/plugins/'
     ]
   }
 }

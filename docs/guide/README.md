@@ -2,7 +2,7 @@
 title: Guide
 ---
 
-## Create your first presentation
+# Guide
 
 In this section you'll learn, step-by-step, the basics to create a presentation with **PRESENTA Lib**.
 
@@ -36,7 +36,7 @@ import * as Presenta from '@presenta/lib'
 
 
 
-## Using the library
+## Init the library
 
 First thing first: each **PRESENTA Lib** document requires an HTML wrapper:
 
@@ -87,11 +87,74 @@ The `text` module render property a subset of HTML tags. Please check the detail
 
 :::
 
+## Understanding the content types
 
+Each `scene` can render one or more blocks.  A `block` is responsible to render a specific content, such as a `text`, an `image` or a `video`.
 
-## Controlling the presentation
+**PRESENTA Lib** includes the following built-in blocks you can use out of the box:
 
-**PRESENTA Lib** comes with an internal `router` that can be configured and extended as well.
+- `text`
+- `image`
+- `video`
+- `embed`
+- `solid`
+
+To give an example, we know we need a  `scenes` array in our config:
+
+```js
+{
+  scenes: []
+}
+```
+
+Let's say we want to add some text in the first `scene`, here the object we need:
+
+```js
+{
+  blocks:[{
+    type: 'text',
+    text: 'My First Text'
+  }]
+}
+```
+
+Then, we want another `scene` with an image:
+
+```js
+{
+  blocks:[{
+    type: 'image',
+    url: 'https://www.example.com/image.jpg'
+  }]
+}
+```
+
+Resulting in this config object:
+
+````js
+{
+  scenes: [
+    {
+      blocks:[{
+        type: 'text',
+        text: 'My First Text'
+      }]
+    },
+    {
+      blocks:[{
+        type: 'image',
+        url: 'https://www.example.com/image.jpg'
+      }]
+    }
+  ]
+}
+````
+
+You can see that `type` defines the content type and, depending of the `type`, additional properties can be configured.
+
+## Configure the presentation
+
+**PRESENTA Lib** comes with an internal `router` that can be configured and extended.
 
 This is the default router configuration that you can ovverride:
 
@@ -99,13 +162,17 @@ This is the default router configuration that you can ovverride:
 {
   scenes:[...],
   router: {
+    // enabled by default
     keyboard: true,
     arrows: true,
     black: true,
-
+    fullscreen: true
+		
+    // disabled by default
     autoplay:false,
     pagenum:false,
-    progressbar:false
+    progressbar:false,
+    focus:false
   },
 }
 ```
@@ -114,7 +181,7 @@ Please, refer in the Router section of the reference to learn more about each ro
 
 
 
-## Styles
+## Set the style
 
 A **PRESENTA** document can be styled by leveraging three different property:
 
@@ -136,7 +203,7 @@ The **PRESENTA Lib** bundle includes the following built-in properties:
 - `.original`
 - `.vibrant`
 
-## Transitions
+## Choose a transition
 
 The transition system is responsible to define how each scene enter and leave the stage. It's completely based on CSS and, pretty much the theme, it needs to be included as CSS file and activated in the data object:
 
@@ -154,14 +221,3 @@ The **PRESENTA Lib** bundle includes the following built-in transitions:
 
 
 
-## Block types
-
-Block types are responsible to render a specific content or media. 
-
-The **PRESENTA Lib** bundle includes the following built-in blocks:
-
-- `text`
-- `image`
-- `video`
-- `embed`
-- `solid`

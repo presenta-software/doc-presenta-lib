@@ -38,9 +38,7 @@ creates this single slide:
 
 
 
-## The data source
-
-**PRESENTA Lib** is a data-driven presentation library. It requires a serializable object.
+**PRESENTA Lib** is a content-driven presentation library. It requires a serializable object.
 
 This is on purpose to facilitate interoperability, data generation and transformation as well as fostering novel tools to create presentations.
 
@@ -68,7 +66,7 @@ The fine balance between **sensible defaults** and **customization** is the actu
 - Slides aren’t speaker notes
 - Slides are for concise ideas
 
-## General architecture
+## Architecture
 
 A **PRESENTA** document contains a list of *scenes* that can be displayed one at a time. Each *scene* contains one or more *block* of content. The scene is responsible to keep blocks together. A *block* is the minimum unit that renders a specific content from  a given data object.
 
@@ -81,3 +79,16 @@ schema
 - Controllers (router controllers or global functions)
 
 To learn more about extending **PRESENTA Lib**, jump to the [Extend](/extend) section, otherwise follow the [Guide](/guide) to start using the library.
+
+
+
+## Inspiration
+
+We stand all on the giant' shoulders, **PRESENTA Lib** is no exeption.
+
+Credits are due where is due. The library design has been inspired by numerous other open-source projects.
+
+The idea of having a serializable object as a single point of truth as a mean to foster further developments and integrations comes from the Vega project.
+
+The idea of having a solid and expressive plugin system comes from ...
+

@@ -21,6 +21,7 @@ export default {
                   template:'%s of %S'
                 },
                 progressbar: true,
+                focus: true,
                 props:{
                   arrowsPosition: 'flex-start',
                   progressbarBottom: 0
@@ -68,8 +69,8 @@ export default {
                     blockWeight:2
                   }
                 },{
-                  type:'video',
-                  url: 'https://media.giphy.com/media/fsc7c7TYKulQ4lmmAo/giphy.mp4'
+                  type:'image',
+                  url: 'https://images.unsplash.com/photo-1512432529821-4aa8f3ad138e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=906&q=70'
                 }]
               },
               {
