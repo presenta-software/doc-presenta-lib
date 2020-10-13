@@ -20,14 +20,14 @@ export default {
             code:`{
   aspect: 2,
   adapt: false,
-  scheme:'.vibrant',
-  fontkit: '.original',
-  colorvar: '.a',
   scenes:[{
       blocks:[{
           type: 'text',
           text: '<h1>Welcome</h1>',
-          scale: 3
+          scale: 3,
+          props:{
+            colorvar: '.b'
+          }
         }]
     }]         
 }`

@@ -4,11 +4,11 @@ title: Overview
 
 # Overview
 
-**PRESENTA Lib** is a javascript library that creates modern presentation documents using a **data object** as input.
+**PRESENTA Lib** is a javascript library that creates modern presentations by means of a **config object**.
 
-It's opinionated and it comes with sensible defaults with extensibility in mind.
+It's opinionated and it comes with **sensible defaults** with **extensibility** in mind.
 
-It enforces some presentation and communication principles, therefore, you need to worry about mainly of your content.
+It enforces some **presentation** and **communication principles**, therefore, you need to worry about mainly of **your content**.
 
 
 
@@ -32,63 +32,72 @@ new Presenta('#wrapper', {
 })
 ```
 
-creates this single slide:
+creates this single scene:
 
 <pDemo01 />
 
 
 
-**PRESENTA Lib** is a content-driven presentation library. It requires a serializable object.
+**PRESENTA Lib** is a **config-driven** presentation library, thus, it requires a *serializable object*.
 
-This is on purpose to facilitate interoperability, data generation and transformation as well as fostering novel tools to create presentations.
+This is on purpose, to facilitate **interoperability**, **data transformation** as well as **fostering novel tools** to create presentations.
 
+As an example, this bare-bones **markdown-to-slides** widget requires a little data transformation before feeding the library:
 
+<pEditMarkdown />
 
 ## Motivation
 
 There are many presentation frameworks and libraries out there, so why another one?
 
-Motivations comes first from the struggle on the legacy tools (PPT, KEY):
+Motivations come first from the struggle of using legacy tools (PPT, KEY, GSlides):
 
-> making presentation can be better.
+> making presentations can be better.
 
-Then, the desire to create something that incorporates, as much as possibile, efficiency and best practices in order to let the user work on the important part: **the content**.
+Then, the desire to create something that incorporates, as much as possible, efficiency and best practices to let the user work on the important part: **the content**.
 
-But differences and personalizations are important. There's also a will to not lock-in too much, trying to allow customization and add-ons.
+But differences and personalizations are important. There's also a will to not lock-in too much, trying to allow customizations and experimentations.
 
 The fine balance between **sensible defaults** and **customization** is the actual *goal* of the library, which is still in progress.
+
+Furthermore, we believe that presentations can be different, more **expressive** and **engaging** that the common sequence of static pictures.
 
 ## Principles
 
 - Content is king
 - Less is more
-- Automation when possible to save people time
+- Automate where possible
+- Save people time
+- Done is better than perfect
 - Slides aren’t speaker notes
-- Slides are for concise ideas
+- Slides are for ideas
 
 ## Architecture
 
-A **PRESENTA** document contains a list of *scenes* that can be displayed one at a time. Each *scene* contains one or more *block* of content. The scene is responsible to keep blocks together. A *block* is the minimum unit that renders a specific content from  a given data object.
-
-schema
-
-**PRESENTA Lib** is designed to be extensible by using external plugins. Currently there are three types of plugin depending of the type of the function you want to add:
-
-- Blocks (content types)
-- Modules (scene extensions)
-- Controllers (router controllers or global functions)
-
-To learn more about extending **PRESENTA Lib**, jump to the [Extend](/extend) section, otherwise follow the [Guide](/guide) to start using the library.
+A **PRESENTA Lib** document contains a list of *scenes* that can be displayed one at a time. Each *scene* contains one or more *block* of content. The scene is responsible to keep blocks together. A *block* is the minimum unit that renders a specific content from  a given config object.
 
 
 
-## Inspiration
+**PRESENTA Lib** is designed to be extensible by using external plugins. Currently, there are three types of plugin depending of the type of function you would add:
 
-We stand all on the giant' shoulders, **PRESENTA Lib** is no exeption.
+- **Blocks** (content types)
+- **Modules** (scene extensions)
+- **Controllers** (router controllers or global functions)
 
-Credits are due where is due. The library design has been inspired by numerous other open-source projects.
 
-The idea of having a serializable object as a single point of truth as a mean to foster further developments and integrations comes from the Vega project.
 
-The idea of having a solid and expressive plugin system comes from ...
+## Inspirations
 
+We stand on the shoulders of giants, **PRESENTA Lib** is no exception.
+
+**Credit where is due.** The library design has been inspired by several other projects.
+
+The idea of having a serializable config object as a single entry point as a means to foster further developments and integrations comes from the [Vega project](https://vega.github.io/).
+
+The idea of having an expressive plugin system comes from [bespoke.js](https://github.com/bespokejs/bespoke).
+
+The idea of having an intelligent conversion from raw data to great defaults comes from [Deckset](https://www.deckset.com/).
+
+The CSS transition system has been heavily inspired by [Vue.js](https://vuejs.org/).
+
+Last but not least, presentation theorists such as [Duarte](https://www.duarte.com/) and [Reynolds](https://www.presentationzen.com/) provided a lot of insights on choosing the design defaults.

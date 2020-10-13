@@ -4,19 +4,33 @@ title: Guide
 
 # Guide
 
-In this section you'll learn, step-by-step, the basics to create a presentation with **PRESENTA Lib**.
+In this section you'll learn the basics of **PRESENTA Lib**.
 
-## Include the library
+[[toc]]
 
-You can include the library in several ways: 
+## Installation
 
-### From `unpkg`:
+You can start with the library in several ways depending of your favorite setup.
+
+### Local starterkit
+
+You can download this [zip](https://github.com/presenta-software/presenta-lib-starterkit/archive/master.zip) that contains a starter example you can edit locally. Just double-click the `index.html` file to start your presentation fully offline.
+
+### Remote starterkit
+
+You can start with the same example by forking this Codepen or Glitch project. Your call.
+
+### Unpkg
+
+If you want to include it in an existing HTML file quickly:
 
 ```html
 <script src="https://unpkg.com/@presenta/lib"></script>
 ```
 
-### From `npm`:
+### Npm+ES6
+
+If you have a local development toolchain up and running:
 
 ```shell
 npm install @presenta/lib
@@ -28,7 +42,7 @@ then include in the browser with:
 <script src="/node_modules/@presenta/lib/dist/presenta.min.js"></script>
 ```
 
-or using a bundler:
+or using with a ES6 bundler:
 
 ```js
 import * as Presenta from '@presenta/lib'
@@ -36,7 +50,7 @@ import * as Presenta from '@presenta/lib'
 
 
 
-## Init the library
+## Getting started with the library
 
 First thing first: each **PRESENTA Lib** document requires an HTML wrapper:
 
@@ -44,7 +58,7 @@ First thing first: each **PRESENTA Lib** document requires an HTML wrapper:
 <div id="app"></div>
 ```
 
-and here the way to bind it with a data source: 
+and here the way to bind it with the config object: 
 
 ```js
 var myPresentation = new Presenta('#app', {
@@ -54,7 +68,7 @@ var myPresentation = new Presenta('#app', {
 
 ::: tip About the size
 
-**PRESENTA** will use the wrapper size to build the presentation. If the size is not set, the fallback size will be used.
+**PRESENTA Lib** will use the wrapper size to build the presentation. If the size is not set, the fallback size will be used.
 
 ::: 
 
@@ -68,7 +82,7 @@ var myPresentation = new Presenta('#app', {
 })
 ```
 
-Now we need to understand the `block` object that is the minimal unit of content. The are many block types we can use,  `text` is one of them:
+Now we need to understand the `block` object that is the minimal unit of content. The are many block **types** we can use,  `text` is one of them:
 
 ```js
 var myPresentation = new Presenta('#app', {
@@ -83,13 +97,13 @@ var myPresentation = new Presenta('#app', {
 
 ::: tip HTML in TEXT Block
 
-The `text` module render property a subset of HTML tags. Please check the details in the documentation. There is also a markdown converter plugin to avoid writing raw HTML tags.
+The `text` module render property a subset of HTML tags. There is also a markdown converter [plugin](/plugins/#blocks) to avoid writing raw HTML tags.
 
 :::
 
-## Understanding the content types
+## Blocks and content types
 
-Each `scene` can render one or more blocks.  A `block` is responsible to render a specific content, such as a `text`, an `image` or a `video`.
+Each `scene` can render one or more blocks.  A `block` is responsible to render a specific content or media, such as `text`, `image` or `video`.
 
 **PRESENTA Lib** includes the following built-in blocks you can use out of the box:
 
@@ -99,7 +113,9 @@ Each `scene` can render one or more blocks.  A `block` is responsible to render 
 - `embed`
 - `solid`
 
-To give an example, we know we need a  `scenes` array in our config:
+You can find additional blocks [here](/plugins/#blocks) as external plugins.
+
+To give an example, we already know we need a  `scenes` array in our config:
 
 ```js
 {
@@ -107,13 +123,13 @@ To give an example, we know we need a  `scenes` array in our config:
 }
 ```
 
-Let's say we want to add some text in the first `scene`, here the object we need:
+Let's say, we want to add a text in the first `scene`, here the object we need:
 
 ```js
 {
   blocks:[{
     type: 'text',
-    text: 'My First Text'
+    text: '<h1>Here my presentation</h1>'
   }]
 }
 ```
@@ -129,7 +145,7 @@ Then, we want another `scene` with an image:
 }
 ```
 
-Resulting in this config object:
+Resulting in this config object that will render two scenes:
 
 ````js
 {
@@ -137,7 +153,7 @@ Resulting in this config object:
     {
       blocks:[{
         type: 'text',
-        text: 'My First Text'
+        text: '<h1>Here my presentation</h1>'
       }]
     },
     {
@@ -152,72 +168,53 @@ Resulting in this config object:
 
 You can see that `type` defines the content type and, depending of the `type`, additional properties can be configured.
 
-## Configure the presentation
+To learn more about each block specific settings, jump to [this section](/reference/#blocks) of the Reference.
 
-**PRESENTA Lib** comes with an internal `router` that can be configured and extended.
+## Controls and behaviors
 
-This is the default router configuration that you can ovverride:
+**PRESENTA Lib** comes with an internal `router` that can be configured and extended by means of `controllers`. A controller can provide also global functionality and behaviors that are independent of the routing activity.
+
+This is the list of controllers that are active by default:
 
 ```js
 {
   scenes:[...],
-  router: {
-    // enabled by default
+  controllers: {
     keyboard: true,
     arrows: true,
     black: true,
     fullscreen: true
-		
-    // disabled by default
-    autoplay:false,
-    pagenum:false,
-    progressbar:false,
-    focus:false
   },
 }
 ```
 
-Please, refer in the Router section of the reference to learn more about each router controller as well as their additional configurations.
+To learn more about the available controllers and their specific settings, jump to [this section](/reference/#controllers) of the Reference.
 
 
 
-## Set the style
+## Colors, Fonts and Transitions
 
-A **PRESENTA** document can be styled by leveraging three different property:
+A **PRESENTA Lib** document can be styled by leveraging the combination of some properties:
 
-- choosing a `scheme` colorset option
-- choosing a `fontkit` option
-- choosing a `theme` option
+- by choosing a `scheme` class
+- by choosing a `fontkit` class
+- by choosing a `colorvar` class
+- by choosing a `transition` class
 
 ```javascript
 var myPresentation = new Presenta('#app', {
   	scheme: '.vibrant',
-  	fontkit: '.vibrant',
-  	theme: '.vibrant',
-    scenes:[...]
-})
-```
-
-The **PRESENTA Lib** bundle includes the following built-in properties:
-
-- `.original`
-- `.vibrant`
-
-## Choose a transition
-
-The transition system is responsible to define how each scene enter and leave the stage. It's completely based on CSS and, pretty much the theme, it needs to be included as CSS file and activated in the data object:
-
-```javascript
-var myPresentation = new Presenta('#app', {
+  	fontkit: '.fk2',
+  	colorvar: '.b',
   	transition: '.horizontalSlide',
     scenes:[...]
 })
 ```
 
-The **PRESENTA Lib** bundle includes the following built-in transitions:
-
-- `.horizontalSlide`
-- `.verticalIn`
+Please, refer to [this section](/reference/#styles) in the Reference to learn about the available values.
 
 
 
+
+
+For more detailed settings, check the [Reference](/reference/).

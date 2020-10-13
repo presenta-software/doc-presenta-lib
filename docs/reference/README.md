@@ -5,15 +5,15 @@ title: Reference
 
 # Reference
 
-::: tip Hold on!
 
-This page assumes you've got some confidence with the [basic setting](/guide/) of the library.
 
-:::
+[[toc]]
 
-## Root properties
 
-Each **PRESENTA** document can be configured with some global settings defined in this way:
+
+## Globals
+
+Each **PRESENTA Lib** document can be configured with some global settings defined in this way:
 
 ```js
 {
@@ -25,18 +25,16 @@ Each **PRESENTA** document can be configured with some global settings defined i
 }
 ```
 
-| Prop name  | Description                                                  | Default value | Possible values            |
-| ---------- | ------------------------------------------------------------ | ------------- | -------------------------- |
-| scenes     | The list of scene objects                                    | required      | Scene object array         |
-| aspect     | Define the ratio between width and height                    | 1.6           | Any number                 |
-| adapt      | Override `aspect` inferring it from the container size       | true          | true,false                 |
-| scheme     | The color scheme class to apply to the whole presentation, such as `.vibrant` |               | Any valid class value      |
-| fontkit    | The fontkit class to apply to the whole presentation, such as `.original` |               | Any valid class value      |
-| theme      | The theme class to apply to the whole presentation, such as `.original` |               | Any valid class value      |
-| colorvar   | The scheme color variation as defined in `scheme` CSS stylesheet | .a            | .a, .b, .c                 |
-| transition | The transition class to apply to the whole presentation, such as `.verticalIn` |               | See the transition section |
-| mode       | This property is used by some block to show two different states of the rendered content, useful when using the library to preview the `scenes` instead running the presentation | present       | present, preview           |
-|            |                                                              |               |                            |
+| Prop name  | Description                                                  | Default value | Possible values                         |
+| ---------- | ------------------------------------------------------------ | ------------- | --------------------------------------- |
+| scenes     | The list of scene objects                                    | required      | Scene object array                      |
+| aspect     | Define the ratio between width and height                    | 1.6           | Any number                              |
+| adapt      | Override `aspect` inferring it from the container size       | true          | true/false                              |
+| scheme     | The color scheme class to apply to the whole presentation, such as `.vibrant` | none          | Any valid class value                   |
+| fontkit    | The fontkit class to apply to the whole presentation, such as `.original` | none          | Any valid class value                   |
+| colorvar   | The scheme color variation as defined in `scheme` CSS stylesheet | .a            | `.a`, `.b`, `.c`                        |
+| transition | The transition class to apply to the whole presentation, such as `.verticalIn` | none          | none, `.horizontalSlide`, `.verticalIn` |
+|            |                                                              |               |                                         |
 
 ::: tip Let's Play! 
 
@@ -48,11 +46,13 @@ The following widget is a tiny live editor! **Play with it!**
 
 
 
-## Color schemes
+## Styles
+
+### Color schemes
 
 A **color scheme** is a set of CSS selectors and custom properties used across the whole presentation defining the color look&feel.
 
-**PRESENTA Lib** comes with a list of color schemes you can use out of the box by specifing its class name:
+**PRESENTA Lib** comes with a list of color schemes you can use out of the box by specifing the class name:
 
 ```js
 {
@@ -60,55 +60,61 @@ A **color scheme** is a set of CSS selectors and custom properties used across t
 }
 ```
 
-- `.default` or leave empty
-- `.vibrant`
-- `.original`
 
-Try to change the `scheme` property using one of the above values:
 
-<pEditSchemeCol />
+### Color variations
 
-## Font kits
+Given a specific color scheme, there's the `colorvar` property that allows further color combinations.
+
+There are 3 variations in each scheme, thus, you can choose to apply the variation to the whole `presentation`, to a specific `scenes` or to a specific `block` as well.
+
+```js
+{
+  colorvar: '.a'
+}
+```
+
+
+
+### Font kits
 
 A **font kit** is a set of CSS properties and font files that define the fonts used in the presentation. 
 
-**PRESENTA Lib** comes with a list of font kits you can use out of the box by specifing its class name:
+**PRESENTA Lib** comes with a list of font kits you can use out of the box by specifing the class name:
 
 ```js
 {
-  fontkit: '.original'
+  fontkit: '.fk1'
 }
 ```
 
-- `.default` or leave empty
-- `.vibrant`
-- `.original`
+Here a little interactive tool to play with the `scheme`, `fontkit` and `colorvar` properties. It's like a little theme generator:
 
-## Themes
+<pEditStyles />
 
-A **theme** is a set of CSS custom properties that are able to affect some visual aspect of the presentation and its blocks.
 
-**PRESENTA Lib** comes with a list of font kits you can use out of the box using a class name:
+
+### Transitions
+
+A **transition** is a set of CSS properties is responsible to define how each scene enters and leaves the stage. It's completely handled by CSS.
 
 ```js
 {
-  theme: '.alternate'
+  transition: '.horizontalSlide'
 }
 ```
 
-- `.default` or leave empty
-- `.alternate`
+
 
 ## Scenes
 
-A scene is the container of group of blocks. Alongside the required `blocks` you can configure some specific properties in this way:
+A scene is the container of group of blocks. Alongside the required `blocks` you can configure some specific properties within the `props` field:
 
 ```js
 {
   blocks: [...],
   props:{
-    colorvar: '.a',
-    scenePadding: 0
+    ...
   }
 }
 ```
@@ -122,14 +128,13 @@ A scene is the container of group of blocks. Alongside the required `blocks` you
 
 ## Blocks
 
-A block is the minimal piece of content. It can sit together with other blocks in a scene. Each block depends of the block type (more on this later) as well as its configuration options. Nevertheless, there are some generic, block-related, properties that can be set for any type of blocks:
+A block is the minimal piece of content. It can sit together with other blocks in a scene. Each block depends of the block **type** (more on this later) as well as its configuration options. Nevertheless, there are some generic, block-related, properties that can be set for any type of blocks, in the `props` field:
 
 ```js
 {
+  type: 'text',
   props:{
-    colorvar: '.a', // .a|.b|.c
-    blockWeight: 1
-    blockOpacity: 1
+    ...
   }
 }
 ```
@@ -142,7 +147,7 @@ A block is the minimal piece of content. It can sit together with other blocks i
 | blockPadding | The block padding                    | 0                      | any valid CSS padding value |
 |              |                                      |                        |                             |
 
-::: tip Understanding the `props` field
+::: warning Understanding the `props` field
 
 In general, any property in the `props` object will be injected according to these rules:
 
@@ -151,7 +156,7 @@ In general, any property in the `props` object will be injected according to the
 
 :::
 
-### Text block
+### Text
 
 The `text` block is possibly the most obvious one allowing to display formatted text by using a subset of HTML tags. Here the basic configuration:
 
@@ -162,7 +167,7 @@ The `text` block is possibly the most obvious one allowing to display formatted 
 }
 ```
 
-The text automatically scales according to the space available as well as the additional `scale` parameter that allows to control the behaviour:
+The text automatically scales according to the space available. The additional `scale` parameter allows more control over it.
 
 ```js
 {
@@ -172,64 +177,80 @@ The text automatically scales according to the space available as well as the ad
 }
 ```
 
-By default `scale` is `2` but to can increase or decrease as you wish.
+| Prop name | Description                                                  | Default value | Possible values     |
+| --------- | ------------------------------------------------------------ | ------------- | ------------------- |
+| type      | The block type **(required)**                                |               | text                |
+| text      | The text in HTML you want to display **(required)**          |               | String              |
+| scale     | It allows to control the size of the text box within the available block space | 1             | Any positive number |
+|           |                                                              |               |                     |
 
-Furthermore, there are a number of properties for more fine-tuning:
+Additional CSS properties can be set in the `props` field:
 
 ```js
 {
   type: 'text',
   props:{
-    textposition: '.cc',
-    textalign: 'center',
-    textpadding: '1rem',
-    backcolor: '<someColor>'
+    ...
+  }
+}
+```
+
+| CSS Prop name | Description                                                  | Default value | Possible values                                 |
+| ------------- | ------------------------------------------------------------ | ------------- | ----------------------------------------------- |
+| textPosition  | Position the text box within the block area. Class values mimic the alignment, i.e. .tl is TopLeft, .bc is BottomCenter, etc. | .cc           | .tl, .tc, .tr \| .cl, .cc, .cr \| .bl, .bc, .br |
+| textAlign     | The text-align property                                      | center        | any valid CSS text-align values                 |
+| textPadding   | The text box padding                                         | 0             | any valid CSS padding value                     |
+|               |                                                              |               |                                                 |
+
+### Image
+
+The `image` block allows to display an image.
+
+```js
+{
+  type: 'image',
+  url: 'image1.jpg'
+}
+```
+
+By default the image will `cover` the available space. 
+
+| Prop name | Description                   | Default value | Possible values |
+| --------- | ----------------------------- | ------------- | --------------- |
+| type      | The block type **(required)** |               | image           |
+| url       |                               |               | Valid URL       |
+|           |                               |               |                 |
+
+Additional CSS properties can be set in the props field:
+
+```js
+{
+  type: 'image',
+  props:{
+    ...
   }
 }
 ```
 
 
-### Image
 
-The `image` block allows to display, guess what, an image.
-You need to provide an array of objects such as:
-
-```js
-{
-  type: 'image',
-  url: 'https://www.example.com/image1.jpg'
-}
-```
-
-By default the image will `cover` the space available. You can change that behaviour using this setting:
-
-```js
-{
-  type: 'image',
-  size: 'cover|contain|fill|none|scale-down'
-  url: '...'
-}
-```
-
-| Prop name    | Description                          | Default value          | Possible values             |
-| ------------ | ------------------------------------ | ---------------------- | --------------------------- |
-| colorvar     | Define the color palette variation   | .a                     | .a, .b, .c                  |
-| backcolor    |                                      | inherit from the theme | any valid CSS color values  |
-| blockweight  | Define the weight in the Flex layout | 1                      | any positive number         |
-| blockpadding | The block padding                    | 0                      | any valid CSS padding value |
-|              |                                      |                        |                             |
-
-
+| Prop name     | Description                                  | Default value | Possible values                 |
+| ------------- | -------------------------------------------- | ------------- | ------------------------------- |
+| imageSize     | How the image fills the space                | cover         | Any CSS `object-fit` value      |
+| imagePosition | How the image is positioned within the space | center        | Any CSS `object-position` value |
+| imagePadding  | Define the weight in the Flex layout         | 0             | Any CSS `padding` value         |
+| imageBorder   | The block padding                            | none          | Any CSS `border` value          |
+| imageShadow   |                                              | none          | Any CSS `box-shadow` value      |
+|               |                                              |               |                                 |
 
 ### Video
 
-The `video` block allows to include a video file (in a browser compatible format).
-The configuration is pretty straightforward:
+The `video` block allows to include a video file (encoded in a browser compatible format).
 
 ```js
 {
 	type: 'video',
-	url: 'https://www.example.com/myvideo.mp4'
+	url: 'myvideo.mp4'
 }
 ```
 
@@ -247,7 +268,39 @@ Here the additional options for this block:
 }
 ```
 
-By default the video won't start automatically. To control the playback (play/pause) you can use the SPACEBAR key
+By default the video won't start automatically. To control the playback (play/pause) you can use the SPACEBAR keyboard key.
+
+By default the video will `cover` the available space. 
+
+
+
+| Prop name | Description                                          | Default value | Possible values |
+| --------- | ---------------------------------------------------- | ------------- | --------------- |
+| type      | The block type **(required)**                        |               | video           |
+| url       | The path or URL to the video resource **(required)** |               | URL             |
+| loop      | Loop the playback                                    | false         | Boolean value   |
+| autoplay  | Autoplay as soon as it's ready                       | false         | Boolean value   |
+| poster    | The optional poster image                            | none          | URL             |
+|           |                                                      |               |                 |
+
+Additional CSS properties can be set in the props field:
+
+```js
+{
+  type: 'video',
+  props:{
+    ...
+  }
+}
+```
+
+| Prop name     | Description                                  | Default value | Possible values                 |
+| ------------- | -------------------------------------------- | ------------- | ------------------------------- |
+| videoSize     | How the video fills the space                | cover         | Any CSS `object-fit` value      |
+| videoPosition | How the video is positioned within the space | center        | Any CSS `object-position` value |
+|               |                                              |               |                                 |
+
+
 
 ### Embed
 
@@ -261,56 +314,90 @@ The simplest way to embed a web resource is by using the `url` property:
 }
 ```
 
-If you have the embed code (the iframe code) you can use the `code` property:
+If you have the embed code (the **iframe** code) you can use the `code` property:
 
 ```js
 {
 	type: 'embed',
 	code: '<iframe src="https://example.com"></iframe>'
-}
+} 
 ```
 
-Additionally, you can provide a `poster` and `postersize` properties to load an image used in `preview` mode and during the loading phase:
+
+
+| Prop name | Description                                            | Default value | Possible values |
+| --------- | ------------------------------------------------------ | ------------- | --------------- |
+| type      | The block type **(required)**                          |               | embed           |
+| url       | The path or URL to the webpage resource **(required)** |               | URL             |
+| code      |                                                        |               |                 |
+| loop      | Loop the playback                                      | false         | Boolean value   |
+| autoplay  | Autoplay as soon as it's ready                         | false         | Boolean value   |
+| poster    | The optional poster image                              | none          | URL             |
+|           |                                                        |               |                 |
+
+Additional CSS properties can be set in the props field:
 
 ```js
 {
-	type: 'embed',
-	url: 'https://example.com'
-	poster: 'https://example.com/mycover.jpg'
-	postersize: 'cover' // cover|contain|none
+  type: 'video',
+  props:{
+    ...
+  }
 }
 ```
 
+| Prop name           | Description                                   | Default value | Possible values                 |
+| ------------------- | --------------------------------------------- | ------------- | ------------------------------- |
+| embedPosterSize     | How the poster fills the space                | cover         | Any CSS `object-fit` value      |
+| embedPosterPosition | How the poster is positioned within the space | center        | Any CSS `object-position` value |
+|                     |                                               |               |                                 |
+
+
+
+### Solid
+
+The `solid` block allows to set any CSS background property to the whole block area, such as:
+
+```js
+{
+	type: 'solid',
+	color: '#ff0000'
+}
+```
+
+or
+
+```js
+{
+	type: 'solid',
+	color: 'linear-gradient(yellow, pink)'
+}
+```
+
+
+
 ### Further blocks
 
-There are further blocks that can be included as external plugin. Here a list of the official supported external blocks:
+Blocks can be created as **PRESENTA** plugin. You can find additional blocks [here](/plugins/#blocks).
 
-- Youtube block
-- Vega-Lite block
-- Chart.js block
-
-#### Create your block
+#### 
 
 
 
-## Transitions
-
-#### Built-in transitions
-
-#### Create your transition
 
 
 
-## Controlling the presentation
 
-**PRESENTA Lib** includes some general functionalities that are common in a presentation document. These functions are called **Router Controllers** or just **Controllers** because they act globally on the whole presentation, usually referring to the internal router component that is responsible to control the document navigation.
+## Controllers
 
-Each Controller needs to be activated (and optionally configured) in the main config object under the `router` field, such as:
+**PRESENTA Lib** includes some general functions and behaviours that are commons in presentational documents. These functions are called **Controllers** because they act globally on the whole presentation, usually referring to the internal Router component that is responsible to control the document' navigation.
+
+Each Controller needs to be activated (and optionally configured) in the main config object under the `controllers` field, such as:
 
 ``` js
 {
   scenes:[...],
-  router:{
+  controllers:{
     controller1: true,
     controller2: {
         somesetting:10
@@ -329,7 +416,7 @@ There's a special field, `props` which is not a controller but the place to add 
 
 :::
 
-Here the documentation of built-in controllers you may activate or not. External Controllers can be found in the plugin section.
+Here the documentation of built-in controllers you may activate or not. External Controllers can be found in the [plugin section](/plugins/#controllers).
 
 ### Keyboard
 
@@ -341,9 +428,7 @@ It allows to navigate back and forth using the keyboard arrows keys.
 It's active by default, to disable, set it as `false`
 
 ```js
-router:{
-	keyboard:false
-}
+keyboard:false
 ```
 
 
@@ -355,9 +440,7 @@ It allows to show two UI arrow elements to allows the back and forth navigation 
 It's active by default, to disable, set it as `false`
 
 ```js
-router:{
-	arrows:false
-}
+arrows:false
 ```
 
 
@@ -369,18 +452,14 @@ It allows to show/hide a black screen by pressing the keyboard key `b`
 It's active by default, to disable, set it as `false`
 
 ```js
-router:{
-	arrows:false
-}
+black:false
 ```
 
 You can configure the keyboard key this way:
 
 ```js
-router:{
-  arrows:{
-    key: 'b'
-  }
+black:{
+  key: 'b'
 }
 ```
 
@@ -393,18 +472,14 @@ It allows to run the presentation in fullscreen by pressing the keyboard key `f`
 It's active by default, to disable, set it as `false`
 
 ```js
-router:{
-	arrows:false
-}
+fullscreen:false
 ```
 
 You can configure the keyboard key this way:
 
 ```js
-router:{
-  arrows:{
-    key: 'f'
-  }
+fullscreen:{
+  key: 'f'
 }
 ```
 
@@ -412,24 +487,19 @@ router:{
 
 ### Autoplay
 
-It turns the navigation in auto-play.
+It turns the navigation in auto-play mode.
 
 To activate it:
 
 ```js
-router:{
-	autoplay:true
-}
+autoplay:true
 ```
 
 To configure it overriding the defaults:
 
 ```js
-router:{
-  autoplay:{
-    delay: 4000, // 4 seconds
-    noloop: false // it does loop by default
-  }
+autoplay:{
+  delay: 4000, // 4 seconds
 }
 ```
 
@@ -438,10 +508,22 @@ This Controller reads also from the `scene` configuration in order to change the
 ```js
 {
   scenes:[{
-    duration: 8000, // this scene will last 8 seconds instead the default delay
+    autoplayDuration: 8000, // this scene will last 8 seconds instead the default delay
     blocks:[...]
   }]
 }
+```
+
+
+
+### Loop
+
+It allows to loop the navigation, meaning, when the last scene is reached, the next command will jump to the first scene.
+
+To activate it:
+
+```js
+loop:true
 ```
 
 
@@ -453,41 +535,59 @@ It allows to set the focus automatically instead waiting for the user click, all
 To activate it:
 
 ```js
-router:{
-	focus:true
-}
+focus:true
 ```
 
 ::: tip Multiple instances
 
-What happens when there are more that one instance on the page? Who gets the focus? 
+What happens when there are more that one instance in a page? Who gets the focus? 
 
-The detection is based on the viewport intersection, thus, the instance that is visible gets the focus. If there are two or more visible instances, the last one in the vertical will be picked up. 
+The detection is based on the viewport intersection, thus, the last instance that got intersected with the viewport gets the focus.
 
 :::
 
 ### Progressbar
 
-It shows a tiny progress bar representing the progression of the current navigation.
+It shows a tiny progress bar representing the progress of the current navigation.
 
 To activate it:
 
 ```js
-router:{
-	progressbar:true
-}
+progressbar:true
 ```
 
 The following CSS properties can be changed in the `props` field:
 
 ```js
-router:{
-  props:{
-    progressbarColor: 'var(--forecolor)',
-    progressbarHeight: '5px',
-    progressbarBottom: 'initial'
-  }
+props:{
+  progressbarColor: 'var(--forecolor)',
+  progressbarHeight: '5px',
+  progressbarBottom: 'initial'
 }
+```
+
+
+
+### Shuffle
+
+It randomize the order of the scenes on each instance session.
+
+To activate it:
+
+```js
+shuffle:true
+```
+
+
+
+### Current
+
+Set the start `scene`  number of the presentation.
+
+To use it, set the `scene` number:
+
+```js
+current: 2
 ```
 
 
@@ -499,35 +599,94 @@ It shows the current page number and total pages based on the current navigation
 To activate it:
 
 ```js
-router:{
-	pagenum:true
-}
+pagenum:true
 ```
 
 To configure it overriding the defaults:
 
 ```js
-router:{
-  pagenum:{
-    template: '%s / %S' // %s is the current page num, %S is the total pages num
-  }
+pagenum:{
+  template: '%s / %S' // %s is the current page num, %S is the total pages num
 }
 ```
 
 The following CSS properties can be changed in the `props` field:
 
 ```js
-router:{
-  props:{
-    pagenumTextAlign: 'right',
-    pagenumPadding: '5px',
-    pagenumFontSize: '10px',
-    pagenumBackColor: 'none'
-  }
+props:{
+  pagenumTextAlign: 'right',
+  pagenumPadding: '5px',
+  pagenumFontSize: '10px',
+  pagenumBackColor: 'none'
 }
 ```
 
 
 
-#### 
+### Preload
 
+It preloads images and videos from `image` and `video` blocks. It's very useful to avoid image loading progress when activating a scene with images. Of course, this leads to a loading waterfall which is not ideal if you put the presentation online.
+
+::: tip When using Preload?
+
+As a rule of thumb: Use it when performing a speech. Keep it disabled in other situations.
+
+:::
+
+To activate it:
+
+```js
+preload:true
+```
+
+
+
+### Further controllers
+
+Controllers can be created as **PRESENTA Lib** plugin. You can find additional controllers [here](/plugins/#controllers).
+
+
+
+
+
+## Router
+
+**PRESENTA Lib** contains an internal router to handle the navigation between scenes.
+
+It can be controllerd and extended using `controllers`. 
+
+<pDemoRouter />
+
+Any **PRESENTA Lib** instance exposes its `router` instance:
+
+```js
+var myPresentation = new Presenta('#app', {...})
+var router = myPresentation.router
+router.next()
+```
+
+
+
+ that contains the following public methods:
+
+| Method name    | Description                                    |
+| -------------- | ---------------------------------------------- |
+| next()         | Go to the next scene                           |
+| prev()         | Go to the previous scene                       |
+| goto(index)    | Go to a specific index of a scene (zero-based) |
+| currentIndex() | Get the current index of a scene (zero-based)  |
+| totalScenes()  | The number of scenes                           |
+| on(evt)        | Subscribe to router events                     |
+| off(evt)       | Unsubscribe to router events                   |
+|                |                                                |
+
+## Presenta instance
+
+Any **PRESENTA Lib** instance exposes the following properties:
+
+| Property name | Description                                               |
+| ------------- | --------------------------------------------------------- |
+| config        | The config object digested by the library                 |
+| router        | The internal Router instance to access its public methods |
+| destroy()     | Clean all the internals to avoid memory leaks             |
+|               |                                                           |

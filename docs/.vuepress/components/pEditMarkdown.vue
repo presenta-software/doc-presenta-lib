@@ -4,7 +4,7 @@
             <Ace v-model="icode" 
                 ref="editor"
                 @init="editorInit" 
-                :lang="'javascript'" 
+                :lang="'markdown'" 
                 theme="chrome"></Ace>
         </div>
         <div class="prev">
@@ -22,12 +22,22 @@ export default {
     components:{
         Ace
     },
-    props:{
-        code:String
-    },
     data(){
         return{
-            icode:'',
+            icode:`
+# Hello!
+
+![2](https://media.giphy.com/media/LoZ5R1WpEZFss/source.gif)
+
+This is Me
+
+---
+
+# Slide 2
+
+---
+
+# Slide 3`,
             invalid:false,
             timer:null
         }
@@ -38,9 +48,6 @@ export default {
             this.timer = setTimeout(() => {
                 this.createPreso()
             }, 300)
-        },
-        code(v){
-            this.icode = this.code
         }
     },
     mounted(){
@@ -52,29 +59,57 @@ export default {
         ed.setOptions({
             showGutter:false
         })
-        this.icode = this.code
         this.createPreso()
     },
     methods:{
         editorInit(){
             require('brace/ext/language_tools')
-            require('brace/mode/javascript')
+            require('brace/mode/markdown')
             require('brace/theme/chrome')
+        },
+        fromRawMarkdown(){
+          const reg = /\s*?(---)\s*?/gm
+          const slides = this.icode.split(reg)
+
+          const arr = []
+          slides.forEach(d => {
+            if (d !== '---') {
+              arr.push({
+                blocks:[
+                  {type:'text', text:d.trim(), scale:2}
+                ]
+              })
+            }
+          })
+
+          return arr
         },
         createPreso(){
             this.invalid=true
             let ob = null
+
+            
             try {
-                ob = eval(`(() => {return ${this.icode}})()`)
-                if(ob){
-                    let preso = this.$refs.preso
-                    preso.innerHTML = ''
-                    preso.classList.remove(...this.$refs.preso.classList)
-                    preso.classList.add('preso')
-                    new Presenta(this.$refs.preso, ob)
-                    this.$emit('update', ob)
-                    this.invalid=false
+                const scenes = this.fromRawMarkdown()
+                const ob = {
+                  scheme: '.vibrant',
+                  fontkit: '.fk4',
+                  controllers:{
+                      pagenum:true,
+                      swiper:true
+                  },
+                  modules:{
+                    markdown:true
+                  },
+                  scenes
                 }
+                let preso = this.$refs.preso
+                preso.innerHTML = ''
+                preso.classList.remove(...this.$refs.preso.classList)
+                preso.classList.add('preso')
+                new Presenta(this.$refs.preso, ob)
+                this.$emit('update', ob)
+                this.invalid=false
             } catch (e) {
                 // no bueno
                 this.$refs.preso.innerHTML = 'Invalid data'
@@ -141,7 +176,7 @@ export default {
         border-bottom:1px solid #ddd;
     }
     .edit{
-        flex:3;    
+        flex:2;    
         border-right:1px solid #ddd;
     }
     .prev{

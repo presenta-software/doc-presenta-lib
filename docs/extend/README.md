@@ -10,6 +10,8 @@ title: Extend
 - Modules (scene extensions)
 - Controllers (router controllers or global behaviours)
 
+
+
 ## Installing a plugin
 
 A plugin is a standalone piece of code that interact with a **PRESENTA Lib** instance. The way it has been developed depends on the developer preferences, thus, there's not a single way to describe the installation guideline.
@@ -18,25 +20,27 @@ Official plugins can be installed following [this section](#install-an-official-
 
 No matter the case, please refer always to the plugin documentation first.
 
+
+
 ## Configuring a plugin
 
-...
+soon
 
 ## Creating a plugin
 
-...
+soon
 
 ## Creating a Block
 
-...
+soon
 
 ## Creating a Module
 
-...
+soon
 
 ## Creating a Controller
 
-...
+soon
 
 
 

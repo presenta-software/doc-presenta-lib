@@ -4,40 +4,47 @@ title: Plugins
 
 # Plugins
 
-In this section you can find the list of public **PRESENTA Lib** official plugins, sorted by plugin types.
+In this section you can find the list of **PRESENTA Lib** plugins, sorted by  **type**.
 
 ## Blocks
 
-A block renders a content. The way it does as well as all the functions
+A Block renders a content. When you need a different type of media or render a content in a different way, external blocks might help, such as:
 
-- [Youtube](https://github.com/presenta-software/presenta-block-youtube): render and control a [Youtube](https://www.youtube.com/) video
-- Vega-Lite: render a [Vega-Lite](https://vega.github.io/vega-lite/) chart
-- Chart.js: render a [Chart.js](https://www.chartjs.org/) chart
+- [Youtube](https://github.com/presenta-software/presenta-block-youtube) ([Codepen](https://codepen.io/abusedmedia/full/abZvYzM)) 
+- [Vega-Lite](https://github.com/presenta-software/presenta-block-vegalite)
+- [Chartjs](https://github.com/presenta-software/presenta-block-chartjs)
 
 ::: tip Want to create your own Block?
 
-Awesome! There's a starter-kit. If you plan to make it public, [let us know](mailto:support@presenta.cc)!
+Awesome! There's a [starter-kit](https://github.com/presenta-software/presenta-block-starter). If you plan to make it public, [let us know](mailto:support@presenta.cc)!
 
 :::
 
 ## Modules
 
-- Markdown: convert markdown to HTML in `text` block type.
-- HighLightJs: format `code` tag with [highlight.js](https://highlightjs.org/) library 
+A Module extends a `scene` in order provide additional features at scene level. Here some examples:
+
+- [Markdown](https://github.com/presenta-software/presenta-module-markdown)
+- [HighLightJs](https://github.com/presenta-software/presenta-module-highlightjs)
 
 ::: tip Want to create your own Module?
 
-Awesome! There's a starter-kit. If you plan to make it public, [let us know](mailto:support@presenta.cc)!
+Awesome! There's a [starter-kit](https://github.com/presenta-software/presenta-module-starter). If you plan to make it public, [let us know](mailto:support@presenta.cc)!
 
 :::
 
 ## Controllers
 
-- Swiper: add swipe gesture for navigation on touch-enabled devices
-- Shuffle: navigate randomly across all scenes
+A Controller extends the presentation as a whole by adding global capabilities:
+
+- [Swiper](https://github.com/presenta-software/presenta-controller-swiper)
+- [Console Notes](https://github.com/presenta-software/presenta-controller-console-notes)
 
 ::: tip Want to create your own Controller?
 
-Awesome! There's a starter-kit. If you plan to make it public, [let us know](mailto:support@presenta.cc)!
+Awesome! There's a [starter-kit](https://github.com/presenta-software/presenta-controller-starter). If you plan to make it public, [let us know](mailto:support@presenta.cc)!
 
 :::
+
+
+

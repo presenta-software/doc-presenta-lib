@@ -14,21 +14,39 @@ export default {
     data(){
         return{
             doc:{
-              scheme: '.sunny',
+              scheme:'.acid',
+              fontkit:'.fk7',
+              colorvar:'.a',
+              //scheme: '.sunny',
               transition: '.verticalIn',
-              router:{
+              controllers:{
                 pagenum: {
                   template:'%s of %S'
                 },
                 progressbar: true,
                 focus: true,
+                preload:true,
+                swiper:true,
                 props:{
                   arrowsPosition: 'flex-start',
                   progressbarBottom: 0
                 },
               },
               
-              scenes:[{
+              scenes:[
+
+                {
+                blocks:[{
+                  type:'embed',
+                  blockPointer:false,
+                  url: 'https://www.figma.com/embed?embed_host=astra&url=https://www.figma.com/file/LKQ4FJ4bTnCSjedbRpk931/Sample-File'
+                }],
+                props:{
+                  colorvar: '.b'
+                }
+              },
+
+              {
                 blocks:[{
                   type:'text',
                   scale: 3,
@@ -38,10 +56,11 @@ export default {
                   colorvar: '.a'
                 }
               },
+              
               {
                 blocks:[{
                   type:'text',
-                  scale: 1,
+                  scale: 1.5,
                   text:`<h1>A javascript library that is:</h1>
                   <ul>
                     <li>opinionated</li>
@@ -52,13 +71,13 @@ export default {
                   <p>It helps making effective presentational documents.</p>`
                 }],
                 props:{
-                  colorvar: '.c'
+                  colorvar: '.b'
                 }
               },
               {
                 blocks:[{
                   type:'text',
-                  scale: 1.5,
+                  scale: 1.75,
                   text:`<h1><high>Principles:</high></h1>
                   <ul>
                     <li>Content and data first</li>
@@ -70,7 +89,7 @@ export default {
                   }
                 },{
                   type:'image',
-                  url: 'https://images.unsplash.com/photo-1512432529821-4aa8f3ad138e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=906&q=70'
+                  url: 'https://images.unsplash.com/photo-1512432529821-4aa8f3ad138e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2000&q=80'
                 }]
               },
               {
@@ -91,7 +110,7 @@ export default {
                 }],
                 props:{
                   backcolor: 'black',
-                  colorvar: '.b',
+                  colorvar: '.a',
                   layout: '.rows'
                 }
               }]

@@ -13,7 +13,9 @@
     "vuepress": "^1.6.0"
   },
   "dependencies": {
-    "@presenta/lib": "0.0.22",
+    "@presenta/controller-swiper": "file:../presenta-controller-swiper",
+    "@presenta/lib": "file:../presenta-lib",
+    "@presenta/module-markdown": "file:../presenta-module-markdown",
     "vue2-ace-editor": "0.0.15"
   }
 }
