@@ -398,14 +398,8 @@ Each Controller needs to be activated (and optionally configured) in the main co
 {
   scenes:[...],
   controllers:{
-    controller1: true,
-    controller2: {
-        somesetting:10
-    },
-    ...
-    props:{
-      
-    }
+    keyboard: true,
+    arrows: true
   }
 }
 ```
@@ -416,234 +410,33 @@ There's a special field, `props` which is not a controller but the place to add 
 
 :::
 
-Here the documentation of built-in controllers you may activate or not. External Controllers can be found in the [plugin section](/plugins/#controllers).
 
-### Keyboard
 
-It allows to navigate back and forth using the keyboard arrows keys.
-
-- `ArrowRight` and `ArrowDown` to go next
-- `ArrowLeft` and `ArrowUp` to go previous
-
-It's active by default, to disable, set it as `false`
-
-```js
-keyboard:false
-```
-
-
-
-### Arrows
-
-It allows to show two UI arrow elements to allows the back and forth navigation by clicking on them.
-
-It's active by default, to disable, set it as `false`
-
-```js
-arrows:false
-```
-
-
-
-### Black
-
-It allows to show/hide a black screen by pressing the keyboard key `b`
-
-It's active by default, to disable, set it as `false`
-
-```js
-black:false
-```
-
-You can configure the keyboard key this way:
-
-```js
-black:{
-  key: 'b'
-}
-```
-
-
-
-### Fullscreen
-
-It allows to run the presentation in fullscreen by pressing the keyboard key `f`
-
-It's active by default, to disable, set it as `false`
-
-```js
-fullscreen:false
-```
-
-You can configure the keyboard key this way:
-
-```js
-fullscreen:{
-  key: 'f'
-}
-```
-
-
-
-### Autoplay
-
-It turns the navigation in auto-play mode.
-
-To activate it:
-
-```js
-autoplay:true
-```
-
-To configure it overriding the defaults:
-
-```js
-autoplay:{
-  delay: 4000, // 4 seconds
-}
-```
-
-This Controller reads also from the `scene` configuration in order to change the `delay` time on specific `scene`:
-
-```js
-{
-  scenes:[{
-    autoplayDuration: 8000, // this scene will last 8 seconds instead the default delay
-    blocks:[...]
-  }]
-}
-```
-
-
-
-### Loop
-
-It allows to loop the navigation, meaning, when the last scene is reached, the next command will jump to the first scene.
-
-To activate it:
-
-```js
-loop:true
-```
-
-
-
-### Focus
-
-It allows to set the focus automatically instead waiting for the user click, allowing to use keyboard events without a first mouse interaction.
-
-To activate it:
-
-```js
-focus:true
-```
-
-::: tip Multiple instances
-
-What happens when there are more that one instance in a page? Who gets the focus? 
-
-The detection is based on the viewport intersection, thus, the last instance that got intersected with the viewport gets the focus.
-
-:::
-
-### Progressbar
-
-It shows a tiny progress bar representing the progress of the current navigation.
-
-To activate it:
-
-```js
-progressbar:true
-```
-
-The following CSS properties can be changed in the `props` field:
-
-```js
-props:{
-  progressbarColor: 'var(--forecolor)',
-  progressbarHeight: '5px',
-  progressbarBottom: 'initial'
-}
-```
-
-
-
-### Shuffle
-
-It randomize the order of the scenes on each instance session.
-
-To activate it:
-
-```js
-shuffle:true
-```
-
-
-
-### Current
-
-Set the start `scene`  number of the presentation.
-
-To use it, set the `scene` number:
-
-```js
-current: 2
-```
-
-
-
-### Pagenum
-
-It shows the current page number and total pages based on the current navigation.
-
-To activate it:
-
-```js
-pagenum:true
-```
-
-To configure it overriding the defaults:
-
-```js
-pagenum:{
-  template: '%s / %S' // %s is the current page num, %S is the total pages num
-}
-```
-
-The following CSS properties can be changed in the `props` field:
-
-```js
-props:{
-  pagenumTextAlign: 'right',
-  pagenumPadding: '5px',
-  pagenumFontSize: '10px',
-  pagenumBackColor: 'none'
-}
-```
-
-
-
-### Preload
-
-It preloads images and videos from `image` and `video` blocks. It's very useful to avoid image loading progress when activating a scene with images. Of course, this leads to a loading waterfall which is not ideal if you put the presentation online.
-
-::: tip When using Preload?
-
-As a rule of thumb: Use it when performing a speech. Keep it disabled in other situations.
-
-:::
-
-To activate it:
-
-```js
-preload:true
-```
-
-
-
-### Further controllers
+### Buint-in controllers
+
+Here the documentation of built-in controllers you may activate or not. External Controllers can be found in the [plugin section](/plugins/#controllers). A controller is always active when its value is not `false`.
+
+| Property    | Description                                                  | Default  | Value                                             |
+| ----------- | ------------------------------------------------------------ | -------- | ------------------------------------------------- |
+| keyboard    | Allows to navigate back and forth using the keyboard arrows keys. <br />**ArrowRight** and **ArrowDown** to go next, **ArrowLeft** and **ArrowUp** to go previous | **true** | `true/false`                                      |
+| arrows      | Allows to show two UI arrow elements to allows the back and forth navigation by clicking on them. | **true** | `true/false`                                      |
+| black       | Allows to show/hide a black screen by pressing the keyboard key `b` | **true** | `true/false` <br />or<br /> `{key: 'b'}`          |
+| fullscreen  | Allows to run the presentation in fullscreen by pressing the keyboard key `f` | **true** | `true/false` <br />or<br /> `{key: 'f'}`          |
+| autoplay    | It turns the navigation in auto-play mode.<br />This Controller reads from the `scene` configuration the property `autoplayDuration` in order to change the `delay` time on specific `scene` | false    | `true/false` <br />or<br /> `{delay: 4000}`       |
+| loop        | It allows to loop the navigation, meaning, when the last scene is reached, the next command will jump to the first scene. | false    | `true/false`                                      |
+| focus       | It allows to set the focus automatically instead waiting for the user click, allowing to use keyboard events without a first mouse interaction.<br /><br />The detection is based on the viewport intersection, thus, the last instance that got intersected with the viewport gets the focus. | false    | `true/false`                                      |
+| progressbar | It shows a tiny progress bar representing the progress of the current navigation. | false    | `true/false`                                      |
+| shuffle     | It randomize the order of the scenes on each instance session. | false    | `true/false`                                      |
+| current     | Set the start `scene`  according to the passed number.       | false    | `Number` or `false`                               |
+| pagenum     | It shows the current page number and total pages based on the current navigation. <br /><br />The default template `{template: '%s / %S'}` can be configured. `%s` is the current scene, `%S` is the total scenes. | false    | `true/false`<br />or<br />`{template: '%s / %S'}` |
+| preload     | It preloads images and videos from `image` and `video` blocks. It's very useful to avoid image loading progress when activating a scene with images. Of course, this leads to a loading waterfall which is not ideal if you put the presentation online.<br /><br />As a rule of thumb: Use it when performing a speech. Keep it disabled in other situations. | false    | `true/false`                                      |
+|             |                                                              |          |                                                   |
+
+### External controllers
 
 Controllers can be created as **PRESENTA Lib** plugin. You can find additional controllers [here](/plugins/#controllers).
+
+
 
 
 

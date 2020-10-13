@@ -49,8 +49,8 @@ export default {
               {
                 blocks:[{
                   type:'text',
-                  scale: 3,
-                  text:'<h1>Hello <br /><mark>PRESENTA Lib</mark></h1>'
+                  scale: 3.5,
+                  text:'<h1><mark>PRESENTA Lib</mark></h1>'
                 }],
                 props:{
                   colorvar: '.a'
