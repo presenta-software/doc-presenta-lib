@@ -1,10 +1,17 @@
 //import BaseButton from '../../components/BaseButton'
 
+
 import * as Presenta from '@presenta/lib'
+
 import ControllerSwiper from '@presenta/controller-swiper'
-import ModuleMarkdown from '@presenta/module-markdown'
+import ControllerMarkdown from '@presenta/controller-markdown'
+import ModuleHighlightJs from '@presenta/module-highlightjs'
+import BlockYoutube from '@presenta/block-youtube'
+
 Presenta.use(ControllerSwiper)
-Presenta.use(ModuleMarkdown)
+Presenta.use(ControllerMarkdown)
+Presenta.use(ModuleHighlightJs)
+Presenta.use(BlockYoutube)
 
 
 // async function is also supported, too

@@ -26,24 +26,27 @@ export default {
               modules:{
                 markdown:true
               },
-              colorvar: '.b',
-              transition: '.horizontalSlide',
+              transition: 'a',
+              colors: 'f',
               controllers:{
                 arrows:false
               },
               scenes:[{
+                colorVar: 'b',
                 blocks:[{
                   type:'text',
                   scale:2,
                   text:`# Scene 1`
                 }]
               },{
+                colorVar: 'a',
                 blocks:[{
                   type:'text',
                   scale:2,
                   text:`# Scene 2`
                 }]
               },{
+                colorVar: 'c',
                 blocks:[{
                   type:'text',
                   scale:2,

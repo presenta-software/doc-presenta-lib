@@ -18,23 +18,15 @@ export default {
     data(){
         return{
             code:`{
-  aspect: 2,
-  adapt: false,
+  colors: 'vibrant',
   scenes:[{
-    layout: 'c',
+    scenePadding: '2rem',
     blocks:[{
-        type:'image',
-        url: '/3.jpg'
-      },{
-        type:'solid',
-        solidVar: 'a'
-      },{
-        type: 'text',
-        text: '<h1>Welcome</h1>',
-        scale: 3,
-        colorVar: 'b'
-      }]
-    }]         
+        type:'text',
+        text:'A',
+        colorvar: 'b'
+    }]
+  }]         
 }`
         }
     }

@@ -92,26 +92,21 @@ This is Me
             try {
                 const scenes = this.fromRawMarkdown()
                 const ob = {
-                  scheme: '.vibrant',
-                  fontkit: '.fk4',
+                  colors: 'irma',
+                  fonts: 'd',
                   controllers:{
                       pagenum:true,
-                      swiper:true
-                  },
-                  modules:{
-                    markdown:true
+                      swiper:true,
+                      markdown:true
                   },
                   scenes
                 }
                 let preso = this.$refs.preso
                 preso.innerHTML = ''
-                preso.classList.remove(...this.$refs.preso.classList)
-                preso.classList.add('preso')
                 new Presenta(this.$refs.preso, ob)
                 this.$emit('update', ob)
                 this.invalid=false
             } catch (e) {
-                // no bueno
                 this.$refs.preso.innerHTML = 'Invalid data'
 
             }

@@ -17,13 +17,11 @@ export default {
               scenes:[{
                 blocks:[{
                   type:'text',
-                  scale:2,
-                  text:`<h1>Hello there</h1>
-                  <p>This is a <mark>scene</mark> that contains a 'text' <mark>block</mark>...</p>`
+                  textVar: 'title',
+                  colorVar: 'b',
+                  text:`<h1>Hello <b>there</b></h1>
+                  <p>This is a <high>scene</high> that contains a 'text' <mark>block</mark>...</p>`
                 }],
-                props:{
-                  colorvar: '.b'
-                }
               }]
             }
         }

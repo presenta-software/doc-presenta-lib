@@ -1,14 +1,14 @@
 ---
 home: true
 heroImage: null
-heroText: "Build presentations, the modern way."
-tagline: "An opinionated, config-driven javascript library to build smart presentations in no time."
+heroText: null
+tagline: null
 footer: BSD 3-Clause Licensed | Copyright © 2020 presenta.cc
 sidebar: false
 ---
 
 <div style="margin-top:2rem;"></div>
-<pDemo00 />
+<pDemoHome />
 
 <header class="hero">
 <p class="action">
@@ -16,4 +16,6 @@ sidebar: false
   Overview...
 </a></p>
 </header>
+
+
 

@@ -24,7 +24,6 @@ Awesome! There's a [starter-kit](https://github.com/presenta-software/presenta-b
 
 A Module extends a `scene` in order provide additional features at scene level. Here some examples:
 
-- [Markdown](https://github.com/presenta-software/presenta-module-markdown)
 - [HighLightJs](https://github.com/presenta-software/presenta-module-highlightjs)
 
 ::: tip Want to create your own Module?
@@ -37,6 +36,7 @@ Awesome! There's a [starter-kit](https://github.com/presenta-software/presenta-m
 
 A Controller extends the presentation as a whole by adding global capabilities:
 
+- [Markdown](https://github.com/presenta-software/presenta-controller-markdown)
 - [Swiper](https://github.com/presenta-software/presenta-controller-swiper)
 - [Console Notes](https://github.com/presenta-software/presenta-controller-console-notes)
 

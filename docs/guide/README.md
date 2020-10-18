@@ -18,7 +18,7 @@ You can download this [zip](https://github.com/presenta-software/presenta-lib-st
 
 ### Remote starterkit
 
-You can start with the same example by forking this Codepen or Glitch project. Your call.
+You can start with the same example by forking this [Codepen](https://codepen.io/abusedmedia/full/ZEOWyqM) or [Glitch](https://glitch.com/edit/#!/presenta-starterkit-example) project. Your call.
 
 ### Unpkg
 
@@ -66,12 +66,6 @@ var myPresentation = new Presenta('#app', {
 })
 ```
 
-::: tip About the size
-
-**PRESENTA Lib** will use the wrapper size to build the presentation. If the size is not set, the fallback size will be used.
-
-::: 
-
 We can add a `scene` that is an object that contains, at least, the `blocks` array:
 
 ```js
@@ -97,7 +91,7 @@ var myPresentation = new Presenta('#app', {
 
 ::: tip HTML in TEXT Block
 
-The `text` module render property a subset of HTML tags. There is also a markdown converter [plugin](/plugins/#blocks) to avoid writing raw HTML tags.
+The `text` block renders a subset of HTML tags properly. However, there is a markdown-to-HTML  [plugin](/plugins/#controllers) to avoid writing raw tags.
 
 :::
 
@@ -107,66 +101,19 @@ Each `scene` can render one or more blocks.  A `block` is responsible to render 
 
 **PRESENTA Lib** includes the following built-in blocks you can use out of the box:
 
+<pDemoBlockText />
+
+<br />
+
+<pDemoBlockImage />
+
 - `text`
 - `image`
 - `video`
 - `embed`
 - `solid`
 
-You can find additional blocks [here](/plugins/#blocks) as external plugins.
-
-To give an example, we already know we need a  `scenes` array in our config:
-
-```js
-{
-  scenes: []
-}
-```
-
-Let's say, we want to add a text in the first `scene`, here the object we need:
-
-```js
-{
-  blocks:[{
-    type: 'text',
-    text: '<h1>Here my presentation</h1>'
-  }]
-}
-```
-
-Then, we want another `scene` with an image:
-
-```js
-{
-  blocks:[{
-    type: 'image',
-    url: 'https://www.example.com/image.jpg'
-  }]
-}
-```
-
-Resulting in this config object that will render two scenes:
-
-````js
-{
-  scenes: [
-    {
-      blocks:[{
-        type: 'text',
-        text: '<h1>Here my presentation</h1>'
-      }]
-    },
-    {
-      blocks:[{
-        type: 'image',
-        url: 'https://www.example.com/image.jpg'
-      }]
-    }
-  ]
-}
-````
-
-You can see that `type` defines the content type and, depending of the `type`, additional properties can be configured.
+You can find additional block types [here](/plugins/#blocks) as external plugins.
 
 To learn more about each block specific settings, jump to [this section](/reference/#blocks) of the Reference.
 
@@ -192,21 +139,16 @@ To learn more about the available controllers and their specific settings, jump 
 
 
 
-## Colors, Fonts and Transitions
+## Styles and Transitions
 
 A **PRESENTA Lib** document can be styled by leveraging the combination of some properties:
 
-- by choosing a `scheme` class
-- by choosing a `fontkit` class
-- by choosing a `colorvar` class
-- by choosing a `transition` class
-
 ```javascript
 var myPresentation = new Presenta('#app', {
-  	scheme: '.vibrant',
-  	fontkit: '.fk2',
-  	colorvar: '.b',
-  	transition: '.horizontalSlide',
+  	colors: 'adele',
+  	fonts: 'b',
+  	colorVar: 'b',
+  	transition: 'horizontalSlide',
     scenes:[...]
 })
 ```
@@ -214,6 +156,10 @@ var myPresentation = new Presenta('#app', {
 Please, refer to [this section](/reference/#styles) in the Reference to learn about the available values.
 
 
+
+
+
+## Property inheritance 
 
 
 

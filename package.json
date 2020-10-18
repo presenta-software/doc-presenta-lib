@@ -13,9 +13,11 @@
     "vuepress": "^1.6.0"
   },
   "dependencies": {
+    "@presenta/block-youtube": "file:../presenta-block-youtube",
+    "@presenta/controller-markdown": "file:../presenta-controller-markdown",
     "@presenta/controller-swiper": "file:../presenta-controller-swiper",
     "@presenta/lib": "file:../presenta-lib",
-    "@presenta/module-markdown": "file:../presenta-module-markdown",
+    "@presenta/module-highlightjs": "file:../presenta-module-highlightjs",
     "vue2-ace-editor": "0.0.15"
   }
 }

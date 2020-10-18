@@ -2,21 +2,26 @@
   <ClientOnly>
       <div>
         <div class="selector">
-          Scheme:
+          Colors:
           <select v-model="currentScheme" @change="onChange">
             <option :value="''"></option>
-            <option v-for="opt in schemes" :key="opt">{{opt}}</option>
+            <option v-for="opt in colors" :key="opt">{{opt}}</option>
           </select>
 
-          Fontkit:
+          Fonts:
           <select v-model="currentFont" @change="onChange">
             <option :value="''"></option>
-            <option v-for="opt in fontkits" :key="opt">{{opt}}</option>
+            <option v-for="opt in fonts" :key="opt">{{opt}}</option>
           </select>
 
           Colorvar:
           <select v-model="currentColorvar" @change="onChange">
             <option v-for="opt in colorvars" :key="opt">{{opt}}</option>
+          </select>
+
+          Scenevar:
+          <select v-model="currentScenevar" @change="onChange">
+            <option v-for="opt in scenevars" :key="opt">{{opt}}</option>
           </select>
 
           <button @click="shuffle">Shuffle</button>
@@ -32,11 +37,12 @@
 import * as Presenta from '@presenta/lib'
 import Vue from 'vue'
 
-const getDefCode = (c, f, v) => {
+const getDefCode = (c, f, v, g) => {
   return `{
-  scheme:'${c}',
-  fontkit:'${f}',
-  colorvar:'${v}',
+  colors:'${c}',
+  fonts:'${f}',
+  colorVar:'${v}',
+  sceneVar:'${g}',
   scenes:[
     {
       blocks:[{
@@ -57,29 +63,35 @@ export default {
       })
     },
     computed:{
-      schemes(){
-        return Presenta.schemes.map(d => '.' + d)
+      colors(){
+        return Presenta.colors
       },
-      fontkits(){
-        return Presenta.fontkits.map(d => '.' + d)
+      fonts(){
+        return Presenta.fonts
       },
       colorvars(){
-        return ['.a', '.b', '.c']
+        return Presenta.colorvars
+      },
+      scenevars(){
+        return Presenta.scenevars
       }
     },
     methods:{
       onChange(){
-        this.code = getDefCode(this.currentScheme, this.currentFont, this.currentColorvar)
+        this.code = getDefCode(this.currentScheme, this.currentFont, this.currentColorvar, this.currentScenevar)
       },
       shuffle(){
-        let idx1 = parseInt(Math.random()*this.schemes.length)
-        this.currentScheme = this.schemes[idx1]
+        let idx1 = parseInt(Math.random()*this.colors.length)
+        this.currentScheme = this.colors[idx1]
 
-        let idx2 = parseInt(Math.random()*this.fontkits.length)
-        this.currentFont = this.fontkits[idx2]
+        let idx2 = parseInt(Math.random()*this.fonts.length)
+        this.currentFont = this.fonts[idx2]
 
         let idx3 = parseInt(Math.random()*this.colorvars.length)
         this.currentColorvar = this.colorvars[idx3]
+
+        let idx4 = parseInt(Math.random()*this.scenevars.length)
+        this.currentScenevar = this.scenevars[idx4]
 
         this.onChange()
       }
@@ -88,8 +100,9 @@ export default {
         return{
             currentScheme: '',
             currentFont: '',
-            currentColorvar: '.a',
-            code:getDefCode('', '', '')
+            currentColorvar: 'a',
+            currentScenevar: '',
+            code:getDefCode('', '', '', '')
         }
     }
 }
