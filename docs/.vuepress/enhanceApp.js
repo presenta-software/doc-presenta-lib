@@ -7,11 +7,13 @@ import ControllerSwiper from '@presenta/controller-swiper'
 import ControllerMarkdown from '@presenta/controller-markdown'
 import ModuleHighlightJs from '@presenta/module-highlightjs'
 import BlockYoutube from '@presenta/block-youtube'
+import ModuleToast from '@presenta/module-toast'
 
 Presenta.use(ControllerSwiper)
 Presenta.use(ControllerMarkdown)
 Presenta.use(ModuleHighlightJs)
 Presenta.use(BlockYoutube)
+Presenta.use(ModuleToast)
 
 
 // async function is also supported, too
