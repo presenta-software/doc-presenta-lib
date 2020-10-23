@@ -14,7 +14,7 @@ You can start with the library in several ways depending of your favorite setup.
 
 ### Local starterkit
 
-You can download this [zip](https://github.com/presenta-software/presenta-lib-starterkit/archive/master.zip) that contains a starter example you can edit locally. Just double-click the `index.html` file to start your presentation fully offline.
+You can download this [zip](https://github.com/presenta-software/presenta-lib-starterkit/archive/master.zip) that contains a starter example you can edit locally. Just double-click the `index.html` file to run your presentation even if offline.
 
 ### Remote starterkit
 
@@ -58,7 +58,7 @@ First thing first: each **PRESENTA Lib** document requires an HTML wrapper:
 <div id="app"></div>
 ```
 
-and here the way to bind it with the config object: 
+Then, bind it with the config object: 
 
 ```js
 var myPresentation = new Presenta('#app', {
@@ -66,7 +66,7 @@ var myPresentation = new Presenta('#app', {
 })
 ```
 
-We can add a `scene` that is an object that contains, at least, the `blocks` array:
+Add a `scene`, an object that contains, at least, the `blocks` array:
 
 ```js
 var myPresentation = new Presenta('#app', {
@@ -76,7 +76,7 @@ var myPresentation = new Presenta('#app', {
 })
 ```
 
-Now we need to understand the `block` object that is the minimal unit of content. The are many block **types** we can use,  `text` is one of them:
+A `block` object is the minimal unit of content. The are many block **types**,  `text` is one of them:
 
 ```js
 var myPresentation = new Presenta('#app', {
@@ -89,17 +89,17 @@ var myPresentation = new Presenta('#app', {
 })
 ```
 
-::: tip HTML in TEXT Block
+::: tip TEXT Block and HTML
 
-The `text` block renders a subset of HTML tags properly. However, there is a markdown-to-HTML  [plugin](/plugins/#controllers) to avoid writing raw tags.
+The built-in `text` block renders a subset of HTML tags properly. However, there is a markdown-to-HTML  [plugin](/plugins/#controllers) to avoid writing raw tags.
 
 :::
 
 ## Blocks and content types
 
-Each `scene` can render one or more blocks.  A `block` is responsible to render a specific content or media, such as `text`, `image` or `video`.
+Each `scene` can include one or more blocks.  A `block` is responsible to render a specific content or media, such as `text`, `image` or `video`.
 
-**PRESENTA Lib** includes the following built-in blocks you can use out of the box:
+**PRESENTA Lib** includes the following built-in blocks you can explore briefly here:
 
 <pDemoBlockText />
 
@@ -107,11 +107,17 @@ Each `scene` can render one or more blocks.  A `block` is responsible to render 
 
 <pDemoBlockImage />
 
-- `text`
-- `image`
-- `video`
-- `embed`
-- `solid`
+<br />
+
+<pDemoBlockVideo />
+
+<br />
+
+<pDemoBlockEmbed />
+
+<br />
+
+<pDemoBlockSolid />
 
 You can find additional block types [here](/plugins/#blocks) as external plugins.
 
@@ -146,20 +152,26 @@ A **PRESENTA Lib** document can be styled by leveraging the combination of some 
 ```javascript
 var myPresentation = new Presenta('#app', {
   	colors: 'adele',
-  	fonts: 'b',
-  	colorVar: 'b',
-  	transition: 'horizontalSlide',
+  	fonts: 'duck',
+  	colorVar: 'alt',
+    blockVar: 'a',
+  	sceneVar: 'b',
+  	transition: 'hSlide',
     scenes:[...]
 })
 ```
 
-Please, refer to [this section](/reference/#styles) in the Reference to learn about the available values.
+Refer to [this section](/reference/#styles) of the Reference to learn about the available values.
 
 
 
 
 
 ## Property inheritance 
+
+An important concept to remember is the properties inheritance depending where they are set. Any **property** (be aware, not **option**) can be set at **presentation** level, **scene** level and **block** level as well. The more specific place, the higher priority, just like CSS.
+
+On the other hand, options are context specific, therefore, they don't inherit from higher levels.
 
 
 

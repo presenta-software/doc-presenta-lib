@@ -14,52 +14,58 @@ export default {
     data(){
         return{
             doc:{
-              colors: 'g',
-              fonts: 'f',
+              colors: 'dania',
+              fonts: 'heron',
               modules:{
                 markdown:true
               },
-              controllers:{
-                // autoplay:{
-                //   delay:2000
-                // },
-                //loop:true,
-                //current:3,
-              },
-              scenes:[
+              
+              arrowsVerticalPosition:'flex-end',
+              arrowsHorizontalPosition:'flex-end',
+
+              scenes:[ 
                 {
-                  colorVar: 'b',
+                  colorVar: 'alt',
                   blocks:[{
+                    colorVar: 'sec',
                     type:'text',
-                    text:`# TEXT type`,
+                    text:`# **TEXT**`,
                     textVar: 'title'
+                  },{
+                    type:'text',
+                    text:`# Hello there!
+This is a text :-P`,
+                    textVar: 'section',
+                    colorVar: 'main'
                   }]
                 },
                 {
-                  colorVar: 'a',
+                  colorVar: 'main',
                   blocks:[{
                     type:'text',
-                    text:`# A BIG ONE`,
+                    text:`# BIG TEXT`,
                     scale:8,
                   }]
                 },
                 {
-                  colorVar: 'b',
+                  colorVar: 'sec',
                   blocks:[{
                     type:'text',
                     textVar: 'text',
-                    text:`<h1>A <high>formatted</high> text</h1>
-<h2>With subtitles to:</h2>
+                    scale:3,
+                    text:`<h1>A <b>formatted</b> <mark>text</mark></h1>
+<h2>With <a href="">subtitles</a> to:</h2>
 <ul>
 <li>Make!</li>
 <li>Your!</li>
 <li>Point!</li>
 </ul>`
+
                   }]
                 },
 
                 {
-                  colorVar: 'c',
+                  colorVar: 'alt',
                   blocks:[{
                     type:'text',
                     text:`
@@ -71,10 +77,11 @@ export default {
                   }]
                 },
                 {
-                  colorVar: 'b',
+                  colorVar: 'sec',
                   blocks:[{
                     type:'text',
-                    text:`## Long text
+                    text:`## You can put long texts
+# <b>Please Don't!</b>
 Not being heard is no reason for silence.
 It is nothing to die. It is frightful not to live.
 There is a determined though unseen bravery that defends itself foot by foot in the darkness against the fatal invasions of necessity and dishonesty. Noble and mysterious triumphs that no eye sees, and no fame rewards, and no flourish of triumph salutes. Life, misfortunes, isolation, abandonment, poverty, are battlefields that have their heroes; obscure heroes, sometimes greater than the illustrious heroes.
@@ -83,10 +90,10 @@ For there are many great deeds done in the small struggles of life.`,
                   }]
                 },
                 {
-                  colorVar: 'b',
+                  colorVar: 'sec',
                   blocks:[{
                     type:'text',
-                    text:`## Can fit the space
+                    text:`# At least, it can fit the space
 Not being heard is no reason for silence.
 It is nothing to die. It is frightful not to live.
 There is a determined though unseen bravery that defends itself foot by foot in the darkness against the fatal invasions of necessity and dishonesty. Noble and mysterious triumphs that no eye sees, and no fame rewards, and no flourish of triumph salutes. Life, misfortunes, isolation, abandonment, poverty, are battlefields that have their heroes; obscure heroes, sometimes greater than the illustrious heroes.

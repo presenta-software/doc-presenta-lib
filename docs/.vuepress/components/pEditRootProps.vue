@@ -21,20 +21,13 @@ export default {
   aspect: 2,
   adapt: false,
   scenes:[{
-    layout: 'c',
     blocks:[{
-        type:'image',
-        url: '/3.jpg'
-      },{
-        type:'solid',
-        solidVar: 'a'
-      },{
-        type: 'text',
-        text: '<h1>Welcome</h1>',
-        scale: 3,
-        colorVar: 'b'
-      }]
-    }]         
+      type: 'text',
+      text: '<h1>Welcome</h1>',
+      colorVar: 'sec',
+      textVar: 'title'
+    }]
+  }]         
 }`
         }
     }

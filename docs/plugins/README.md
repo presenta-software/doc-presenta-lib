@@ -4,7 +4,7 @@ title: Plugins
 
 # Plugins
 
-In this section you can find the list of **PRESENTA Lib** plugins, sorted by  **type**.
+In this section you can find the list of official supported **PRESENTA Lib** plugins, sorted by  **type**.
 
 ## Blocks
 
@@ -14,11 +14,15 @@ A Block renders a content. When you need a different type of media or render a c
 - [Vega-Lite](https://github.com/presenta-software/presenta-block-vegalite)
 - [Chartjs](https://github.com/presenta-software/presenta-block-chartjs)
 
+<!--
+
 ::: tip Want to create your own Block?
 
 Awesome! There's a [starter-kit](https://github.com/presenta-software/presenta-block-starter). If you plan to make it public, [let us know](mailto:support@presenta.cc)!
 
 :::
+
+-->
 
 ## Modules
 
@@ -26,11 +30,15 @@ A Module extends a `scene` in order provide additional features at scene level. 
 
 - [HighLightJs](https://github.com/presenta-software/presenta-module-highlightjs)
 
+<!--
+
 ::: tip Want to create your own Module?
 
 Awesome! There's a [starter-kit](https://github.com/presenta-software/presenta-module-starter). If you plan to make it public, [let us know](mailto:support@presenta.cc)!
 
 :::
+
+-->
 
 ## Controllers
 
@@ -40,11 +48,15 @@ A Controller extends the presentation as a whole by adding global capabilities:
 - [Swiper](https://github.com/presenta-software/presenta-controller-swiper)
 - [Console Notes](https://github.com/presenta-software/presenta-controller-console-notes)
 
+<!--
+
 ::: tip Want to create your own Controller?
 
 Awesome! There's a [starter-kit](https://github.com/presenta-software/presenta-controller-starter). If you plan to make it public, [let us know](mailto:support@presenta.cc)!
 
 :::
+
+-->
 
 
 

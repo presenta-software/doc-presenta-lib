@@ -14,8 +14,8 @@ export default {
     data(){
         return{
             doc:{
-              colors: 'irma',
-              fonts: 'corvid',
+              colors: 'elane',
+              fonts: 'creeper',
               modules:{
                 markdown:true,
                 highlightjs:true
@@ -28,7 +28,7 @@ export default {
                   colorVar: 'main',
                   blocks:[{
                     type:'text',
-                    text:`# **IMAGE**`,
+                    text:`# **VIDEO**`,
                     textVar: 'title'
                   },{
                     type:'image',

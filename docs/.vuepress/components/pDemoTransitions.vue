@@ -1,11 +1,15 @@
 <template>
     <div class="prev">
-        <div class="toolbar">
-            Transitions:
-            <select v-model="currentTransition" @change="onChange">
-              <option :value="''"></option>
-              <option v-for="opt in transitions" :key="opt">{{opt}}</option>
-            </select>
+
+      <div class="bar">
+          <div class="toolbar">
+              Transitions:
+              <select v-model="currentTransition" @change="onChange">
+                <option :value="''"></option>
+                <option v-for="opt in transitions" :key="opt">{{opt}}</option>
+              </select>
+          </div>
+          <div class="desc">The scene 5 will use the <b>slideOver</b> transition, no matter the global setting.</div>
         </div>
         <div ref="preso" class="preso"></div>
     </div>
@@ -20,9 +24,9 @@ export default {
     
     data(){
         return{
-            currentTransition:'',
+            currentTransition:'hSlide',
             doc:{
-              transition: '',
+              transition: 'hSlide',
               colors: 'adele',
               controllers:{
                 pagenum:true,
@@ -38,13 +42,18 @@ export default {
       
       for(var i=0; i<9; i++){
         let idx = i % 3
-        this.doc.scenes.push({
+
+        let scene = {
           colorVar: this.colorvars[idx],
           blocks:[{
             type:'text',
             text:`<h1>Scene ${i+1}</h1>`
           }]
-        })
+        }
+        
+        if(i === 4) scene.transition = 'vSlide'
+        
+        this.doc.scenes.push(scene)
       }
       this.onChange()
     },
@@ -69,13 +78,19 @@ export default {
 
 
 <style scoped>
+.bar{
+  background-color: #eee;
+  padding: 1rem;
+}
 .toolbar{
   display: flex;
   justify-content: space-between;
-  padding: 1rem;
-  background-color: #eee;
 }
 .preso{
   height: 300px;
+}
+.desc{
+  font-size: .75rem;
+  margin-top: .75rem;
 }
 </style>

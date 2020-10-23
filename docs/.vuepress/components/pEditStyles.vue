@@ -2,29 +2,31 @@
   <ClientOnly>
       <div>
         <div class="selector">
-          Colors:
-          <select v-model="currentScheme" @change="onChange">
-            <option :value="''"></option>
-            <option v-for="opt in colors" :key="opt">{{opt}}</option>
-          </select>
+          <div class="left">
+            <select v-model="currentScheme" @change="onChange">
+              <option disabled :value="''">Colors set:</option>
+              <option v-for="opt in colors" :key="opt">{{opt}}</option>
+            </select>
 
-          Fonts:
-          <select v-model="currentFont" @change="onChange">
-            <option :value="''"></option>
-            <option v-for="opt in fonts" :key="opt">{{opt}}</option>
-          </select>
+            <select v-model="currentFont" @change="onChange">
+              <option disabled :value="''">Fonts kit:</option>
+              <option v-for="opt in fonts" :key="opt">{{opt}}</option>
+            </select>
 
-          Colorvar:
-          <select v-model="currentColorvar" @change="onChange">
-            <option v-for="opt in colorvars" :key="opt">{{opt}}</option>
-          </select>
+            <select v-model="currentColorvar" @change="onChange">
+              <option disabled :value="''">ColorVar:</option>
+              <option v-for="opt in colorvars" :key="opt">{{opt}}</option>
+            </select>
 
-          Scenevar:
-          <select v-model="currentScenevar" @change="onChange">
-            <option v-for="opt in scenevars" :key="opt">{{opt}}</option>
-          </select>
+            <select v-model="currentScenevar" @change="onChange">
+              <option disabled :value="''">SceneVar:</option>
+              <option v-for="opt in scenevars" :key="opt">{{opt}}</option>
+            </select>
+          </div>
 
-          <button @click="shuffle">Shuffle</button>
+          <div class="right">
+            <button @click="shuffle">Shuffle</button>
+          </div>
         </div>
         <pEditor :code="code" />
       </div>
@@ -100,7 +102,7 @@ export default {
         return{
             currentScheme: '',
             currentFont: '',
-            currentColorvar: 'a',
+            currentColorvar: '',
             currentScenevar: '',
             code:getDefCode('', '', '', '')
         }
@@ -113,5 +115,13 @@ export default {
 .selector{
   background-color: #eee;
   padding: 1rem;
+  display: flex;
+}
+
+.left{
+  flex:1;
+}
+.right{
+
 }
 </style>

@@ -13,6 +13,7 @@
     "vuepress": "^1.6.0"
   },
   "dependencies": {
+    "@presenta/block-fitty": "file:../presenta-block-fitty",
     "@presenta/block-youtube": "file:../presenta-block-youtube",
     "@presenta/controller-markdown": "file:../presenta-controller-markdown",
     "@presenta/controller-swiper": "file:../presenta-controller-swiper",

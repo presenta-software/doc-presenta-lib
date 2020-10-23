@@ -14,8 +14,8 @@ export default {
     data(){
         return{
             doc:{
-              colors: 'irma',
-              fonts: 'corvid',
+              colors: 'cati',
+              fonts: 'flow',
               modules:{
                 markdown:true,
                 highlightjs:true
@@ -28,11 +28,11 @@ export default {
                   colorVar: 'main',
                   blocks:[{
                     type:'text',
-                    text:`# **IMAGE**`,
+                    text:`# **SOLID**`,
                     textVar: 'title'
                   },{
-                    type:'image',
-                    url:`/3.jpg`
+                    type:'solid',
+                    solidColor:'linear-gradient( 45deg, blue, red )'
                   }]
                 }
               ]

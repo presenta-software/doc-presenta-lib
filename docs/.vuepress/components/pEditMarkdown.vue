@@ -1,13 +1,14 @@
 <template>
     <div class="cont">
-        <div class="edit" :class="{invalid:invalid}">
+        <div ref="left" class="edit" :class="{invalid:invalid}">
             <Ace v-model="icode" 
                 ref="editor"
                 @init="editorInit" 
                 :lang="'markdown'" 
                 theme="chrome"></Ace>
         </div>
-        <div class="prev">
+        <Divider @begin="onDivBegin" @update="onDivUpdate" />
+        <div ref="right" class="prev">
             <div ref="preso" class="preso"></div>
         </div>
     </div>
@@ -17,13 +18,16 @@
 <script>
 import Ace from 'vue2-ace-editor'
 import * as Presenta from '@presenta/lib'
+import Divider from './Divider'
 
 export default {
     components:{
-        Ace
+        Ace,Divider
     },
     data(){
         return{
+            leftWidth:0,
+            rightWidth:0,
             icode:`
 # Hello!
 
@@ -110,6 +114,21 @@ This is Me
                 this.$refs.preso.innerHTML = 'Invalid data'
 
             }
+        },
+
+        onDivBegin(){
+            let bbleft = this.$refs.left.getBoundingClientRect()
+            this.leftWidth = bbleft.width
+            
+            let bbright = this.$refs.right.getBoundingClientRect()
+            this.rightWidth = bbright.width
+        },
+        onDivUpdate(v){
+            let newWidth1 = this.leftWidth - v - 2.5
+            this.$refs.left.style.width = newWidth1 + 'px'
+
+            let newWidth2 = this.rightWidth + v + 2.5
+            this.$refs.right.style.width = newWidth2 + 'px'
         }
     }
 }
@@ -145,9 +164,11 @@ This is Me
 .edit{
     height: 250px;
     border-bottom:1px solid #ddd;
+    min-width: 100px;
 }
 
 .prev{
+    min-width: 100px;
 }
 
 .invalid > div{
@@ -171,11 +192,11 @@ This is Me
         border-bottom:1px solid #ddd;
     }
     .edit{
-        flex:2;    
+        width: 100%;   
         border-right:1px solid #ddd;
     }
     .prev{
-        flex:2;
+        width: 100%;
     }
 }
 </style>

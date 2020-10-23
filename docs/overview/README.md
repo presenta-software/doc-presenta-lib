@@ -4,7 +4,7 @@ title: Overview
 
 # Overview
 
-**PRESENTA Lib** is a javascript library that creates modern presentations by means of a **config object**.
+**PRESENTA Lib** is a javascript library that generates **web presentations** from **config objects**.
 
 It's opinionated and it comes with **sensible defaults** with **extensibility** in mind.
 
@@ -18,11 +18,11 @@ To give a rought idea, this code:
 
 ```js
 new Presenta('#wrapper', {
+  colors:'adele',
   scenes:[{
     blocks:[{
       type:'text',
       textVar: 'title',
-      colorVar: 'a'
       text:`<h1>Hello <b>there</b></h1>
 <p>This is a <high>scene</high> that contains a 'text' <mark>block</mark>...</p>`
     }],
@@ -44,13 +44,19 @@ As an example, this bare-bones **markdown-to-slides** widget requires a little d
 
 <pEditMarkdown />
 
+::: tip Pssss!
+
+You can edit the widget above!
+
+:::
+
 ## Motivation
 
 There are many presentation frameworks and libraries out there, so why another one?
 
 Motivations come first from the struggle of using legacy tools (PPT, KEY, GSlides):
 
-> making presentations can be better.
+<pDemoScream />
 
 Then, the desire to create something that incorporates, as much as possible, efficiency and best practices to let the user work on the important part: **the content**.
 
@@ -58,7 +64,7 @@ But differences and personalizations are important. There's also a will to not l
 
 The fine balance between **sensible defaults** and **customization** is the actual *goal* of the library, which is still in progress.
 
-Furthermore, we believe that presentations can be different, more **expressive** and **engaging** that the common sequence of static pictures.
+Furthermore, we believe that presentations can be different, more **expressive** and **engaging** than a typical sequence of pictures.
 
 ## Principles
 
@@ -68,7 +74,8 @@ Furthermore, we believe that presentations can be different, more **expressive**
 - Save people time
 - Done is better than perfect
 - Slides aren’t speaker notes
-- Slides are for ideas
+
+<pDemoPrinciples />
 
 ## Architecture
 
@@ -76,11 +83,11 @@ A **PRESENTA Lib** document contains a list of *scenes* that can be displayed on
 
 
 
-**PRESENTA Lib** is designed to be extensible by using external plugins. Currently, there are three types of plugin depending of the type of function you would add:
+**PRESENTA Lib** is designed to be extensible by using external plugins. Currently, there are three **types** depending of the function you would add:
 
-- **Blocks** (content types)
+- **Blocks** (content and media)
 - **Modules** (scene extensions)
-- **Controllers** (router controllers or global functions)
+- **Controllers** (router controllers or global capabilities)
 
 
 

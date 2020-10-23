@@ -14,8 +14,8 @@ export default {
     data(){
         return{
             doc:{
-              colors: 'irma',
-              fonts: 'corvid',
+              colors: 'flo',
+              fonts: 'duck',
               modules:{
                 markdown:true,
                 highlightjs:true
@@ -28,11 +28,11 @@ export default {
                   colorVar: 'main',
                   blocks:[{
                     type:'text',
-                    text:`# **IMAGE**`,
+                    text:`# **EMBED**`,
                     textVar: 'title'
                   },{
-                    type:'image',
-                    url:`/3.jpg`
+                    type:'embed',
+                    url:`http://mozilla.github.io/pdf.js/web/viewer.html`
                   }]
                 }
               ]

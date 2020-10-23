@@ -26,30 +26,30 @@ export default {
               modules:{
                 markdown:true
               },
-              transition: 'a',
-              colors: 'f',
+              transition: 'hSlide',
+              colors: 'flo',
               controllers:{
                 arrows:false
               },
               scenes:[{
-                colorVar: 'b',
+                colorVar: 'sec',
                 blocks:[{
                   type:'text',
-                  scale:2,
+                  textVar:'title',
                   text:`# Scene 1`
                 }]
               },{
-                colorVar: 'a',
+                colorVar: 'main',
                 blocks:[{
                   type:'text',
-                  scale:2,
+                  textVar:'title',
                   text:`# Scene 2`
                 }]
               },{
-                colorVar: 'c',
+                colorVar: 'alt',
                 blocks:[{
                   type:'text',
-                  scale:2,
+                  textVar:'title',
                   text:`# Scene 3`
                 }]
               }]

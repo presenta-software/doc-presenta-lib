@@ -15,8 +15,8 @@ export default {
         return{
             doc:{
               colors:'cati',
-              fonts:'g',
-              transition: 'slideUp',
+              fonts:'heron',
+              transition: 'fadeIn',
 
               controllers:{
                 progressbar: true,
@@ -28,16 +28,18 @@ export default {
               modules:{
                 toast:true
               },
-              progressbarBottom:'0',
+              //progressbarBottom:'0',
+              
               
               scenes:[
               
               {
-                colorVar: 'b',
+                colorVar: 'sec',
+                
                 blocks:[{
                   type:'text',
-                  scale: 2.5,
-                  text:'<h1><mark>Build presentations, the modern way.</mark></h1>'
+                  scale: 3.3,
+                  text:'<h1><b>BUILD PRESENTATIONS, <br />THE MODERN WAY.</b></h1>'
                 }],
                 toast:{
                   text: `<img width="200" src="https://media.giphy.com/media/142K5KNLmUBtYI/giphy.gif" />`
@@ -45,29 +47,32 @@ export default {
                 toastVar: 'a',
                 toastPosition: 'bl',
                 toastBackColor: 'none',
-                toastShadow: 'none'
+                toastShadow: 'none',
+
+                progressbarColor:'red'
               },
 
               {
-                colorVar: 'c',
+                colorVar: 'alt',
                 blocks:[{
                   type:'text',
-                  scale: 3,
+                  scale: 4,
                   text:'<h1>Hello <br /><b>PRESENTA Lib</b></h1>'
                 }]
               },
               
               {
-                colorVar: 'a',
+                colorVar: 'main',
                 blocks:[{
                   type:'text',
                   textVar: 'title',
                   textPadding: '4rem',
-                  text:`<h1>An <b>opinionated</b>, <b>config-driven</b>, <b>open-source</b> javascript library to create <mark>expressive</mark> presentations in seconds!</h1>`
+                  scale:4,
+                  text:`<p>An <high><b>opinionated</b></high>, <high><b>config-driven</b></high>, <high><b>open-source</b></high> javascript library to create <mark>expressive</mark> presentations in seconds!</p>`
                 }]
               },
               {
-                colorVar: 'b',
+                colorVar: 'sec',
                 blocks:[{
                   type:'text',
                   textVar: 'text',
@@ -85,62 +90,60 @@ export default {
               },
 
               {
-                layout: 'd',
-                colorVar: 'c',
+                layout: 'head',
+                colorVar: 'alt',
                 blocks:[{
                   type:'text',
                   text:`<h1>Built-in content types:</h1>`
                 },{
-                  colorVar: 'b',
+                  colorVar: 'sec',
                   type:'text',
                   textVar: 'title',
                   textPadding: '4rem',
                   scale:5,
-                  text:`<h1><b>Text</b>, Image, <b>Video</b>, Embed</h1>`
+                  text:`<h1>Text - Image <br/> Video - Embed</h1>`
                 }]
               },
 
               {
-                layout: 'd',
-                colorVar: 'a',
+                layout: 'head',
+                colorVar: 'main',
                 blocks:[{
-                  colorVar: 'b',
+                  colorVar: 'sec',
                   type:'text',
                   text:`<h1>Smart styles:</h1>`
                 },{
-                  colorVar: 'a',
                   type:'text',
                   textVar: 'title',
                   textPadding: '4rem',
-                  text:`<h1><b>Colors set</b>, Fonts set, <b>Transitions</b>, Layouts, <b>container styles</b></h1>`
+                  text:`<h1>Colors set - Fonts set <br/> Transitions - Layouts <br/> Container styles</h1>`
                 }]
               },
 
 
               {
-                layout: 'd',
-                colorVar: 'c',
+                layout: 'head',
+                colorVar: 'alt',
                 blocks:[{
                   type:'text',
                   text:`<h1>Built-in functions:</h1>`
                 },{
-                  colorVar: 'b',
+                  colorVar: 'sec',
                   type:'text',
                   textVar: 'title',
                   textPadding: '4rem',
-                  text:`<h1>Fullscreen, Autoplay, Page number, Shuffle, Progress, Keyboard/Mouse navigation, Black escape, Autofocus, Preload, ...</h1>`
+                  text:`<h1>Fullscreen - Autoplay - Page number - Shuffle - Progress - Keyboard/Mouse navigation - Black escape - Autofocus - Preload ...</h1>`
                 }]
               },
 
               {
-                layout: 'a',
-                colorVar: 'c',
+                colorVar: 'alt',
                 blocks:[{
                   type:'text',
                   textVar: 'text',
                   text:`<h1><mark>Not enough?</mark></h1><p>Pssss, There's a plugin system!</p>`
                 },{
-                  colorVar: 'b',
+                  colorVar: 'sec',
                   type:'text',
                   textVar: 'title',
                   textPadding: '4rem',
@@ -150,7 +153,7 @@ export default {
 
 
               {
-                colorVar:'b',
+                colorVar:'sec',
                 blocks:[
                   {
                     type:'youtube',
@@ -158,8 +161,8 @@ export default {
                   }
                 ],
                 toast:{
-                  text: `<p>Hey! This is a <a href="https://">Youtube</a> video</p>
-                  <p>Mouse <b>CLICK</b> or press <b>SPACE</b> to play!</p>`,
+                  text: `<p>Hey! This is a Youtube video</p>
+                  <p><b>CLICK</b> or press <b>SPACE</b> to play!</p>`,
                   duration:5
                 },
                 toastVar: 'a',
@@ -167,12 +170,12 @@ export default {
               },
 
               {
-                layout: 'd',
-                colorVar: 'c',
+                layout: 'head',
+                colorVar: 'alt',
                 blocks:[{
-                  colorVar: 'a',
+                  colorVar: 'main',
                   type:'text',
-                  text:`<h1>Want to know more?</h1>`
+                  text:`<h1>Want to learn more? Start from the <a href="/overview/">overview</a> </h1>`
                 },{
                   type:'video',
                   autoplay: true,
