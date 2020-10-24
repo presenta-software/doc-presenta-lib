@@ -23,7 +23,8 @@ export default {
                 focus: true,
                 preload:true,
                 swiper:true,
-                current:1
+                current:1,
+                markdown:true
               },
               modules:{
                 toast:true
@@ -39,7 +40,7 @@ export default {
                 blocks:[{
                   type:'text',
                   scale: 3.3,
-                  text:'<h1><b>BUILD PRESENTATIONS, <br />THE MODERN WAY.</b></h1>'
+                  text:'# **BUILD PRESENTATIONS,** <br />THE MODERN WAY.'
                 }],
                 toast:{
                   text: `<img width="200" src="https://media.giphy.com/media/142K5KNLmUBtYI/giphy.gif" />`
@@ -77,12 +78,12 @@ export default {
                   type:'text',
                   textVar: 'text',
                   text:`<h1><high>Principles:</high></h1>
-                  <ul>
-                    <li>Foster <b>content first</b></li>
-                    <li>Comes with <b>sensible defaults</b></li>
-                    <li>Backed with <b>smart constraints</b></li>
-                    <li><b>Pluggable</b> by design</li>
-                  </ul>`
+                  <ol>
+                    <li><step>Foster <b>content first</b></step></li>
+                    <li><step>Comes with <b>sensible defaults</b></step></li>
+                    <li><step>Backed with <b>smart constraints</b></step></li>
+                    <li><step><b>Pluggable</b> by design</step></li>
+                  </ol>`
                 },{
                   type:'image',
                   url: 'https://images.unsplash.com/photo-1512432529821-4aa8f3ad138e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2000&q=80'

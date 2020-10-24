@@ -86,6 +86,20 @@ A scene can be extended with **modules**.  You can find some examples [here](/pl
 
 
 
+## Modules
+
+Modules are scene extensions. Right now there's just one built-in: *Steps*, that handles the in-scene fragments by means of the `<step>` HTML tag for specific words and the property `step` that defines the HTML tag that should step in that scene:
+
+<pEditSteps />
+
+If you don't put any `step` tag or property in the config object, Steps module simply doesn't act in the presentation. However, you can disable it completely this way:
+
+```js
+modules:{
+  steps:false
+}
+```
+
 
 
 ## Content (block) type
