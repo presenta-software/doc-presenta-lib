@@ -17,32 +17,37 @@ export default {
             doc:{
               colors: 'irma',
               fonts: 'flow',
-              transition: 'hSlide',
               sceneVar: 'a',
+              transition: 'vSlide',
               controllers:{
-                autoplay:2000,
                 loop:true,
-                arrows:false
+                arrows:true,
+                swiper:true,
+                limitswitch:false,
+                pagenum:'[ %s ]'
               },
+              pagenumPadding:'1rem',
+              pagenumFontSize:'16px',
+
               scenes:[{
                 colorVar: 'main',
                 blocks:[{
                   type:'fitty',
-                  text: `MAKING\nPRESENTATIONS\nCAN BE\nBETTER`,
+                  text: `<span>MAKING</span>\n<span>PRESENTATIONS</span>\n<span class="step">CAN BE</span>\n<span class="step"><b>DIFFERENT</b></span>`,
                   linefactor:.9
                 }]
               },{
                 colorVar: 'sec',
                 blocks:[{
                   type:'fitty',
-                  text: `MAKING\nPRESENTATIONS\nCAN BE\nBETTER`,
+                  text: `<span>MAKING</span>\n<span>PRESENTATIONS</span>\n<span class="step">CAN BE</span>\n<span class="step"><b>BETTER</b></span>`,
                   linefactor:.9
                 }]
               },{
                 colorVar: 'alt',
                 blocks:[{
                   type:'fitty',
-                  text: `MAKING\nPRESENTATIONS\nCAN BE\nBETTER`,
+                  text: `<span>MAKING</span>\n<span>PRESENTATIONS</span>\n<span class="step">CAN BE <b>FUN</b></span>`,
                   linefactor:.9
                 }]
               }]

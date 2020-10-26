@@ -16,20 +16,20 @@ title: Reference
 
 
 
-## Globals
+## Root options
 
-Each **PRESENTA Lib** document can be configured with some global options defined in the config object:
+Each **PRESENTA Lib** document can be configured with some root options and properties defined in the config object:
 
 <pEditRootProps />
 
-| Option | Description                                                  | Default value | Possible values    |
-| ------ | ------------------------------------------------------------ | ------------- | ------------------ |
-| scenes | The list of scene objects **(required)**                     |               | Scene object array |
-| aspect | Define the ratio between width and height                    | 1.6           | Any number         |
-| adapt  | Override **aspect** inferring it from the container size. If the dimensions are not positive, a fallback size will be used. | *true*        | true/false         |
-|        |                                                              |               |                    |
+| Option | Description                                                  | Default | Values  |
+| ------ | ------------------------------------------------------------ | ------- | ------- |
+| scenes | The list of scene objects **(required)**                     |         | Array   |
+| aspect | Define the ratio between width and height                    | 1.6     | Number  |
+| adapt  | Override **aspect** inferring it from the container size. If the dimensions are not positive, a fallback size will be used. | *true*  | Boolean |
+|        |                                                              |         |         |
 
-
+The size of the presentation is based on the container size. If it hasn't a positive dimention, a size fallback will be used, which is 360x200.
 
 ## Look&Feel
 
@@ -39,14 +39,12 @@ The **Look&Feel** can be defined by combining different properties. There's a gr
 
 The following properties can be set to the whole `presentation`, to a specific `scene` and to a specific `block` as well. 
 
-| Property | Description                                                  | Default | Values         |
-| -------- | ------------------------------------------------------------ | ------- | -------------- |
-| colors   | The colors scheme to use                                     | *none*  |                |
-| fonts    | The fonts set to use                                         | *none*  |                |
-| colorVar | The combination variation as defined in the colors scheme    | main    | main, sec, alt |
-| blockVar | The style variation of the block container                   | *none*  |                |
-| sceneVar | The style variation of the scene container. <br />**This property cannot be set at block level** | *none*  |                |
-|          |                                                              |         |                |
+| Property | Description                                               | Default | Value          |
+| -------- | --------------------------------------------------------- | ------- | -------------- |
+| colors   | The colors scheme to use                                  | *none*  |                |
+| fonts    | The fonts set to use                                      | *none*  |                |
+| colorVar | The combination variation as defined in the colors scheme | main    | main, sec, alt |
+|          |                                                           |         |                |
 
 ::: tip Property' inheritance
 
@@ -54,9 +52,9 @@ It's honoured according to the specificity. The more specific, the higher priori
 
 :::
 
-## Transitions and Layout
+## Transitions and Layouts
 
-Transitions and layout properties can be set at `presentation` level and at `scene` level as well.
+Transition and layout properties can be set at `presentation` level and at `scene` level as well.
 
 <pDemoTransitions />
 
@@ -64,11 +62,11 @@ Transitions and layout properties can be set at `presentation` level and at `sce
 
 <pDemoLayout />
 
-| Property   | Description                                                  | Default | Values                              |
-| ---------- | ------------------------------------------------------------ | ------- | ----------------------------------- |
-| layout     | The scene layout. It has effect only with more than one block. | *cols*  | cols, rows, head, foot, stack, pile |
-| transition | The transition type.                                         | *none*  | hSlide, vSlide, slideOver, fadeIn   |
-|            |                                                              |         |                                     |
+| Property   | Description                                                  | Default | Value                             |
+| ---------- | ------------------------------------------------------------ | ------- | --------------------------------- |
+| layout     | The scene layout. It has effect only with more than one block. | *cols*  | cols, rows, head, foot, stack     |
+| transition | The transition type.                                         | *none*  | hSlide, vSlide, slideOver, fadeIn |
+|            |                                                              |         |                                   |
 
 
 
@@ -82,23 +80,27 @@ A **scene** contains one or more **blocks**. Alongside `transition` and `layout`
 
 <pDemoSceneVar />
 
-A scene can be extended with **modules**.  You can find some examples [here](/plugins/#modules).
+A scene can be extended with **modules**.  
 
 
 
 ## Modules
 
-Modules are scene extensions. Right now there's just one built-in: *Steps*, that handles the in-scene fragments by means of the `<step>` HTML tag for specific words and the property `step` that defines the HTML tag that should step in that scene:
+Modules are scene extensions. Right now there's just one built-in: *Steps*, that handles the in-scene fragments. By default, any HTML tag with the class `step` counts as fragment element. You can override the `step` option by adding a valid CSS selector (single and multiple as well).
+
+The steps order is based on the HTML tag order. You can override it using the attribute `data-order` specifing a number that will be used by a sorting function.
 
 <pEditSteps />
 
-If you don't put any `step` tag or property in the config object, Steps module simply doesn't act in the presentation. However, you can disable it completely this way:
+You can disable the module completely in case you need:
 
 ```js
 modules:{
   steps:false
 }
 ```
+
+Modules can be created as external **PRESENTA Lib** plugin. You can find additional modules [here](/plugins/#modules).
 
 
 
@@ -118,20 +120,19 @@ Let's learn about the buint-in block types of **PRESENTA Lib**:
 
 The `text` block is possibly the most obvious one allowing to display formatted text by using a subset of HTML tags.
 
-The text automatically scales down if there is not enough available space. The additional `scale` option allows to fine-tune it.
+The text automatically scales down if there is not enough available space. The additional `scale` option allows to fine-tune the behavior.
 
-| Option | Description                                                  | Default value | Possible values     |
-| ------ | ------------------------------------------------------------ | ------------- | ------------------- |
-| type   | The block type **(required)**                                |               | text                |
-| text   | The text in HTML you want to display **(required)**          |               | String              |
-| scale  | It allows to control the size of the text box within the available block space | 1             | Any positive number |
-|        |                                                              |               |                     |
+| Option | Description                                                  | Default | Value  |
+| ------ | ------------------------------------------------------------ | ------- | ------ |
+| type   | The block type **(required)**                                |         | "text" |
+| text   | The text in HTML you want to display **(required)**          |         | String |
+| scale  | It allows to control the size of the text box within the available block space | 1       | Number |
+|        |                                                              |         |        |
 
-| Property | Description                  | Default value | Possible values |
-| -------- | ---------------------------- | ------------- | --------------- |
-| textVar  | The text layout variations   | *none*        |                 |
-| textAlt  | The text box style variation | *none*        |                 |
-|          |                              |               |                 |
+| Property | Description                | Default | Value  |
+| -------- | -------------------------- | ------- | ------ |
+| textVar  | The text layout variations |         | String |
+|          |                            |         |        |
 
 ### Image
 
@@ -139,11 +140,11 @@ The `image` block allows to display an image.
 
 By default the image will `cover` the available block area. 
 
-| Option | Description                                          | Default value | Possible values |
-| ------ | ---------------------------------------------------- | ------------- | --------------- |
-| type   | The block type **(required)**                        |               | image           |
-| url    | The path or URL to the image resource **(required)** |               | String URL      |
-|        |                                                      |               |                 |
+| Option | Description                                          | Default | Value   |
+| ------ | ---------------------------------------------------- | ------- | ------- |
+| type   | The block type **(required)**                        |         | "image" |
+| url    | The path or URL to the image resource **(required)** |         | URL     |
+|        |                                                      |         |         |
 
 
 
@@ -157,14 +158,14 @@ By default the video will `cover` the available block area.
 
 
 
-| Option   | Description                                          | Default value | Possible values |
-| -------- | ---------------------------------------------------- | ------------- | --------------- |
-| type     | The block type **(required)**                        |               | video           |
-| url      | The path or URL to the video resource **(required)** |               | String URL      |
-| loop     | Loop the playback                                    | false         | Boolean value   |
-| autoplay | Autoplay as soon as it's ready                       | false         | Boolean value   |
-| poster   | The optional poster image                            | none          | URL             |
-|          |                                                      |               |                 |
+| Option   | Description                                          | Default | Value   |
+| -------- | ---------------------------------------------------- | ------- | ------- |
+| type     | The block type **(required)**                        |         | "video" |
+| url      | The path or URL to the video resource **(required)** |         | URL     |
+| loop     | Loop the playback                                    |         | Boolean |
+| autoplay | Autoplay as soon as it's ready                       |         | Boolean |
+| poster   | The optional poster image                            |         | URL     |
+|          |                                                      |         |         |
 
 
 
@@ -177,13 +178,13 @@ If you have the embed code (the **iframe** code) you can use the `code` property
 
 
 
-| Option | Description                                                  | Default value | Possible values |
-| ------ | ------------------------------------------------------------ | ------------- | --------------- |
-| type   | The block type **(required)**                                |               | embed           |
-| url    | The path or URL to the webpage resource **(required)**       |               | String URL      |
-| code   | The complete `iframe` code, **(required)** if `url` is not set |               | String          |
-| poster | The optional poster image                                    | none          | URL             |
-|        |                                                              |               |                 |
+| Option | Description                                                  | Default | Value   |
+| ------ | ------------------------------------------------------------ | ------- | ------- |
+| type   | The block type **(required)**                                |         | "embed" |
+| url    | The path or URL to the webpage resource **(required)**       |         | URL     |
+| code   | The complete `iframe` code, **(required)** if `url` is not set |         | String  |
+| poster | The optional poster image                                    |         | URL     |
+|        |                                                              |         |         |
 
 
 
@@ -191,12 +192,26 @@ If you have the embed code (the **iframe** code) you can use the `code` property
 
 The `solid` block allows to set any CSS background property to the whole block area.
 
-| Option | Description                   | Default value | Possible values |
-| ------ | ----------------------------- | ------------- | --------------- |
-| type   | The block type **(required)** |               | solid           |
-|        |                               |               |                 |
+| Option | Description                   | Default | Value   |
+| ------ | ----------------------------- | ------- | ------- |
+| type   | The block type **(required)** |         | "solid" |
+|        |                               |         |         |
 
-### Further blocks
+### Group
+
+The `group` block is a special one. It allows to stack two or more regular blocks together. By default, it includes a semi-transparent layer between the two blocks.
+
+| Option | Description                   | Default | Value   |
+| ------ | ----------------------------- | ------- | ------- |
+| type   | The block type **(required)** |         | "group" |
+|        |                               |         |         |
+
+| Property | Description                                                  | Default | Value                         |
+| -------- | ------------------------------------------------------------ | ------- | ----------------------------- |
+| layout   | The group layout. It has effect only with more than one sub-block. | *cols*  | cols, rows, head, foot, stack |
+|          |                                                              |         |                               |
+
+### External blocks
 
 Blocks can be created as **PRESENTA** plugin. You can find additional blocks [here](/plugins/#blocks).
 
@@ -226,9 +241,9 @@ Each Controller needs to be activated (and optionally configured) in the main co
 
 
 
-### Buint-in controllers
+### Built-in controllers
 
-Here the documentation of built-in controllers you may activate or not. External controllers can be found in the [plugin section](/plugins/#controllers). A controller is always active when its value is not `false`.
+Here the list of built-in controlles alongside their default activation status:
 
 | Property    | Description                                                  | Default  | Value           |
 | ----------- | ------------------------------------------------------------ | -------- | --------------- |
@@ -236,6 +251,8 @@ Here the documentation of built-in controllers you may activate or not. External
 | arrows      | Allows to show two UI arrow elements to allows the back and forth navigation by clicking on them. | **true** | Boolean         |
 | black       | Allows to show/hide a black screen by pressing the keyboard key `b`. <br />To change the key, use the String char instead the Boolean. | **true** | Boolean, String |
 | fullscreen  | Allows to run the presentation in fullscreen by pressing the keyboard key `f`. <br />To change the key, use the String char instead the Boolean. <br />This controller exposes its `toggle()` function. | **true** | Boolean, String |
+| hidden      | It hides a specific scene or block if it has the `hidden` option set to true. | **true** | Boolean         |
+| limitswitch | It provides a visual feedback when the user tries to navigate over the presentation begin or end. | **true** | Boolean         |
 | autoplay    | It turns the navigation in auto-play mode. Default delay is 4000ms. Set a Number instead a Boolean to override that delay.<br />This Controller reads from each `scene` configuration the property `autoplay` in order to override the default `delay` time on a specific `scene` | false    | Boolean, Number |
 | loop        | It allows to loop the navigation, meaning, when the last scene is reached, the next command will jump to the first scene. | false    | Boolean         |
 | focus       | It allows to set the focus automatically instead waiting for the user click, allowing to use keyboard events without a first mouse interaction.<br /><br />The detection is based on the viewport intersection, thus, the last instance that got intersected with the viewport gets the focus. | false    | Boolean         |
@@ -287,7 +304,7 @@ router.next()
 | off(evt)       | Unsubscribe to router events                   |
 |                |                                                |
 
-Here the list of events you can subscribe:
+Here the list of events you can subscribe to:
 
 | Event name   | Description                                    |
 | ------------ | ---------------------------------------------- |
@@ -302,27 +319,28 @@ Here the list of events you can subscribe:
 
 A Router Event includes always the following information:
 
-| Event name   | Description                            |
-| ------------ | -------------------------------------- |
-| currentIndex | Current index of the current scene     |
-| currentStep  | coming soon                            |
-| totalScenes  | The total number of scenes             |
-| isFirst      | Boolean, if the scene is the first one |
-| isLast       | Boolean, if the scene is the last one  |
-|              |                                        |
+| Event name   | Description                                    |
+| ------------ | ---------------------------------------------- |
+| currentIndex | Current index of the current scene             |
+| currentStep  | Current index of the step of the current scene |
+| totalScenes  | The total number of scenes                     |
+| totalSteps   | The number of steps of the current scene       |
+| isFirst      | Boolean, if the scene is the first one         |
+| isLast       | Boolean, if the scene is the last one          |
+|              |                                                |
 
-## PRESENTA instance
+## Deck instance
 
 Any **PRESENTA Lib** instance exposes the following properties:
 
 | Property  | Description                                                  |
 | --------- | ------------------------------------------------------------ |
-| config    | The config object digested by the library                    |
+| config    | The config object digested by the library. The library doesn't clone the object before decorate with its internals. |
 | router    | The internal Router instance to access its public methods    |
 | destroy() | Clear all the internals to avoid memory leaks. Use it when you're rebuilding it many times (i.e. within an editor) |
 |           |                                                              |
 
-## PRESENTA object
+## Global object
 
 The **PRESENTA Lib** object exposes some static properties and methods that can be useful, i.e. to know its version:
 

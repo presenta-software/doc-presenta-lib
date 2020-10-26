@@ -40,15 +40,15 @@ creates this single scene:
 
 This is on purpose, to facilitate **interoperability**, **data transformation** as well as **fostering novel tools** to create presentations.
 
-As an example, this bare-bones **markdown-to-slides** widget requires a little data transformation before feeding the library:
+As an example, this bare-bones **markdown-to-slides** editor requires a little data transformation before feeding the library:
 
 <pEditMarkdown />
 
-::: tip Pssss!
+Or, creating a data-driven presentation requires just the data:
 
-You can edit the widget above!
+<pDemoInstagram />
 
-:::
+
 
 ## Motivation
 
@@ -58,7 +58,7 @@ Motivations come first from the struggle of using legacy tools (PPT, KEY, GSlide
 
 <pDemoScream />
 
-Then, the desire to create something that incorporates, as much as possible, efficiency and best practices to let the user work on the important part: **the content**.
+Then, the desire to create something that incorporates, as much as possible, efficiency and best practices to let people work on the important part: **the content**.
 
 But differences and personalizations are important. There's also a will to not lock-in too much, trying to allow customizations and experimentations.
 

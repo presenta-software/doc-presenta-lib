@@ -32,7 +32,8 @@ export default {
                 pagenum:true,
                 focus:true,
                 loop:true,
-                autoplay:2000
+                autoplay:2000,
+                limitswitch:false
               },
               scenes:[]
             }

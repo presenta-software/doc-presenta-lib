@@ -20,15 +20,18 @@ export default {
             code:`{
   colors: 'adele',
   transition: 'slideOver',
+  controllers:{
+    swiper:true
+  },
   scenes:[{
     blocks:[{
         type:'text',
         textVar: 'title',
-        step: 'p',
+        step: 'p,.step',
         text:\`<h3><mark>Use Arrows to move forward</mark></h3>
-              <h1><step>This</step> 
-              <step>Title</step> 
-              <step>Steps</step></h1>
+              <h1><span class="step">This</span> 
+              <span class="step">Title</span> 
+              <span class="step">Steps</span></h1>
               <p>Also</p>
               <p>These</p>
               <p>Paragraphs</p>\`

@@ -6,15 +6,17 @@ import * as Presenta from '@presenta/lib'
 import ControllerSwiper from '@presenta/controller-swiper'
 import ControllerMarkdown from '@presenta/controller-markdown'
 import ModuleHighlightJs from '@presenta/module-highlightjs'
-import BlockYoutube from '@presenta/block-youtube'
 import ModuleToast from '@presenta/module-toast'
+import ModuleStickers from '@presenta/module-stickers'
+import BlockYoutube from '@presenta/block-youtube'
 import BlockFitty from '@presenta/block-fitty'
 
 Presenta.use(ControllerSwiper)
 Presenta.use(ControllerMarkdown)
 Presenta.use(ModuleHighlightJs)
-Presenta.use(BlockYoutube)
 Presenta.use(ModuleToast)
+Presenta.use(ModuleStickers)
+Presenta.use(BlockYoutube)
 Presenta.use(BlockFitty)
 
 

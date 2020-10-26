@@ -4,7 +4,13 @@ title: Plugins
 
 # Plugins
 
-In this section you can find the list of official supported **PRESENTA Lib** plugins, sorted by  **type**.
+::: warning Dev Doc?
+
+The plugin development documentation is coming soon. **Stay tuned!**
+
+:::
+
+In this section you can find the list of officially supported **PRESENTA Lib** plugins, sorted by  **type**.
 
 ## Blocks
 

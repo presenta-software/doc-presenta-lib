@@ -127,7 +127,7 @@ To learn more about each block specific settings, jump to [this section](/refere
 
 **PRESENTA Lib** comes with an internal `router` that can be configured and extended by means of `controllers`. A controller can provide also global functionality and behaviors that are independent of the routing activity.
 
-This is the list of controllers that are active by default:
+Controllers config live in their proper field:
 
 ```js
 {
@@ -135,8 +135,7 @@ This is the list of controllers that are active by default:
   controllers: {
     keyboard: true,
     arrows: true,
-    black: true,
-    fullscreen: true
+    ...
   },
 }
 ```
@@ -154,8 +153,6 @@ var myPresentation = new Presenta('#app', {
   	colors: 'adele',
   	fonts: 'duck',
   	colorVar: 'alt',
-    blockVar: 'a',
-  	sceneVar: 'b',
   	transition: 'hSlide',
     scenes:[...]
 })
@@ -175,4 +172,3 @@ On the other hand, options are context specific, therefore, they don't inherit f
 
 
 
-For more detailed settings, check the [Reference](/reference/).

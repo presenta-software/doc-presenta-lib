@@ -19,7 +19,9 @@
     "@presenta/controller-swiper": "file:../presenta-controller-swiper",
     "@presenta/lib": "file:../presenta-lib",
     "@presenta/module-highlightjs": "file:../presenta-module-highlightjs",
+    "@presenta/module-stickers": "file:../presenta-module-stickers",
     "@presenta/module-toast": "file:../presenta-module-toast",
+    "axios": "^0.21.0",
     "vue2-ace-editor": "0.0.15"
   }
 }

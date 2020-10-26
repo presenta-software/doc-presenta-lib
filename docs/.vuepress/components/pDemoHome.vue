@@ -27,38 +27,69 @@ export default {
                 markdown:true
               },
               modules:{
-                toast:true
+                toast:true,
+                stickers:true
               },
-              //progressbarBottom:'0',
+              progressbarBottom:'0',
               
               
               scenes:[
               
               {
                 colorVar: 'sec',
-                
+                layout: 'pile',
                 blocks:[{
+                  type:'solid',
+                  //solidColor: `repeating-radial-gradient(circle, var(--colorBack), var(--colorBack) 40px, black 40px, black 80px)`
+                  solidColor: `repeating-linear-gradient(45deg, var(--colorBack), var(--colorBack) 40px, black 40px, black 80px)`
+                },{
                   type:'text',
                   scale: 3.3,
-                  text:'# **BUILD PRESENTATIONS,** <br />THE MODERN WAY.'
+                  colorBack:'none',
+                  text:'# **BUILD PRESENTATIONS,** <br />THE MODERN WAY...'
                 }],
-                toast:{
-                  text: `<img width="200" src="https://media.giphy.com/media/142K5KNLmUBtYI/giphy.gif" />`
-                },
-                toastVar: 'a',
-                toastPosition: 'bl',
-                toastBackColor: 'none',
-                toastShadow: 'none',
+                // toast:{
+                //   text: `<img width="200" src="https://media.giphy.com/media/142K5KNLmUBtYI/giphy.gif" />`
+                // },
+                // toastVar: 'a',
+                // toastPosition: 'bl',
+                // toastBackColor: 'none',
+                // toastShadow: 'none',
 
-                progressbarColor:'red'
+                stickers:[{
+                    url: 'https://media.giphy.com/media/142K5KNLmUBtYI/giphy.gif',
+                    size: 30,
+                    position: 'bl',
+                    padding: '0 2rem',
+                    enter:'bounceInUp',
+                    delay: .5
+                }, {
+                    url: 'https://media.giphy.com/media/3oKIPqM8BJ0ofNQOzK/giphy.gif',
+                    size: 30,
+                    position: 'tc',
+                    padding: '0',
+                    delay: 1.5
+                }, {
+                    url: 'https://media.giphy.com/media/gmmdtnbcRdDMs/giphy.gif',
+                    size: 20,
+                    position: 'br',
+                    enter:'bounceInUp',
+                    delay: 2.5
+                }]
+
               },
 
               {
                 colorVar: 'alt',
+                layout:'pile',
                 blocks:[{
+                  type:'solid',
+                  solidColor: `repeating-radial-gradient(circle, purple, purple 40px, #4b026f 40px, #4b026f 80px)`
+                },{
                   type:'text',
                   scale: 4,
-                  text:'<h1>Hello <br /><b>PRESENTA Lib</b></h1>'
+                  text:'<h1>Hello <br /><b>PRESENTA Lib</b></h1>',
+                  colorBack:'none'
                 }]
               },
               
@@ -69,7 +100,7 @@ export default {
                   textVar: 'title',
                   textPadding: '4rem',
                   scale:4,
-                  text:`<p>An <high><b>opinionated</b></high>, <high><b>config-driven</b></high>, <high><b>open-source</b></high> javascript library to create <mark>expressive</mark> presentations in seconds!</p>`
+                  text:`<p>An <high><b>opinionated</b></high>, <high><b>config-driven</b></high>, <high><b>open-source</b></high> javascript library to create <mark>expressive</mark> web presentations in seconds!</p>`
                 }]
               },
               {
@@ -79,10 +110,10 @@ export default {
                   textVar: 'text',
                   text:`<h1><high>Principles:</high></h1>
                   <ol>
-                    <li><step>Foster <b>content first</b></step></li>
-                    <li><step>Comes with <b>sensible defaults</b></step></li>
-                    <li><step>Backed with <b>smart constraints</b></step></li>
-                    <li><step><b>Pluggable</b> by design</step></li>
+                    <li><span class="step">Foster <b>content first</b></span></li>
+                    <li><span class="step">Comes with <b>sensible defaults</b></span></li>
+                    <li><span class="step">Backed with <b>smart constraints</b></span></li>
+                    <li><span class="step"><b>Pluggable</b> by design</span></li>
                   </ol>`
                 },{
                   type:'image',
@@ -133,7 +164,7 @@ export default {
                   type:'text',
                   textVar: 'title',
                   textPadding: '4rem',
-                  text:`<h1>Fullscreen - Autoplay - Page number - Shuffle - Progress - Keyboard/Mouse navigation - Black escape - Autofocus - Preload ...</h1>`
+                  text:`<h1>Fullscreen - Autoplay - Pagenum - Shuffle - Progress - Keyboard/Mouse - Black escape - Autofocus - Preload ...</h1>`
                 }]
               },
 
@@ -149,6 +180,14 @@ export default {
                   textVar: 'title',
                   textPadding: '4rem',
                   text:`<h1>Markdown <br /> Youtube <br /> Vega-Lite <br /> Chart.js <br /> HighLight.js <br /> Fitty <br /> ...</h1>`
+                }],
+                stickers:[{
+                    url: 'https://media.giphy.com/media/lrUctKWbrGiRExspBx/giphy.gif',
+                    size: 45,
+                    position: 'bl',
+                    padding: '0 3rem',
+                    enter:'bounceInLeft',
+                    delay: 1
                 }]
               },
 
@@ -164,7 +203,7 @@ export default {
                 toast:{
                   text: `<p>Hey! This is a Youtube video</p>
                   <p><b>CLICK</b> or press <b>SPACE</b> to play!</p>`,
-                  duration:5
+                  duration:7
                 },
                 toastVar: 'a',
                 toastPosition: 'tl'
@@ -205,7 +244,7 @@ export default {
 
 @media screen and (max-width:450px){
   .preso{
-    height: 250px;
+    height: 350px;
   }
 }
 </style>

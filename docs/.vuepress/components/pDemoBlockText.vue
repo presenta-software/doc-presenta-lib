@@ -53,7 +53,8 @@ This is a text :-P`,
                     type:'text',
                     textVar: 'text',
                     scale:3,
-                    text:`<h1>A <b>formatted</b> <mark>text</mark></h1>
+                    text:`
+<h1>A <b>formatted</b> <s>text</s></h1>
 <h2>With <a href="">subtitles</a> to:</h2>
 <ul>
 <li>Make!</li>
@@ -71,7 +72,6 @@ This is a text :-P`,
                     text:`
 <h3>You can include inline media as well:</h3>
 <img alt="2" src="/3.jpg" />
-<p><small><mark>with captions</mark></small></p>
 `,
                     textVar: 'title'
                   }]
