@@ -16,12 +16,8 @@ export default {
             doc:{
               colors: 'elane',
               fonts: 'creeper',
-              modules:{
-                markdown:true,
-                highlightjs:true
-              },
               controllers:{
-                current: 3,                
+                swiper:true
               },
               scenes:[
                 {
@@ -31,8 +27,40 @@ export default {
                     text:`# **VIDEO**`,
                     textVar: 'title'
                   },{
-                    type:'image',
-                    url:`/3.jpg`
+                    type:'video',
+                    url:`/sample.m4v`,
+                    loop:true,
+                    autoplay:true
+                  }]
+                },
+
+                {
+                  layout:'right',
+                  blocks:[{
+                    type:'text',
+                    textVar:'text',
+                    scale:2,
+                    text: '<p>Press <high>SPACEBAR</high> or <high>CLICK</high> to toggle the <high>VIDEO</high> playback</p>'
+                  },{
+                    type:'video',
+                    url:`/sample.m4v`
+                  }]
+                },
+
+                {
+                  blocks:[{
+                    type:'group',
+                    layout:'stack',
+                    blocks:[{
+                      type:'video',
+                      url:`/sample.m4v`,
+                      loop:true,
+                      autoplay:true
+                    },{
+                      type:'text',
+                      textVar:'title',
+                      text: '<h1>A title</h1><p>VIDEO and TEXT stacked</p>'
+                    }]
                   }]
                 }
               ]

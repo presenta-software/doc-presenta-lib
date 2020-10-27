@@ -18,10 +18,10 @@
               <option v-for="opt in colorvars" :key="opt">{{opt}}</option>
             </select>
 
-            <select v-model="currentScenevar" @change="onChange">
+            <!-- <select v-model="currentScenevar" @change="onChange">
               <option disabled :value="''">SceneVar:</option>
               <option v-for="opt in scenevars" :key="opt">{{opt}}</option>
-            </select>
+            </select> -->
           </div>
 
           <div class="right">

@@ -39,12 +39,12 @@ The **Look&Feel** can be defined by combining different properties. There's a gr
 
 The following properties can be set to the whole `presentation`, to a specific `scene` and to a specific `block` as well. 
 
-| Property | Description                                               | Default | Value          |
-| -------- | --------------------------------------------------------- | ------- | -------------- |
-| colors   | The colors scheme to use                                  | *none*  |                |
-| fonts    | The fonts set to use                                      | *none*  |                |
-| colorVar | The combination variation as defined in the colors scheme | main    | main, sec, alt |
-|          |                                                           |         |                |
+| Property | Description                                               | Default | Value                                  |
+| -------- | --------------------------------------------------------- | ------- | -------------------------------------- |
+| colors   | The colors scheme to use                                  | *none*  | String value from `Presenta.colors`    |
+| fonts    | The fonts set to use                                      | *none*  | String value from `Presenta.fonts`     |
+| colorVar | The combination variation as defined in the colors scheme | main    | String value from `Presenta.colorvars` |
+|          |                                                           |         |                                        |
 
 ::: tip Property' inheritance
 
@@ -62,11 +62,11 @@ Transition and layout properties can be set at `presentation` level and at `scen
 
 <pDemoLayout />
 
-| Property   | Description                                                  | Default | Value                             |
-| ---------- | ------------------------------------------------------------ | ------- | --------------------------------- |
-| layout     | The scene layout. It has effect only with more than one block. | *cols*  | cols, rows, head, foot, stack     |
-| transition | The transition type.                                         | *none*  | hSlide, vSlide, slideOver, fadeIn |
-|            |                                                              |         |                                   |
+| Property   | Description                                                  | Default | Value                                    |
+| ---------- | ------------------------------------------------------------ | ------- | ---------------------------------------- |
+| layout     | The scene layout. It has effect only with more than one block. | *cols*  | String value from `Presenta.layouts`     |
+| transition | The transition type.                                         | *none*  | String value from `Presenta.transitions` |
+|            |                                                              |         |                                          |
 
 
 
@@ -76,11 +76,7 @@ Transition and layout properties can be set at `presentation` level and at `scen
 
 ## Scenes
 
-A **scene** contains one or more **blocks**. Alongside `transition` and `layout`, the property `sceneVar` can be set to modify the
-
-<pDemoSceneVar />
-
-A scene can be extended with **modules**.  
+A **scene** contains one or more **blocks**. A scene can be extended with **modules**.  
 
 
 
@@ -306,16 +302,16 @@ router.next()
 
 Here the list of events you can subscribe to:
 
-| Event name   | Description                                    |
-| ------------ | ---------------------------------------------- |
-| indexChanged | Every time the scene index changes             |
-| nextIndex    | When the Router moves foreward                 |
-| prevIndex    | When the Router moves backward                 |
-| begin        | When the Router reaches the presentation begin |
-| end          | When the Router reaches the presentation end   |
-| init         | Only once, when the Router initializes         |
-| stepChanged  | coming soon                                    |
-|              |                                                |
+| Event name   | Description                                       |
+| ------------ | ------------------------------------------------- |
+| indexChanged | Every time the scene index changes                |
+| nextIndex    | When the Router moves foreward                    |
+| prevIndex    | When the Router moves backward                    |
+| begin        | When the Router reaches the presentation begin    |
+| end          | When the Router reaches the presentation end      |
+| init         | Only once, when the Router initializes            |
+| stepChanged  | When the Router increment the in-scene step index |
+|              |                                                   |
 
 A Router Event includes always the following information:
 
@@ -355,8 +351,7 @@ console.log(Presenta.version)
 | fonts       | The array of the built-in fonts names           |
 | transitions | The array of the built-in transition names      |
 | layouts     | The array of the built-in layout names          |
-| colorVars   | The array of the built-in color variation names |
-| sceneVars   | The array of the built-in scene variation names |
+| colorvars   | The array of the built-in color variation names |
 |             |                                                 |
 
 | Method          | Description                              |

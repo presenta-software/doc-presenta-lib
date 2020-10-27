@@ -34,6 +34,12 @@ creates this single scene:
 
 <pDemoGist />
 
+::: tip Fullscreen
+
+Any presentation can be experienced in fullscreen mode, simply click-to-focus on each one and type `ƒ` to toggle it.
+
+:::
+
 
 
 **PRESENTA Lib** is a **config-driven** presentation library, thus, it requires a *serializable object*.
@@ -43,6 +49,12 @@ This is on purpose, to facilitate **interoperability**, **data transformation** 
 As an example, this bare-bones **markdown-to-slides** editor requires a little data transformation before feeding the library:
 
 <pEditMarkdown />
+
+::: tip Editor
+
+When you see the code pane, you can live-edit it.
+
+:::
 
 Or, creating a data-driven presentation requires just the data:
 

@@ -15,9 +15,12 @@ export default {
         return{
             doc:{
               colors: 'dania',
-              fonts: 'heron',
+              fonts: 'cardinal',
               modules:{
                 markdown:true
+              },
+              controllers:{
+                swiper:true
               },
               
               arrowsVerticalPosition:'flex-end',
@@ -33,8 +36,8 @@ export default {
                     textVar: 'title'
                   },{
                     type:'text',
-                    text:`# Hello there!
-This is a text :-P`,
+                    text:`# Hello!
+This is markdown :-P`,
                     textVar: 'section',
                     colorVar: 'main'
                   }]
@@ -66,12 +69,15 @@ This is a text :-P`,
                 },
 
                 {
-                  colorVar: 'alt',
+                  colorVar: 'main',
                   blocks:[{
                     type:'text',
                     text:`
-<h3>You can include inline media as well:</h3>
-<img alt="2" src="/3.jpg" />
+<h3>You can include...</h3>
+
+<img alt="2" src="https://images.unsplash.com/photo-1448375240586-882707db888b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=950&q=60" />
+
+<p>...inline media as well.</p>
 `,
                     textVar: 'title'
                   }]

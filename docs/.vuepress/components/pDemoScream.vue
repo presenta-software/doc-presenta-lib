@@ -47,7 +47,7 @@ export default {
                 colorVar: 'alt',
                 blocks:[{
                   type:'fitty',
-                  text: `<span>MAKING</span>\n<span>PRESENTATIONS</span>\n<span class="step">CAN BE <b>FUN</b></span>`,
+                  text: `<span>MAKING</span>\n<span>PRESENTATIONS</span>\n<span class="step">CAN BE</span>\n<span class="step">MORE <b>FUN</b></span>`,
                   linefactor:.9
                 }]
               }]

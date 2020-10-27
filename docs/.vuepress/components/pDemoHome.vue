@@ -108,7 +108,7 @@ export default {
                 blocks:[{
                   type:'text',
                   textVar: 'text',
-                  text:`<h1><high>Principles:</high></h1>
+                  text:`<h1><high>Core Principles:</high></h1>
                   <ol>
                     <li><span class="step">Foster <b>content first</b></span></li>
                     <li><span class="step">Comes with <b>sensible defaults</b></span></li>
@@ -143,12 +143,12 @@ export default {
                 blocks:[{
                   colorVar: 'sec',
                   type:'text',
-                  text:`<h1>Smart styles:</h1>`
+                  text:`<h1>Smart Look&Feel:</h1>`
                 },{
                   type:'text',
                   textVar: 'title',
                   textPadding: '4rem',
-                  text:`<h1>Colors set - Fonts set <br/> Transitions - Layouts <br/> Container styles</h1>`
+                  text:`<h1>Colors set - Fonts set <br/> Transitions - Layouts <br/>Container styles</h1>`
                 }]
               },
 

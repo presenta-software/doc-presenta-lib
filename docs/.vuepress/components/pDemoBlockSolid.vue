@@ -16,12 +16,8 @@ export default {
             doc:{
               colors: 'cati',
               fonts: 'flow',
-              modules:{
-                markdown:true,
-                highlightjs:true
-              },
               controllers:{
-                current: 3,                
+                swiper:true
               },
               scenes:[
                 {
@@ -32,9 +28,38 @@ export default {
                     textVar: 'title'
                   },{
                     type:'solid',
-                    solidColor:'linear-gradient( 45deg, blue, red )'
+                    solidColor:'blue'
                   }]
-                }
+                },
+
+                {
+                  blocks:[{
+                    type:'solid',
+                    solidColor: 'linear-gradient( 45deg, blue, red )'
+                  }]
+                },
+
+                {
+                  blocks:[{
+                    type:'solid',
+                    solidColor: 'repeating-radial-gradient(circle, purple, purple 40px, #4b026f 40px, #4b026f 80px)'
+                  }]
+                },
+
+                {
+                  blocks:[{
+                    layout:'stack',
+                    type:'group',
+                    blocks:[{
+                      type:'solid',
+                      solidColor: 'linear-gradient( 175deg, yellow, green )'
+                    },{
+                      type:'text',
+                      textVar:'title',
+                      text: '<h1>A title</h1><p>SOLID and TEXT stacked</p>'
+                    }]
+                  }]
+                },
               ]
             }
         }
