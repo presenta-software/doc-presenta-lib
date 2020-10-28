@@ -11,7 +11,7 @@ npm-debug.log
 .settings
 .vscode
 
-# only md and dist
+# only md and dist...
 docs/.vuepress
 package.json
 package-lock.json
