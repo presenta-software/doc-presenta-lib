@@ -12,11 +12,6 @@ npm-debug.log
 .vscode
 
 # only md and dist
-# docs/.vuepress/components
-# docs/.vuepress/public
-# docs/.vuepress/styles
-# docs/.vuepress/config.js
-# docs/.vuepress/enhanceApp.js
-# 
-# package.json
-# package-lock.json
+docs/.vuepress
+package.json
+package-lock.json
