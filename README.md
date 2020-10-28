@@ -1,4 +1,4 @@
-## PRESENTA Lib Reference website
+## PRESENTA Lib Documentation website only
 
 This is [the website](https://lib.presenta.cc/) that contains the Documentation of [PRESENTA Lib](https://github.com/presenta-software/presenta-lib) library.
 
