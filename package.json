@@ -18,7 +18,6 @@
     "@presenta/controller-markdown": "file:../presenta-controller-markdown",
     "@presenta/controller-swiper": "file:../presenta-controller-swiper",
     "@presenta/lib": "file:../presenta-lib",
-    "@presenta/module-highlightjs": "file:../presenta-module-highlightjs",
     "@presenta/module-stickers": "file:../presenta-module-stickers",
     "@presenta/module-toast": "file:../presenta-module-toast",
     "axios": "^0.21.0",

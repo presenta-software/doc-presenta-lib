@@ -5,17 +5,15 @@ import * as Presenta from '@presenta/lib'
 
 import ControllerSwiper from '@presenta/controller-swiper'
 import ControllerMarkdown from '@presenta/controller-markdown'
-import ModuleHighlightJs from '@presenta/module-highlightjs'
-import ModuleToast from '@presenta/module-toast'
-import ModuleStickers from '@presenta/module-stickers'
+// import ModuleToast from '@presenta/module-toast'
+// import ModuleStickers from '@presenta/module-stickers'
 import BlockYoutube from '@presenta/block-youtube'
 import BlockFitty from '@presenta/block-fitty'
 
 Presenta.use(ControllerSwiper)
 Presenta.use(ControllerMarkdown)
-Presenta.use(ModuleHighlightJs)
-Presenta.use(ModuleToast)
-Presenta.use(ModuleStickers)
+// Presenta.use(ModuleToast)
+// Presenta.use(ModuleStickers)
 Presenta.use(BlockYoutube)
 Presenta.use(BlockFitty)
 
@@ -29,4 +27,17 @@ export default ({
     isServer // is this enhancement applied in server-rendering or client
   }) => {
   //Vue.component('BaseButton', BaseButton)
+
+  // const ControllerSwiper = require('@presenta/controller-swiper')
+  // const ControllerMarkdown = require('@presenta/controller-markdown')
+  // //const ModuleToast = require('@presenta/module-toast')
+  // //const ModuleStickers = require('@presenta/module-stickers')
+  // const BlockYoutube = require('@presenta/block-youtube')
+  // const BlockFitty = require('@presenta/block-fitty')
+  // Presenta.use(ControllerSwiper)
+  // Presenta.use(ControllerMarkdown)
+  // // Presenta.use(ModuleToast)
+  // // Presenta.use(ModuleStickers)
+  // Presenta.use(BlockYoutube)
+  // Presenta.use(BlockFitty)
 } 

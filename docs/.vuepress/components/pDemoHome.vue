@@ -9,6 +9,7 @@
 <script>
 import * as Presenta from '@presenta/lib'
 
+
 export default {
     
     data(){
@@ -230,7 +231,20 @@ export default {
         }
     },
     mounted(){
-      new Presenta(this.$refs.preso, this.doc)
+      import('@presenta/module-toast').then(module => {
+        Presenta.use(module)
+        import('@presenta/module-stickers').then(module => {
+          Presenta.use(module)
+
+          new Presenta(this.$refs.preso, this.doc)
+        })
+      })
+      
+      // const ModuleToast = require('@presenta/module-toast')
+      // const ModuleStickers = require('@presenta/module-stickers')
+      // Presenta.use(ModuleToast)
+      // Presenta.use(ModuleStickers)
+      // new Presenta(this.$refs.preso, this.doc)
     }
 }
 </script>
