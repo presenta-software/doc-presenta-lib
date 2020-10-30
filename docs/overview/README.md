@@ -50,9 +50,9 @@ As an example, this bare-bones **markdown-to-slides** editor requires a little d
 
 <pEditMarkdown />
 
-::: tip Editor
+::: tip Live Edit!
 
-When you see the code pane, you can live-edit it.
+When you see that white code pane, you can edit it.
 
 :::
 
