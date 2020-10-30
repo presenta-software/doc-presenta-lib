@@ -107,7 +107,7 @@ A **PRESENTA Lib** document contains a list of *scenes* that can be displayed on
 
 We stand on the shoulders of giants, **PRESENTA Lib** is no exception.
 
-**Credit where is due.** The library design has been inspired by several other projects.
+**Credit where it's due.** The library design has been inspired by several other projects.
 
 The idea of having a serializable config object as a single entry point as a means to foster further developments and integrations comes from the [Vega project](https://vega.github.io/).
 
