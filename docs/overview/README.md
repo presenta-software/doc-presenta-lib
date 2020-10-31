@@ -52,7 +52,7 @@ As an example, this bare-bones **markdown-to-slides** editor requires a little d
 
 ::: tip Live Edit!
 
-When you see that white code pane, you can edit it.
+When you see that white code pane, you can live-edit.
 
 :::
 
