@@ -50,8 +50,6 @@ This section describes the installation possibilities backed in official plugins
 
 First off, you need to know the unique `name` of the plugin and replace the `<PLUGIN-NAME>` placeholder with it (i.e. `block-youtube` or `controller-shuffle` or `module-markdown`)
 
-Keep aside the `plugin type` specified by the first word (it can be `block`, `module` or `controller`).
-
 #### From `unpkg`:
 
 ```html
@@ -73,16 +71,13 @@ now you can include the plugin in the browser with (it needs to be included afte
 <script src="/node_modules/@presenta/<PLUGIN-NAME>/dist/presenta-<PLUGIN-NAME>.min.js"></script>
 ```
 
-If you're using a bundler you have to explicitly install the plugin with the proper method:
+If you're using a bundler you have to explicitly install it after import:
 
 ```js
 import Presenta from '@presenta/lib'
 import myPluginName from '@presenta/<PLUGIN-NAME>'
 
-// init the plugin, using the right method, depending of the plugin type:
-Presenta.addBlock(myPluginName) // if it's a block
-Presenta.addModule(myPluginName) // if it's a module
-Presenta.addController(myPluginName) // if it's a controller
+Presenta.use(myPluginName)
 ```
 
 ## 
