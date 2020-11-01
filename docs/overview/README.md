@@ -56,7 +56,7 @@ When you see that white code pane, you can live-edit.
 
 :::
 
-Or, creating a data-driven presentation requires just the data:
+Or, creating a data-driven presentation just requires... the data:
 
 <pDemoInstagram />
 

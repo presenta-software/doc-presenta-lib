@@ -6,9 +6,9 @@ title: Extend
 
 **PRESENTA Lib** is designed to be extensible by means of external plugins. Currently there are three types of plugin depending of the type of the extension you want to provide:
 
-- Blocks (content types)
-- Modules (scene extensions)
-- Controllers (router controllers or global behaviours)
+- **Blocks** (media and content types)
+- **Modules** (scene extensions)
+- **Controllers** (router controllers or global behaviours)
 
 
 
