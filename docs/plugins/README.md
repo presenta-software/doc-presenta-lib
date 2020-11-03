@@ -16,10 +16,10 @@ In this section you can find the list of officially supported **PRESENTA Lib** p
 
 A Block renders a content. When you need a different type of media or render a content in a different way, external blocks might help, such as:
 
-- [Youtube](https://github.com/presenta-software/presenta-block-youtube)
-- [Vega-Lite](https://github.com/presenta-software/presenta-block-vegalite)
-- [Chartjs](https://github.com/presenta-software/presenta-block-chartjs)
-- [Fitty](https://github.com/presenta-software/presenta-block-fitty)
+- [Youtube](https://github.com/presenta-software/presenta-block-youtube) to render and control a YT video
+- [Vega-Lite](https://github.com/presenta-software/presenta-block-vegalite) to render a VL chart
+- [Chartjs](https://github.com/presenta-software/presenta-block-chartjs) to render a Chart.js component
+- [Fitty](https://github.com/presenta-software/presenta-block-fitty) to render a text using Fitty library
 
 <!--
 
@@ -35,7 +35,7 @@ Awesome! There's a [starter-kit](https://github.com/presenta-software/presenta-b
 
 A Module extends a `scene` in order provide additional features at scene level. Here some examples:
 
-- [HighLightJs](https://github.com/presenta-software/presenta-module-highlightjs)
+- [HighLightJs](https://github.com/presenta-software/presenta-module-highlightjs) to transform code block with syntax highlight
 
 <!--
 
@@ -51,9 +51,9 @@ Awesome! There's a [starter-kit](https://github.com/presenta-software/presenta-m
 
 A Controller extends the presentation as a whole by adding global capabilities:
 
-- [Markdown](https://github.com/presenta-software/presenta-controller-markdown)
-- [Swiper](https://github.com/presenta-software/presenta-controller-swiper)
-- [Console Notes](https://github.com/presenta-software/presenta-controller-console-notes)
+- [Markdown](https://github.com/presenta-software/presenta-controller-markdown) to convert markdown into HTML in supported blocks
+- [Swiper](https://github.com/presenta-software/presenta-controller-swiper) to add touch gesture for easier navigation on mobile devices
+- [Console Notes](https://github.com/presenta-software/presenta-controller-console-notes) to add dev-minded speaker notes 
 
 <!--
 

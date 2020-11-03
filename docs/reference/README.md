@@ -29,13 +29,21 @@ Each **PRESENTA Lib** document can be configured with some root options and prop
 | adapt  | Override **aspect** inferring it from the container size. If the dimensions are not positive, a fallback size will be used. | *true*  | Boolean |
 |        |                                                              |         |         |
 
-The size of the presentation is based on the container size. If it hasn't a positive dimention, a size fallback will be used, which is 360x200.
+The size of the presentation is based on the container size. If it hasn't a positive dimension, a  fallback will be used, which is 360x200 pixels.
 
 ## Look&Feel
 
-The **Look&Feel** can be defined by combining different properties. There's a great opportunity in finding unexpected results by combining many interconnected features.
+The **Look&Feel** can be defined by combining different properties. There's a great opportunity in finding unexpected results by combining many interconnected properties.
+
+Let's play a little bit with some of them:
 
 <pEditStyles />
+
+::: tip Live Edit!
+
+When you see that white code pane, you can live-edit.
+
+:::
 
 The following properties can be set to the whole `presentation`, to a specific `scene` and to a specific `block` as well. 
 
@@ -46,11 +54,7 @@ The following properties can be set to the whole `presentation`, to a specific `
 | colorVar | The combination variation as defined in the colors scheme | main    | String value from `Presenta.colorvars` |
 |          |                                                           |         |                                        |
 
-::: tip Property' inheritance
 
-It's honoured according to the specificity. The more specific, the higher priority.
-
-:::
 
 ## Transitions and Layouts
 
@@ -354,9 +358,7 @@ console.log(Presenta.version)
 | colorvars   | The array of the built-in color variation names |
 |             |                                                 |
 
-| Method          | Description                              |
-| --------------- | ---------------------------------------- |
-| addBlock()      | Method to include an external Block      |
-| addController() | Method to include an external Controller |
-| addModule()     | Method to include an external Module     |
-|                 |                                          |
+| Method | Description                           |
+| ------ | ------------------------------------- |
+| use()  | Method to install an external Plug-in |
+|        |                                       |

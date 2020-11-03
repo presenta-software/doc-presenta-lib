@@ -58,7 +58,7 @@ First thing first: each **PRESENTA Lib** document requires an HTML wrapper:
 <div id="app"></div>
 ```
 
-Then, bind it with the config object: 
+Then, bind it (passing both a selector or a DOM node) with the config object: 
 
 ```js
 var myPresentation = new Presenta('#app', {
