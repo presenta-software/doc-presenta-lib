@@ -18,11 +18,12 @@ To give a rought idea, this code:
 
 ```js
 new Presenta('#wrapper', {
-  colors:'adele',
+  colors:'blue',
   scenes:[{
     blocks:[{
       type:'text',
       textVar: 'title',
+      colorVar: 'alt',
       text:`<h1>Hello <b>there</b></h1>
 <p>This is a <high>scene</high> that contains a 'text' <mark>block</mark>...</p>`
     }],

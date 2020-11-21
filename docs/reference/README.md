@@ -22,6 +22,12 @@ Each **PRESENTA Lib** document can be configured with some root options and prop
 
 <pEditRootProps />
 
+::: tip Live Edit!
+
+When you see that white code pane, you can live-edit.
+
+:::
+
 | Option | Description                                                  | Default | Values  |
 | ------ | ------------------------------------------------------------ | ------- | ------- |
 | scenes | The list of scene objects **(required)**                     |         | Array   |
@@ -38,12 +44,6 @@ The **Look&Feel** can be defined by combining different properties. There's a gr
 Let's play a little bit with some of them:
 
 <pEditStyles />
-
-::: tip Live Edit!
-
-When you see that white code pane, you can live-edit.
-
-:::
 
 The following properties can be set to the whole `presentation`, to a specific `scene` and to a specific `block` as well. 
 
@@ -72,6 +72,24 @@ Transition and layout properties can be set at `presentation` level and at `scen
 | transition | The transition type.                                         | *none*  | String value from `Presenta.transitions` |
 |            |                                                              |         |                                          |
 
+Here an example of using the `transition` as well as the `layout` property to have text and image stacked:
+
+```js
+{
+  transition: 'fadeIn',
+  scenes:[{
+    layout: 'stack',
+    blocks:[{
+      type: 'image',
+      url: 'https://path-to/image.jpg'
+    },{
+      type:'text',
+      text:'<h1>Hello there!</h1>'
+    }]
+  }]
+}
+```
+
 
 
 
@@ -86,7 +104,7 @@ A **scene** contains one or more **blocks**. A scene can be extended with **modu
 
 ## Modules
 
-Modules are scene extensions. Right now there's just one built-in: *Steps*, that handles the in-scene fragments. By default, any HTML tag with the class `step` counts as fragment element. You can override the `step` option by adding a valid CSS selector (single and multiple as well).
+Modules are scene extensions. Right now there's just one built-in: *Steps*, that handles the in-scene fragments. By default, any HTML tag with the class `step` counts as fragment element. You can override the `steps` option by adding a valid CSS selector (single and multiple as well).
 
 The steps order is based on the HTML tag order. You can override it using the attribute `data-order` specifing a number that will be used by a sorting function.
 
@@ -253,6 +271,7 @@ Here the list of built-in controlles alongside their default activation status:
 | fullscreen  | Allows to run the presentation in fullscreen by pressing the keyboard key `f`. <br />To change the key, use the String char instead the Boolean. <br />This controller exposes its `toggle()` function. | **true** | Boolean, String |
 | hidden      | It hides a specific scene or block if it has the `hidden` option set to true. | **true** | Boolean         |
 | limitswitch | It provides a visual feedback when the user tries to navigate over the presentation begin or end. | **true** | Boolean         |
+| sender      | It sends interactive events (keyboard, mouse, touch) to blocks in order to abstract that layer (still experimental). | **true** | Boolean         |
 | autoplay    | It turns the navigation in auto-play mode. Default delay is 4000ms. Set a Number instead a Boolean to override that delay.<br />This Controller reads from each `scene` configuration the property `autoplay` in order to override the default `delay` time on a specific `scene` | false    | Boolean, Number |
 | loop        | It allows to loop the navigation, meaning, when the last scene is reached, the next command will jump to the first scene. | false    | Boolean         |
 | focus       | It allows to set the focus automatically instead waiting for the user click, allowing to use keyboard events without a first mouse interaction.<br /><br />The detection is based on the viewport intersection, thus, the last instance that got intersected with the viewport gets the focus. | false    | Boolean         |
@@ -261,6 +280,7 @@ Here the list of built-in controlles alongside their default activation status:
 | current     | Set the start `scene`  according to the passed number.       | false    | Boolean, Number |
 | pagenum     | It shows the current page number and total pages based on the current navigation. <br /><br />The default template `'%s / %S'` can be configured passing that String instead Bollean.<br /> `%s` is the current scene, `%S` is the total scenes. | false    | Boolean, String |
 | preload     | It preloads images and videos from `image` and `video` blocks. It's very useful to avoid image loading progress when activating a scene with images. Of course, this leads to a loading waterfall which is not ideal if you put the presentation online.<br /><br />As a rule of thumb: Use it when performing a speech. Keep it disabled in other situations. | false    | Boolean         |
+| sync        | It keeps in sync the navigation between multiple instance of the same presentation that are in the same origin. It works in all the modern browsers except on **Safari** which doesn't support the native BroadcastChannel. | false    | Boolean         |
 |             |                                                              |          |                 |
 
 ### External controllers
@@ -293,16 +313,19 @@ router.next()
 
  It contains the following public methods:
 
-| Method name    | Description                                    |
-| -------------- | ---------------------------------------------- |
-| next()         | Go to the next scene                           |
-| prev()         | Go to the previous scene                       |
-| goto(index)    | Go to a specific index of a scene (zero-based) |
-| currentIndex() | Get the current index of a scene (zero-based)  |
-| totalScenes()  | The number of scenes                           |
-| on(evt)        | Subscribe to router events                     |
-| off(evt)       | Unsubscribe to router events                   |
-|                |                                                |
+| Method name    | Description                                                  |
+| -------------- | ------------------------------------------------------------ |
+| next()         | Go to the next scene                                         |
+| prev()         | Go to the previous scene                                     |
+| goto(index)    | Go to a specific index of a scene (zero-based)               |
+| currentIndex() | Get the current index of a scene (zero-based)                |
+| currentStep()  | Get the current step of the current scene (zero-based)       |
+| totalScenes()  | The number of scenes                                         |
+| totalSteps()   | The number of steps in the current scene                     |
+| controllers    | The object map of the active controllers. Some controller expose public methods and properties, this is the way to reach them out. |
+| on(evt)        | Subscribe to router events                                   |
+| off(evt)       | Unsubscribe to router events                                 |
+|                |                                                              |
 
 Here the list of events you can subscribe to:
 
