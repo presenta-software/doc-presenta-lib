@@ -94,7 +94,7 @@ Furthermore, we believe that presentations can be different, more **expressive**
 
 A **PRESENTA Lib** document contains a list of *scenes* that can be displayed one at a time. Each *scene* contains one or more *block* of content. The scene is responsible to keep blocks together. A *block* is the minimum unit that renders a specific content from  a given config object.
 
-
+<pDemoArc />
 
 **PRESENTA Lib** is designed to be extensible by using external plugins. Currently, there are three **types** depending of the function you would add:
 

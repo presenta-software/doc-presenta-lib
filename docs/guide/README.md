@@ -117,6 +117,10 @@ Each `scene` can include one or more blocks.  A `block` is responsible to render
 
 <br />
 
+<pDemoBlockSvg />
+
+<br />
+
 <pDemoBlockSolid />
 
 You can find additional block types [here](/plugins/#blocks) as external plugins.

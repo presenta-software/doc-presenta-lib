@@ -106,7 +106,71 @@ A **scene** contains one or more **blocks**. A scene can be extended with **modu
 
 Modules are scene extensions. Right now there's just one built-in: *Steps*, that handles the in-scene fragments. By default, any HTML tag with the class `step` counts as fragment element. You can override the `steps` option by adding a valid CSS selector (single and multiple as well).
 
-The steps order is based on the HTML tag order. You can override it using the attribute `data-order` specifing a number that will be used by a sorting function.
+The steps order is based on the selectors order and then, the HTML order within each selector. 
+
+The following configuration uses the default setting, thus, `h1` and `p` will be converted as fragments because the class `.step`:
+
+```js
+{
+  blocks:[{
+    type:'text',
+    text:`<h1 class="step">Title</h1>
+<p class="step">Some text</p>`
+  }]
+}
+```
+
+The following example convert only the `li` tags as fragments:
+
+```js
+{
+  blocks:[{
+    type:'text',
+    steps: 'li',
+    text:`<h1>Title</h1>
+<ul>
+	<li>Item 1</li>
+	<li>Item 2</li>
+</ul>`
+  }]
+}
+```
+
+With the next one, we are converting mixed elements, preserving the order of the selector:
+
+```js
+{
+  blocks:[{
+    type:'text',
+    steps: '#first,li,#last',
+    text:`<h1 id="last">Title</h1>
+<ul>
+	<li>Item 1</li>
+	<li>Item 2</li>
+</ul>
+<h1 id="first">Title</h1>`
+  }]
+}
+```
+
+
+
+The default order on the same selector can be overriden by using the attribute `data-order` specifing a number that will be used by a sorting function:
+
+```js
+  blocks:[{
+    type:'text',
+    steps: '#first,li',
+    text:`<ul>
+	<li data-order="2">Item 2</li>
+	<li data-order="1">Item 1</li>
+</ul>
+<h1 id="first">Title</h1>`
+  }]
+}
+```
+
+
 
 <pEditSteps />
 
@@ -122,7 +186,7 @@ Modules can be created as external **PRESENTA Lib** plugin. You can find additio
 
 
 
-## Content (block) type
+## Blocks
 
 A block is the minimal piece of content. It can sit together with other blocks in a scene. 
 
@@ -168,9 +232,11 @@ By default the image will `cover` the available block area.
 
 ### Video
 
-The `video` block allows to include a video file (encoded in a browser compatible format).
+The `video` block allows to include a video file (encoded in a [browser compatible](https://developer.mozilla.org/en-US/docs/Web/Media/Formats/Video_codecs) format).
 
-By default the video won't start automatically. To control the playback (play/pause) you can use the **SPACEBAR** keyboard key.
+By default, the video won't start automatically. To control the playback (play/pause) you can use the `SPACEBAR` keyboard key. To rewind the video, use the `r` key.
+
+To change the audio volume, use <kbd>m</kbd> to toggle the mute. Use <kbd>+</kbd> and <kbd>-</kbd> to increase/descrease the volume by 10% factor.
 
 By default the video will `cover` the available block area. 
 
@@ -203,6 +269,27 @@ If you have the embed code (the **iframe** code) you can use the `code` property
 | code   | The complete `iframe` code, **(required)** if `url` is not set |         | String  |
 | poster | The optional poster image                                    |         | URL     |
 |        |                                                              |         |         |
+
+
+
+### Svg
+
+The `svg` block allows to inject and render an external SVG file. The reason why of this, instead of using the svg as image (btw, you can do it with the `image` block), is to exploit its DOM with the library `steps` feature.
+
+| Option | Description                                            | Default | Value  |
+| ------ | ------------------------------------------------------ | ------- | ------ |
+| type   | The block type **(required)**                          |         | "svg"  |
+| url    | The path or URL to the SVG file **(required)**         |         | URL    |
+| code   | The raw `svg` code, **(required)** if `url` is not set |         | String |
+|        |                                                        |         |        |
+
+::: warning Local webserver required
+
+Note that this block, when using the `url` property, doesn't work outside a webserver. If you configure your presentation and open the `index.html` file from the file system, the browser will throw an error and the svg won't be loaded at all. 
+
+It's going to work fine using the `code` property, though.
+
+:::
 
 
 
@@ -352,7 +439,7 @@ A Router Event includes always the following information:
 | isLast       | Boolean, if the scene is the last one          |
 |              |                                                |
 
-## Deck instance
+## Instance
 
 Any **PRESENTA Lib** instance exposes the following properties:
 
