@@ -61,7 +61,7 @@ First thing first: each **PRESENTA Lib** document requires an HTML wrapper:
 Then, bind it (passing both a selector or a DOM node) with the config object: 
 
 ```js
-var myPresentation = new Presenta('#app', {
+new Presenta('#app', {
     scenes: []
 })
 ```
@@ -69,7 +69,7 @@ var myPresentation = new Presenta('#app', {
 Add a `scene`, an object that contains, at least, the `blocks` array:
 
 ```js
-var myPresentation = new Presenta('#app', {
+new Presenta('#app', {
     scenes: [{
     	blocks:[]
     }]
@@ -79,7 +79,7 @@ var myPresentation = new Presenta('#app', {
 A `block` object is the minimal unit of content. The are many block **types**,  `text` is one of them:
 
 ```js
-var myPresentation = new Presenta('#app', {
+new Presenta('#app', {
     scenes: [{
       blocks:[{
         type: 'text',
@@ -153,7 +153,7 @@ To learn more about the available controllers and their specific settings, jump 
 A **PRESENTA Lib** document can be styled by leveraging the combination of some properties:
 
 ```javascript
-var myPresentation = new Presenta('#app', {
+new Presenta('#app', {
   	colors: 'adele',
   	fonts: 'duck',
   	colorVar: 'alt',
