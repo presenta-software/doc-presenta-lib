@@ -5,7 +5,7 @@ title: Chart.js Block
 # Chart.js Block
 
 
-This block displays a [Chart.js](https://www.chartjs.org/) component within a [PRESENTA Lib](https://github.com/presenta-software/presenta-lib) document.
+This block renders a [Chart.js](https://www.chartjs.org/) component.
 
 <pPluginChartjs />
 
@@ -38,7 +38,7 @@ To configure this block use this setting:
 
 Please read the installation istructions for official plugins [here](/plugins/installation) using this unique identifier: `block-chartjs`
 
-
+You can find the source code in its [repository](https://github.com/presenta-software/presenta-block-chartjs).
 
 
 
