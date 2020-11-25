@@ -16,9 +16,9 @@ In this section you can find the list of officially supported **PRESENTA Lib** p
 
 A Block renders a content. When you need a different type of media or render a content in a different way, external blocks might help, such as:
 
-- [Youtube](https://github.com/presenta-software/presenta-block-youtube) to render and control a YT video
-- [Vega-Lite](https://github.com/presenta-software/presenta-block-vegalite) to render a VL chart
+- [Youtube](blocks/youtube) to render and control a YT video
 - [Chartjs](blocks/chartjs) to render a Chart.js component
+- [Vega-Lite](https://github.com/presenta-software/presenta-block-vegalite) to render a VL chart
 - [Fitty](https://github.com/presenta-software/presenta-block-fitty) to render a text using Fitty library
 
 
