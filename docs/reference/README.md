@@ -359,6 +359,7 @@ Here the list of built-in controlles alongside their default activation status:
 | hidden      | It hides a specific scene or block if it has the `hidden` option set to true. | **true** | Boolean         |
 | limitswitch | It provides a visual feedback when the user tries to navigate over the presentation begin or end. | **true** | Boolean         |
 | sender      | It sends interactive events (keyboard, mouse, touch) to blocks in order to abstract that layer (still experimental). | **true** | Boolean         |
+| cache       | It fetches external resources in order to inject the content in their relative config object | **true** | Boolean         |
 | autoplay    | It turns the navigation in auto-play mode. Default delay is 4000ms. Set a Number instead a Boolean to override that delay.<br />This Controller reads from each `scene` configuration the property `autoplay` in order to override the default `delay` time on a specific `scene` | false    | Boolean, Number |
 | loop        | It allows to loop the navigation, meaning, when the last scene is reached, the next command will jump to the first scene. | false    | Boolean         |
 | focus       | It allows to set the focus automatically instead waiting for the user click, allowing to use keyboard events without a first mouse interaction.<br /><br />The detection is based on the viewport intersection, thus, the last instance that got intersected with the viewport gets the focus. | false    | Boolean         |
@@ -378,6 +379,25 @@ Controllers can be created as external **PRESENTA Lib** plugin. You can find add
 
 
 
+## Instance
+
+First off, a **PRESENTA Lib** instance is a Promise, therefore to get its meaningful object you have to write something like:
+
+```js
+new Presenta('#app', config).then(preso => {
+  console.log(preso)
+})
+```
+
+Now you can access the following properties:
+
+| Property  | Description                                                  |
+| --------- | ------------------------------------------------------------ |
+| config    | The config object digested by the library. The library doesn't clone the object before decorate with its internals. |
+| router    | The internal Router instance to access its public methods    |
+| destroy() | Clear all the internals to avoid memory leaks. Use it when you're rebuilding it many times (i.e. within an editor) |
+|           |                                                              |
+
 
 
 ## Router
@@ -391,9 +411,10 @@ It can be controlled and extended using `controllers`.
 Any **PRESENTA Lib** instance exposes its `router` instance:
 
 ```js
-var myPresentation = new Presenta('#app', {...})
-var router = myPresentation.router
-router.next()
+new Presenta('#app', {...}).then(myPresentation => {
+  var router = myPresentation.router
+	router.next()
+})
 ```
 
 
@@ -438,17 +459,6 @@ A Router Event includes always the following information:
 | isFirst      | Boolean, if the scene is the first one         |
 | isLast       | Boolean, if the scene is the last one          |
 |              |                                                |
-
-## Instance
-
-Any **PRESENTA Lib** instance exposes the following properties:
-
-| Property  | Description                                                  |
-| --------- | ------------------------------------------------------------ |
-| config    | The config object digested by the library. The library doesn't clone the object before decorate with its internals. |
-| router    | The internal Router instance to access its public methods    |
-| destroy() | Clear all the internals to avoid memory leaks. Use it when you're rebuilding it many times (i.e. within an editor) |
-|           |                                                              |
 
 ## Global object
 
