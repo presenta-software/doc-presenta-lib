@@ -1,5 +1,6 @@
 ---
 title: Plugins
+sidebarDepth: 2
 ---
 
 # Plugins

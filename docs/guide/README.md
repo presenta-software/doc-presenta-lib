@@ -18,7 +18,7 @@ You can download this [zip](https://github.com/presenta-software/presenta-lib-st
 
 ### Remote starterkit
 
-You can start with the same example by forking this [Codepen](https://codepen.io/abusedmedia/full/ZEOWyqM) or [Glitch](https://glitch.com/edit/#!/presenta-starterkit-example?path=config.js) project. Your call.
+You can start with the same example by forking this [Codepen](https://codepen.io/abusedmedia/full/ZEOWyqM), [Glitch](https://glitch.com/edit/#!/presenta-starterkit?path=config.js) or [Repl](https://repl.it/@fabiofranchino/presenta-starterkit#config.js) project. Your call.
 
 ### Unpkg
 
