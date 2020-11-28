@@ -56,21 +56,27 @@ The following properties can be set to the whole `presentation`, to a specific `
 
 
 
-## Transitions and Layouts
+## Transitions
 
-Transition and layout properties can be set at `presentation` level and at `scene` level as well.
+The transition property can be set both at `presentation` level and at `scene` level as well.
 
 <pDemoTransitions />
 
-<br />
+| Property   | Description          | Default | Value                                    |
+| ---------- | -------------------- | ------- | ---------------------------------------- |
+| transition | The transition type. | *none*  | String value from `Presenta.transitions` |
+|            |                      |         |                                          |
+
+## Layouts
+
+The layout property can be set both at `presentation` level and at `scene` level as well.
 
 <pDemoLayout />
 
-| Property   | Description                                                  | Default | Value                                    |
-| ---------- | ------------------------------------------------------------ | ------- | ---------------------------------------- |
-| layout     | The scene layout. It has effect only with more than one block. | *cols*  | String value from `Presenta.layouts`     |
-| transition | The transition type.                                         | *none*  | String value from `Presenta.transitions` |
-|            |                                                              |         |                                          |
+| Property | Description                                                  | Default | Value                                |
+| -------- | ------------------------------------------------------------ | ------- | ------------------------------------ |
+| layout   | The scene layout. It has effect only with more than one block. | *cols*  | String value from `Presenta.layouts` |
+|          |                                                              |         |                                      |
 
 Here an example of using the `transition` as well as the `layout` property to have text and image stacked:
 
@@ -104,83 +110,19 @@ A **scene** contains one or more **blocks**. A scene can be extended with **modu
 
 ## Modules
 
-Modules are scene extensions. Right now there's just one built-in: *Steps*, that handles the in-scene fragments. By default, any HTML tag with the class `step` counts as fragment element. You can override the `steps` option by adding a valid CSS selector (single and multiple as well).
+Modules are scene extensions. 
 
-The steps order is based on the selectors order and then, the HTML order within each selector. 
+### Steps
 
-The following configuration uses the default setting, thus, `h1` and `p` will be converted as fragments because the class `.step`:
-
-```js
-{
-  blocks:[{
-    type:'text',
-    text:`<h1 class="step">Title</h1>
-<p class="step">Some text</p>`
-  }]
-}
-```
-
-The following example convert only the `li` tags as fragments:
-
-```js
-{
-  blocks:[{
-    type:'text',
-    steps: 'li',
-    text:`<h1>Title</h1>
-<ul>
-	<li>Item 1</li>
-	<li>Item 2</li>
-</ul>`
-  }]
-}
-```
-
-With the next one, we are converting mixed elements, preserving the order of the selector:
-
-```js
-{
-  blocks:[{
-    type:'text',
-    steps: '#first,li,#last',
-    text:`<h1 id="last">Title</h1>
-<ul>
-	<li>Item 1</li>
-	<li>Item 2</li>
-</ul>
-<h1 id="first">Title</h1>`
-  }]
-}
-```
-
-
-
-The default order on the same selector can be overriden by using the attribute `data-order` specifing a number that will be used by a sorting function:
-
-```js
-  blocks:[{
-    type:'text',
-    steps: '#first,li',
-    text:`<ul>
-	<li data-order="2">Item 2</li>
-	<li data-order="1">Item 1</li>
-</ul>
-<h1 id="first">Title</h1>`
-  }]
-}
-```
-
-
+So far, there's just one built-in: `steps`, that handles the in-block fragments, such as:
 
 <pEditSteps />
 
-You can disable the module completely in case you need:
+::: tip Learn more!
 
-```js
-modules:{
-  steps:false
-}
-```
+There's a [dedicated section](steps) to learn all the details of `steps`.
+
+:::
 
 Modules can be created as external **PRESENTA Lib** plugin. You can find additional modules [here](/plugins/#modules).
 
@@ -211,10 +153,10 @@ The text automatically scales down if there is not enough available space. The a
 | scale  | It allows to control the size of the text box within the available block space | 1       | Number |
 |        |                                                              |         |        |
 
-| Property | Description                | Default | Value  |
-| -------- | -------------------------- | ------- | ------ |
-| textVar  | The text layout variations |         | String |
-|          |                            |         |        |
+| Property | Description                | Default | Value                                          |
+| -------- | -------------------------- | ------- | ---------------------------------------------- |
+| textVar  | The text layout variations |         | String ('title', 'text', 'section', 'mention') |
+|          |                            |         |                                                |
 
 ### Image
 
@@ -381,7 +323,7 @@ Controllers can be created as external **PRESENTA Lib** plugin. You can find add
 
 ## Instance
 
-First off, a **PRESENTA Lib** instance is a Promise, therefore to get its meaningful object you have to write something like:
+First off, a **PRESENTA Lib** instance is a [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise), therefore to get its meaningful object you have to write something like:
 
 ```js
 new Presenta('#app', config).then(preso => {
@@ -411,9 +353,9 @@ It can be controlled and extended using `controllers`.
 Any **PRESENTA Lib** instance exposes its `router` instance:
 
 ```js
-new Presenta('#app', {...}).then(myPresentation => {
-  var router = myPresentation.router
-	router.next()
+new Presenta('#app', {...}).then(preso => {
+  var router = preso.router
+  router.next()
 })
 ```
 
@@ -450,8 +392,9 @@ Here the list of events you can subscribe to:
 
 A Router Event includes always the following information:
 
-| Event name   | Description                                    |
+| Property     | Description                                    |
 | ------------ | ---------------------------------------------- |
+| name         | The event name                                 |
 | currentIndex | Current index of the current scene             |
 | currentStep  | Current index of the step of the current scene |
 | totalScenes  | The total number of scenes                     |

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vegalite</title>
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+        html, body, #app{
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+<body>
+    <div id="app"></div>
+
+    <script src="https://unpkg.com/@presenta/lib"></script>
+    <script src="https://unpkg.com/@presenta/block-vegalite"></script>
+    <script>
+        var config = {
+            colors:'blue',
+            scenes:[
+                {
+                    blocks:[{
+                        type: 'vegalite',
+                        url: 'https://raw.githubusercontent.com/abusedmedia/test/main/testvega2.json'
+                    }]
+                },
+                {
+                    colorVar:'sec',
+                    blocks:[{
+                        type: 'text',
+                        url: '<h1>Vegalite</h1>'
+                    },{
+                        type: 'vegalite',
+                        url: 'https://raw.githubusercontent.com/abusedmedia/test/main/testvega2.json'
+                    }]
+                }
+            ]
+        }
+        new Presenta('#app', config)
+    </script>
+</body>
+</html>

@@ -18,9 +18,8 @@ A Block renders a content. When you need a different type of media or render a c
 
 - [Youtube](blocks/youtube) to render and control a YT video
 - [Chartjs](blocks/chartjs) to render a Chart.js component
-- [Vega-Lite](https://github.com/presenta-software/presenta-block-vegalite) to render a VL chart
-- [Fitty](https://github.com/presenta-software/presenta-block-fitty) to render a text using Fitty library
-
+- [Fitty](blocks/fitty) to render a text using Fitty library
+- [Vega-Lite](blocks/vegalite) to render a VL chart
 
 <!--
 
@@ -36,7 +35,7 @@ Awesome! There's a [starter-kit](https://github.com/presenta-software/presenta-b
 
 A Module extends a `scene` in order provide additional features at scene level. Here some examples:
 
-- [HighLightJs](https://github.com/presenta-software/presenta-module-highlightjs) to transform code block with syntax highlight
+- [HighLightJs](modules/highlightjs) to transform code block with syntax highlight
 
 <!--
 
