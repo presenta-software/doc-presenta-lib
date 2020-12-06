@@ -10,8 +10,18 @@ First off, you need to know the unique `name` of the plugin and replace the `<PL
 
 #### From `unpkg`:
 
+Using the script tag in the HTML document:
+
 ```html
 <script src="https://unpkg.com/@presenta/<PLUGIN-NAME>"></script>
+```
+
+Alternatively, using the config object:
+
+```js
+plugins:[
+  {url: 'https://unpkg.com/@presenta/<PLUGIN-NAME>'}
+]
 ```
 
 #### From `npm`:
@@ -32,10 +42,9 @@ now you can include the plugin in the browser with (it needs to be included afte
 If you're using a bundler you have to explicitly install it after import:
 
 ```js
-import Presenta from '@presenta/lib'
+import * as Presenta from '@presenta/lib'
 import myPluginName from '@presenta/<PLUGIN-NAME>'
 
 Presenta.use(myPluginName)
 ```
 
-## 

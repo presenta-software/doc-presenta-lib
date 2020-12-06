@@ -14,11 +14,11 @@ You can start with the library in several ways depending of your favorite setup.
 
 ### Local starterkit
 
-You can download this [zip](https://github.com/presenta-software/presenta-lib-starterkit/archive/master.zip) that contains a starter example you can edit locally. Just double-click the `index.html` file to run your presentation even if offline.
+You can download this [zip](https://github.com/presenta-software/presenta-lib-starterkit/archive/master.zip) that contains a markdown based example you can edit locally. 
 
 ### Remote starterkit
 
-You can start with the same example by forking this [Codepen](https://codepen.io/abusedmedia/full/ZEOWyqM), [Glitch](https://glitch.com/edit/#!/presenta-starterkit?path=config.js) or [Repl](https://repl.it/@fabiofranchino/presenta-starterkit#config.js) project. Your call.
+You can start with a config based example by forking this [Codepen](https://codepen.io/abusedmedia/full/ZEOWyqM), [Glitch](https://glitch.com/edit/#!/presenta-starterkit?path=config.js) or [Repl](https://repl.it/@fabiofranchino/presenta-starterkit#config.js) project.
 
 ### Unpkg
 

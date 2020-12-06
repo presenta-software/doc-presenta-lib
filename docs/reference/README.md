@@ -28,12 +28,13 @@ When you see that white code pane, you can live-edit.
 
 :::
 
-| Option | Description                                                  | Default | Values  |
-| ------ | ------------------------------------------------------------ | ------- | ------- |
-| scenes | The list of scene objects **(required)**                     |         | Array   |
-| aspect | Define the ratio between width and height                    | 1.6     | Number  |
-| adapt  | Override **aspect** inferring it from the container size. If the dimensions are not positive, a fallback size will be used. | *true*  | Boolean |
-|        |                                                              |         |         |
+| Option  | Description                                                  | Default | Values                             |
+| ------- | ------------------------------------------------------------ | ------- | ---------------------------------- |
+| scenes  | The list of scene objects **(required)**                     |         | Array                              |
+| aspect  | Define the ratio between width and height                    | 1.6     | Number                             |
+| adapt   | Override **aspect** inferring it from the container size. If the dimensions are not positive, a fallback size will be used. | *true*  | Boolean                            |
+| plugins | An array of objects URL to install external plugins at run-time. Additional info [here](/plugins/installation.html). |         | Array of object ({url:'Some Url'}) |
+|         |                                                              |         |                                    |
 
 The size of the presentation is based on the container size. If it hasn't a positive dimension, a  fallback will be used, which is 360x200 pixels.
 
@@ -311,6 +312,7 @@ Here the list of built-in controlles alongside their default activation status:
 | pagenum     | It shows the current page number and total pages based on the current navigation. <br /><br />The default template `'%s / %S'` can be configured passing that String instead Bollean.<br /> `%s` is the current scene, `%S` is the total scenes. | false    | Boolean, String |
 | preload     | It preloads images and videos from `image` and `video` blocks. It's very useful to avoid image loading progress when activating a scene with images. Of course, this leads to a loading waterfall which is not ideal if you put the presentation online.<br /><br />As a rule of thumb: Use it when performing a speech. Keep it disabled in other situations. | false    | Boolean         |
 | sync        | It keeps in sync the navigation between multiple instance of the same presentation that are in the same origin. It works in all the modern browsers except on **Safari** which doesn't support the native BroadcastChannel. | false    | Boolean         |
+| baseurl     | It infers the asset relative paths prepending a base-URL passed as value. | false    | String          |
 |             |                                                              |          |                 |
 
 ### External controllers
