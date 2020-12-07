@@ -10,13 +10,13 @@ First off, you need to know the unique `name` of the plugin and replace the `<PL
 
 #### From `unpkg`:
 
-Using the script tag in the HTML document (**recomended**):
+Using the script tag in the HTML document (**recommended**):
 
 ```html
 <script src="https://unpkg.com/@presenta/<PLUGIN-NAME>"></script>
 ```
 
-Alternatively, using the config object (**not recomended**, useful only when you can't include the above script tag) :
+Alternatively, using the config object (**not recommended**, useful only when you can't include the above script tag) :
 
 ```js
 plugins:[

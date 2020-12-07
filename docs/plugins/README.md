@@ -17,10 +17,11 @@ In this section you can find the list of officially supported **PRESENTA Lib** p
 
 A Block renders a content. When you need a different type of media or render a content in a different way, external blocks might help, such as:
 
-- [Youtube](blocks/youtube) to render and control a YT video
-- [Chartjs](blocks/chartjs) to render a Chart.js component
-- [Fitty](blocks/fitty) to render a text using Fitty library
-- [Vega-Lite](blocks/vegalite) to render a VL chart
+- [Youtube](blocks/youtube)
+- [Chartjs](blocks/chartjs)
+- [Fitty](blocks/fitty)
+- [Vega-Lite](blocks/vegalite)
+- [Flowchart.js](blocks/flowchartjs)
 
 <!--
 
@@ -36,7 +37,7 @@ Awesome! There's a [starter-kit](https://github.com/presenta-software/presenta-b
 
 A Module extends a `scene` in order provide additional features at scene level. Here some examples:
 
-- [HighLightJs](modules/highlightjs) to transform code block with syntax highlight
+- [HighLightJs](modules/highlightjs)
 
 <!--
 
