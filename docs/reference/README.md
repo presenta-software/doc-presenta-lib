@@ -33,7 +33,7 @@ When you see that white code pane, you can live-edit.
 | scenes  | The list of scene objects **(required)**                     |         | Array                              |
 | aspect  | Define the ratio between width and height                    | 1.6     | Number                             |
 | adapt   | Override **aspect** inferring it from the container size. If the dimensions are not positive, a fallback size will be used. | *true*  | Boolean                            |
-| plugins | An array of objects URL to install external plugins at run-time. Additional info [here](/plugins/installation.html). |         | Array of object ({url:'Some Url'}) |
+| plugins | An array of objects URL to install external plugins at run-time. This is **not** the primary and suggested way to install plugins. Additional info [here](/plugins/installation.html). |         | Array of object ({url:'Some Url'}) |
 |         |                                                              |         |                                    |
 
 The size of the presentation is based on the container size. If it hasn't a positive dimension, a  fallback will be used, which is 360x200 pixels.

@@ -14,11 +14,11 @@ You can start with the library in several ways depending of your favorite setup.
 
 ### Local starterkit
 
-You can download this [zip](https://github.com/presenta-software/presenta-lib-starterkit/archive/master.zip) that contains a markdown based example you can edit locally. 
+You can download this [zip](https://github.com/presenta-software/presenta-lib-starterkit/archive/master.zip) that contains a **markdown based** example you can edit locally. This is the quickest way to get started for those who want to write markdown to create slides locally.
 
 ### Remote starterkit
 
-You can start with a config based example by forking this [Codepen](https://codepen.io/abusedmedia/full/ZEOWyqM), [Glitch](https://glitch.com/edit/#!/presenta-starterkit?path=config.js) or [Repl](https://repl.it/@fabiofranchino/presenta-starterkit#config.js) project.
+You can start with a **config based** example by forking this [Codepen](https://codepen.io/abusedmedia/full/ZEOWyqM), [Glitch](https://glitch.com/edit/#!/presenta-starterkit?path=config.js) or [Repl](https://repl.it/@fabiofranchino/presenta-starterkit#config.js) project. This is a bit more technical that the previous one since you have to deal with the JSON object. A remote markdown based version can be experienced with the [Playground](https://play.presenta.cc).
 
 ### Unpkg
 
