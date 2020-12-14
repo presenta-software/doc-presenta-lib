@@ -311,6 +311,7 @@ Here the list of built-in controlles alongside their default activation status:
 | pagenum     | It shows the current page number and total pages based on the current navigation. <br /><br />The default template `'%s / %S'` can be configured passing that String instead Bollean.<br /> `%s` is the current scene, `%S` is the total scenes. | false    | Boolean, String |
 | preload     | It preloads images and videos from `image` and `video` blocks. It's very useful to avoid image loading progress when activating a scene with images. Of course, this leads to a loading waterfall which is not ideal if you put the presentation online.<br /><br />As a rule of thumb: Use it when performing a speech. Keep it disabled in other situations. | false    | Boolean         |
 | sync        | It keeps in sync multiple instance of the same presentation that are in the same origin. It works in all the modern browsers except on **Safari** which doesn't support the native BroadcastChannel.<br />It basically syncs interactive events (keyboard, mouse, touch, still experimental). | false    | Boolean         |
+| rsync       | It keeps the router events sync on multiple instance of the same presentation. Same limitations as the `sync` controller. | false    | Boolean         |
 | baseurl     | It infers the asset relative paths prepending a base-URL passed as value. | false    | String          |
 |             |                                                              |          |                 |
 

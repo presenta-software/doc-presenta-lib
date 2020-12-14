@@ -21,6 +21,7 @@ A Block renders a content. When you need a different type of media or render a c
 - [Chartjs](blocks/chartjs)
 - [Fitty](blocks/fitty)
 - [Vega-Lite](blocks/vegalite)
+- [ModelViewer](blocks/modelviewer)
 - [Flowchart.js](blocks/flowchartjs)
 
 <!--

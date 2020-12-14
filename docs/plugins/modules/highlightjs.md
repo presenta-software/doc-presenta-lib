@@ -7,7 +7,7 @@ title: Highlight.js Module
 
 This module converts any `pre code` selector found in [PRESENTA Lib](https://github.com/presenta-software/presenta-lib) blocks using [highlightjs library](https://highlightjs.org/).
 
-<iframe src="/pPlugHighlightJs/index.html"></iframe>
+<pPluginHighLightJs />
 
 ## Usage
 

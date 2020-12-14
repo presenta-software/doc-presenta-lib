@@ -24,81 +24,21 @@ A common use-case of `steps` is with lists, though. In this case we can enable i
 
 <steps-pEditStep2 />
 
-
-
-
-
-...
-
-
-
-
-
-By default, any HTML tag with the class `step` counts as fragment element. You can override the `steps` option by adding a valid CSS selector (single and multiple as well).
-
-The steps order is based on the selectors order and then, the HTML order within each selector. 
-
-The following configuration uses the default setting, thus, `h1` and `p` will be converted as fragments because the class `.step`:
-
-```js
-{
-  blocks:[{
-    type:'text',
-    text:`<h1 class="step">Title</h1>
-<p class="step">Some text</p>`
-  }]
-}
-```
-
-The following example convert only the `li` tags as fragments:
-
-```js
-{
-  blocks:[{
-    type:'text',
-    steps: 'li',
-    text:`<h1>Title</h1>
-<ul>
-	<li>Item 1</li>
-	<li>Item 2</li>
-</ul>`
-  }]
-}
-```
-
 With the next one, we are converting mixed elements, preserving the order of the selector:
 
-```js
-{
-  blocks:[{
-    type:'text',
-    steps: '#first,li,#last',
-    text:`<h1 id="last">Title</h1>
-<ul>
-	<li>Item 1</li>
-	<li>Item 2</li>
-</ul>
-<h1 id="first">Title</h1>`
-  }]
-}
-```
+<steps-pEditStep3 />
 
 
 
 The default order on the same selector can be overriden by using the attribute `data-order` specifing a number that will be used by a sorting function:
 
-```js
-  blocks:[{
-    type:'text',
-    steps: '#first,li',
-    text:`<ul>
-	<li data-order="2">Item 2</li>
-	<li data-order="1">Item 1</li>
-</ul>
-<h1 id="first">Title</h1>`
-  }]
-}
-```
+<steps-pEditStep4 />
+
+
+
+Steps can be used with any blocks that contains a DOM, such as an SVG.
+
+<steps-pEditStep5 />
 
 
 

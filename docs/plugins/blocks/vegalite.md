@@ -6,7 +6,7 @@ title: Vegalite Block
 
 This block displays a [Vega-Lite](https:/www.youtube.com) chart.
 
-<iframe src="/pPlugVegalite/index.html"></iframe>
+<pPluginVegaLite />
 
 ## Usage
 
