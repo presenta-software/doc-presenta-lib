@@ -42,5 +42,23 @@ Steps can be used with any blocks that contains a DOM, such as an SVG.
 
 
 
+## Transitions
 
+You can change the transition type for each block passing an object like this:
 
+```js
+steps:{
+  selector: 'li',
+  transition: 'zoomIn'
+}
+```
+
+Built-in transitions are: 
+
+- fadeIn (default)
+- zoomOut
+- zoomIn
+- slideUp
+- slideDown
+
+<steps-pEditStep6 />
