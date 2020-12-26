@@ -62,3 +62,25 @@ Built-in transitions are:
 - slideDown
 
 <steps-pEditStep6 />
+
+## Mode
+
+There are two modes in this module. 
+
+- `sequential`  mode where **each selector** counts as a single step (default)
+- `match` mode where **same selector values** counts as a single step
+
+<steps-pEditStep7 />
+
+When using the `match` mode, the selector value needs to be set at scene level.
+
+## Out
+
+There is an option to change the behavior of pre-entered elements. By default each fragment will persist in the scene after the transition. You can specify within the `block` level the `out` option to change that behavior, making the fragments transition out.
+
+<steps-pEditStep8 />
+
+You can also mix that option across different blocks (this is very useful with the `match` mode):
+
+<steps-pEditStep9 />
+

@@ -28,13 +28,14 @@ When you see that white code pane, you can live-edit.
 
 :::
 
-| Option  | Description                                                  | Default | Values  |
-| ------- | ------------------------------------------------------------ | ------- | ------- |
-| scenes  | The list of scene objects **(required)**                     |         | Array   |
-| aspect  | Define the ratio between width and height                    | 1.6     | Number  |
-| adapt   | Override **aspect** inferring it from the container size. If the dimensions are not positive, a fallback size will be used. | *true*  | Boolean |
-| plugins | An array of objects URL to install external plugins at run-time. This is **not** the primary and suggested way to install plugins. Additional info [here](/plugins/installation.html). |         | Array   |
-|         |                                                              |         |         |
+| Option   | Description                                                  | Default | Values  |
+| -------- | ------------------------------------------------------------ | ------- | ------- |
+| scenes   | The list of scene objects **(required)**                     |         | Array   |
+| aspect   | Define the ratio between width and height                    | 1.6     | Number  |
+| adapt    | Override **aspect** inferring it from the container size. If the dimensions are not positive, a fallback size will be used. | *true*  | Boolean |
+| plugins  | An array of objects URL to install external plugins at run-time. This is **not** the primary and suggested way to install plugins. Additional info [here](/plugins/installation.html). |         | Array   |
+| noResize | Disable the built-in resize feature                          | false   | Boolean |
+|          |                                                              |         |         |
 
 The size of the presentation is based on the container size. If it hasn't a positive dimension, a  fallback will be used, which is 360x200 pixels.
 
@@ -240,10 +241,11 @@ It's going to work fine using the `code` property, though.
 
 The `solid` block allows to set any CSS background property to the whole block area.
 
-| Option | Description                   | Default | Value   |
-| ------ | ----------------------------- | ------- | ------- |
-| type   | The block type **(required)** |         | "solid" |
-|        |                               |         |         |
+| Option     | Description                    | Default | Value   |
+| ---------- | ------------------------------ | ------- | ------- |
+| type       | The block type **(required)**  |         | "solid" |
+| solidColor | The CSS background-color value |         | String  |
+|            |                                |         |         |
 
 ### Group
 
@@ -313,6 +315,8 @@ Here the list of built-in controlles alongside their default activation status:
 | sync        | It keeps in sync multiple instance of the same presentation that are in the same origin. It works in all the modern browsers except on **Safari** which doesn't support the native BroadcastChannel.<br />It basically syncs interactive events (keyboard, mouse, touch, still experimental). | false    | Boolean         |
 | rsync       | It keeps the router events sync on multiple instance of the same presentation. Same limitations as the `sync` controller. | false    | Boolean         |
 | baseurl     | It infers the asset relative paths prepending a base-URL passed as value. | false    | String          |
+| brand       | Allow to add a logo or heading passing an HTML fragment      |          | String          |
+| minitools   | It adds a list of buttons in a mini toolbar                  |          | Boolean/Object  |
 |             |                                                              |          |                 |
 
 ### External controllers
