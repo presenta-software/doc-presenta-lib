@@ -122,7 +122,7 @@ So far, there's just one built-in: `steps`, that handles the in-block fragments,
 
 ::: tip Learn more!
 
-There's a [dedicated section](steps) to learn all the details of `steps`.
+There's a [section with examples](steps) to learn all the details of this module.
 
 :::
 

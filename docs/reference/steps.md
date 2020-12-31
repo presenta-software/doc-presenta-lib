@@ -2,7 +2,7 @@
 title: Steps!
 ---
 
-# Steps!
+# Steps examples
 
 The `steps` module is a powerful internal feature that can handle the show&hide of fragment elements by playing nicely with the internal Router as well.
 
