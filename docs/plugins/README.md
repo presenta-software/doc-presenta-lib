@@ -54,9 +54,9 @@ Awesome! There's a [starter-kit](https://github.com/presenta-software/presenta-m
 
 A Controller extends the presentation as a whole by adding global capabilities:
 
-- [Markdown](https://github.com/presenta-software/presenta-controller-markdown) to convert markdown into HTML in supported blocks
-- [Swiper](https://github.com/presenta-software/presenta-controller-swiper) to add touch gesture for easier navigation on mobile devices
-- [Console Notes](https://github.com/presenta-software/presenta-controller-console-notes) to add dev-minded speaker notes 
+- [Markdown](controllers/markdown) to convert markdown into HTML in supported blocks
+- [Swiper](controllers/swiper) to add touch gesture for easier navigation on mobile devices
+- [Console Notes](controllers/console-notes) to add dev-minded speaker notes 
 
 <!--
 
