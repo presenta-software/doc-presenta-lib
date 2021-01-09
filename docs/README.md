@@ -3,7 +3,7 @@ home: true
 heroImage: null
 heroText: null
 tagline: null
-footer: BSD 3-Clause Licensed | Copyright © 2020 Fabio Franchino
+footer: BSD 3-Clause Licensed | Copyright © 2020-21 Fabio Franchino
 sidebar: false
 ---
 
