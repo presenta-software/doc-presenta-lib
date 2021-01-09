@@ -1,5 +1,5 @@
 ---
-title: Steps!
+title: Steps examples
 ---
 
 # Steps examples

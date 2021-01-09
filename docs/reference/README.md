@@ -146,6 +146,8 @@ Let's learn about the buint-in block types of **PRESENTA Lib**:
 
 The `text` block is possibly the most obvious one allowing to display formatted text by using a subset of HTML tags.
 
+<pDemoBlockText />
+
 The text automatically scales down if there is not enough available space. The additional `scale` option allows to fine-tune the behavior.
 
 | Option | Description                                                  | Default | Value  |
@@ -164,6 +166,8 @@ The text automatically scales down if there is not enough available space. The a
 
 The `image` block allows to display an image.
 
+<pDemoBlockImage />
+
 By default the image will `cover` the available block area. 
 
 | Option | Description                                          | Default | Value   |
@@ -177,6 +181,8 @@ By default the image will `cover` the available block area.
 ### Video
 
 The `video` block allows to include a video file (encoded in a [browser compatible](https://developer.mozilla.org/en-US/docs/Web/Media/Formats/Video_codecs) format).
+
+<pDemoBlockVideo />
 
 By default, the video won't start automatically. To control the playback (play/pause) you can use the `SPACEBAR` keyboard key. To rewind the video, use the `r` key.
 
@@ -200,6 +206,9 @@ By default the video will `cover` the available block area.
 ### Embed
 
 The `embed` block allows to embed external web objects by means of an `iframe` tag.
+
+<pDemoBlockEmbed />
+
 The simplest way to embed a web resource is by using the `url` property.
 
 If you have the embed code (the **iframe** code) you can use the `code` property:
@@ -218,7 +227,11 @@ If you have the embed code (the **iframe** code) you can use the `code` property
 
 ### Svg
 
-The `svg` block allows to inject and render an external SVG file. The reason why of this, instead of using the svg as image (btw, you can do it with the `image` block), is to exploit its DOM with the library `steps` feature.
+The `svg` block allows to inject and render an external SVG file. 
+
+<pDemoBlockSvg />
+
+The reason why of this, instead of using the svg as image (btw, you can do it with the `image` block), is to exploit its DOM with the library `steps` feature.
 
 | Option | Description                                            | Default | Value  |
 | ------ | ------------------------------------------------------ | ------- | ------ |
@@ -227,25 +240,7 @@ The `svg` block allows to inject and render an external SVG file. The reason why
 | code   | The raw `svg` code, **(required)** if `url` is not set |         | String |
 |        |                                                        |         |        |
 
-::: warning Local webserver required
 
-Note that this block, when using the `url` property, doesn't work outside a webserver. If you configure your presentation and open the `index.html` file from the file system, the browser will throw an error and the svg won't be loaded at all. 
-
-It's going to work fine using the `code` property, though.
-
-:::
-
-
-
-### Solid
-
-The `solid` block allows to set any CSS background property to the whole block area.
-
-| Option     | Description                    | Default | Value   |
-| ---------- | ------------------------------ | ------- | ------- |
-| type       | The block type **(required)**  |         | "solid" |
-| solidColor | The CSS background-color value |         | String  |
-|            |                                |         |         |
 
 ### Group
 
@@ -315,6 +310,7 @@ Here the list of built-in controlles alongside their default activation status:
 | sync        | It keeps in sync multiple instance of the same presentation that are in the same origin. It works in all the modern browsers except on **Safari** which doesn't support the native BroadcastChannel.<br />It basically syncs interactive events (keyboard, mouse, touch, still experimental). | false    | Boolean         |
 | rsync       | It keeps the router events sync on multiple instance of the same presentation. Same limitations as the `sync` controller. | false    | Boolean         |
 | baseurl     | It infers the asset relative paths prepending a base-URL passed as value. | false    | String          |
+| fonts       | It loads at runtime external font resources setting the CSS variables used in the library. It requires an object with one or both the field `heading` and `text`. Both fields contain an object with `url` and `name` of the font-family you want to use. | false    | Object          |
 | brand       | Allow to add a logo or heading passing an HTML fragment      |          | String          |
 | minitools   | It adds a list of buttons in a mini toolbar                  |          | Boolean/Object  |
 |             |                                                              |          |                 |
