@@ -39,6 +39,7 @@ Awesome! There's a [starter-kit](https://github.com/presenta-software/presenta-b
 A Module extends a `scene` in order provide additional features at scene level. Here some examples:
 
 - [HighLightJs](modules/highlightjs)
+- [Toast](modules/toast)
 
 <!--
 
