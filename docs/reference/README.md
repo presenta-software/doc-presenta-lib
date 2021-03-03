@@ -286,34 +286,277 @@ Each Controller needs to be activated (and optionally configured) in the main co
 
 
 
-### Built-in controllers
-
 Here the list of built-in controlles alongside their default activation status:
 
-| Property    | Description                                                  | Default  | Value           |
-| ----------- | ------------------------------------------------------------ | -------- | --------------- |
-| keyboard    | Allows to navigate back and forth using the keyboard arrows keys. <br />**ArrowRight** and **ArrowDown** to go next, **ArrowLeft** and **ArrowUp** to go previous. | **true** | Boolean         |
-| arrows      | Allows to show two UI arrow elements to allows the back and forth navigation by clicking on them. | **true** | Boolean         |
-| black       | Allows to show/hide a black screen by pressing the keyboard key `b`. <br />To change the key, use the String char instead the Boolean. | **true** | Boolean, String |
-| fullscreen  | Allows to run the presentation in fullscreen by pressing the keyboard key `f`. <br />To change the key, use the String char instead the Boolean. <br />This controller exposes its `toggle()` function. | **true** | Boolean, String |
-| hidden      | It hides a specific scene or block if it has the `hidden` option set to true. | **true** | Boolean         |
-| limitswitch | It provides a visual feedback when the user tries to navigate over the presentation begin or end. | **true** | Boolean         |
-| cache       | It fetches external resources in order to inject the content in their relative config object | **true** | Boolean         |
-| autoplay    | It turns the navigation in auto-play mode. Default delay is 4000ms. Set a Number instead a Boolean to override that delay.<br />This Controller reads from each `scene` configuration the property `autoplay` in order to override the default `delay` time on a specific `scene` | false    | Boolean, Number |
-| loop        | It allows to loop the navigation, meaning, when the last scene is reached, the next command will jump to the first scene. | false    | Boolean         |
-| focus       | It allows to set the focus automatically instead waiting for the user click, allowing to use keyboard events without a first mouse interaction.<br /><br />The detection is based on the viewport intersection, thus, the last instance that got intersected with the viewport gets the focus. | false    | Boolean         |
-| progressbar | It shows a tiny progress bar representing the progress of the current navigation. | false    | Boolean         |
-| shuffle     | It randomize the order of the scenes on each instance session. | false    | Boolean         |
-| current     | Set the start `scene`  according to the passed number.       | false    | Boolean, Number |
-| pagenum     | It shows the current page number and total pages based on the current navigation. <br /><br />The default template `'%s / %S'` can be configured passing that String instead Bollean.<br /> `%s` is the current scene, `%S` is the total scenes. | false    | Boolean, String |
-| preload     | It preloads images and videos from `image` and `video` blocks. It's very useful to avoid image loading progress when activating a scene with images. Of course, this leads to a loading waterfall which is not ideal if you put the presentation online.<br /><br />As a rule of thumb: Use it when performing a speech. Keep it disabled in other situations. | false    | Boolean         |
-| sync        | It keeps in sync multiple instance of the same presentation that are in the same origin. It works in all the modern browsers except on **Safari** which doesn't support the native BroadcastChannel.<br />It basically syncs interactive events (keyboard, mouse, touch, still experimental). | false    | Boolean         |
-| rsync       | It keeps the router events sync on multiple instance of the same presentation. Same limitations as the `sync` controller. | false    | Boolean         |
-| baseurl     | It infers the asset relative paths prepending a base-URL passed as value. | false    | String          |
-| fonts       | It loads at runtime external font resources setting the CSS variables used in the library. It requires an object with one or both the field `heading` and `text`. Both fields contain an object with `url` and `name` of the font-family you want to use. | false    | Object          |
-| brand       | Allow to add a logo or heading passing an HTML fragment      |          | String          |
-| minitools   | It adds a list of buttons in a mini toolbar                  |          | Boolean/Object  |
-|             |                                                              |          |                 |
+### Keyboard
+
+Allows to navigate back and forth using the keyboard arrows keys. 
+Use **ArrowRight** and **ArrowDown** to go next, **ArrowLeft** and **ArrowUp** to go previous.
+
+```js
+keyboard: true // default true
+```
+
+
+
+### Arrows
+
+Allows to show two UI arrow elements to allows the back and forth navigation by clicking on them.
+
+```js
+arrows: true // default true
+```
+
+
+
+### Black
+
+Allows to show/hide a black screen by pressing the keyboard key `b`. 
+
+```js
+black: true // default true
+```
+
+To change the key, use the String char instead the Boolean.
+
+
+
+### Fullscreen
+
+Allows to run the presentation in fullscreen by pressing the keyboard key `f`. To change the key, use the String char instead the Boolean. 
+
+```js
+fullscreen: true // default true
+```
+
+This controller exposes a public `toggle()` function to allows external control.
+
+
+
+### Hidden
+
+It hides a specific scene or block if it has the `hidden` option set to true.
+
+```js
+hidden: true // default true
+```
+
+An hidden scene:
+
+```js
+scenes:[{
+  hidden: true
+  blocks:[...]
+}]
+```
+
+An hidden block:
+
+```js
+scenes:[{
+  blocks:[{
+		hidden: true
+  	type: '...'
+  }, {
+    type: '...'
+  }]
+}]
+```
+
+
+
+### Limitswitch
+
+It provides a visual feedback when the user tries to navigate over the presentation begin or end.
+
+```js
+limitswitch: true // default true
+```
+
+
+
+### Cache
+
+It fetches external resources in order to inject the content in their relative config object
+
+```js
+cache: true // default true
+```
+
+
+
+
+
+### Autoplay
+
+It turns the navigation in auto-play mode. Default delay is 4000ms. Set a Number instead a Boolean to override that delay.
+
+```js
+autoplay: true // or 4000, default false
+```
+
+This Controller reads from each `scene` configuration the property `autoplay` in order to override the default `delay` time on a specific `scene`
+
+```js
+scenes:[{
+  autoplay: 8000 // to override the default/global setting
+  blocks:[...]
+}]
+```
+
+
+
+### Loop
+
+It allows to loop the navigation, meaning, when the last scene is reached, the next navigation command will jump to the first scene.
+
+```js
+loop: true // default false
+```
+
+
+
+
+
+### Focus
+
+It allows to set the focus automatically instead waiting for the user click, allowing to use keyboard events without a first mouse interaction.
+
+The detection is based on the viewport intersection, thus, the last instance that got intersected with the viewport gets the focus.
+
+```js
+focus: true // default false
+```
+
+
+
+### Progressbar
+
+It shows a tiny progress bar representing the progress of the current navigation.
+
+```js
+progressbar: true // default false
+```
+
+
+
+### Shuffle
+
+It randomize the order of the scenes on each instance session.
+
+```js
+shuffle: true // default false
+```
+
+
+
+### Current
+
+Set the start `scene`  according to the passed number.
+
+```js
+current: <Integer> // default false
+```
+
+
+
+### Pagenum
+
+It shows the current page number and total pages based on the current navigation. 
+
+```js
+pagenum: true // default false
+```
+
+The default template `'%s / %S'` can be configured passing that String instead Bollean. 
+ `%s` is the current scene, `%S` is the total scenes.
+
+```js
+pagenum: 'Page %s of total %S'
+```
+
+
+
+### Preload
+
+It preloads images and videos from `image` and `video` blocks. It's very useful to avoid image loading progress when activating a scene with images. Of course, this leads to a loading waterfall which is not ideal if you put the presentation online.
+
+As a rule of thumb: Use it when performing a speech. Keep it disabled in other situations.
+
+```js
+preload: true // default false
+```
+
+
+
+### Sync
+
+It keeps in sync multiple instance of the same presentation that are in the same origin. It works in all the modern browsers except on **Safari** which doesn't support the native BroadcastChannel.
+
+It basically syncs interactive events (keyboard, mouse, touch, **still experimental**).
+
+```js
+sync: true // default false
+```
+
+
+
+### RSync
+
+It keeps the router events sync on multiple instance of the same presentation. Same limitations as the `sync` controller.
+
+```js
+rsync: true // default false
+```
+
+
+
+
+
+### BaseURL
+
+It infers the asset relative paths prepending a base-URL passed as value.
+
+```js
+baseurl: 'http://localhost:8080' // default false
+```
+
+
+
+### Fonts
+
+It loads at runtime external font resources setting the CSS variables used in the library. It requires an object with one or both the field `heading` and `text`. Both fields contain an object with `url` and `name` of the font-family you want to use.
+
+```js
+fonts:{
+  heading:{
+    url: 'href="https://fonts.googleapis.com/css2?family=Roboto&display=swap',
+    name: 'Roboto'
+  }
+}
+```
+
+
+
+### Brand
+
+Allow to add a logo or heading passing an HTML fragment
+
+```js
+brand: '<img src="myLogo.png" />' // default false
+```
+
+
+
+### Minitools
+
+It adds a list of buttons in a mini toolbar.
+
+```js
+minitools: true // default false
+```
+
+
 
 ### External controllers
 
