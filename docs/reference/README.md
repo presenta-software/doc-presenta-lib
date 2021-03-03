@@ -231,7 +231,7 @@ The `svg` block allows to inject and render an external SVG file.
 
 <pDemoBlockSvg />
 
-The reason why of this, instead of using the svg as image (btw, you can do it with the `image` block), is to exploit its DOM with the library `steps` feature.
+The reason why of this, instead of using the svg as image (btw, you can do it with the `image` block), is to exploit its DOM with the built-in library [Steps](steps) feature.
 
 | Option | Description                                            | Default | Value  |
 | ------ | ------------------------------------------------------ | ------- | ------ |
