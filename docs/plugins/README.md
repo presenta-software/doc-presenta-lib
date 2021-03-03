@@ -22,7 +22,7 @@ A Block renders a content. When you need a different type of media or render a c
 
 
 
-::: tip Want to create your own **Block**?
+::: tip Want to create your own Block?
 
 Awesome! There's a [guide](development) for that!. If you plan to make it public, [let us know](mailto:support@presenta.cc)!
 
@@ -37,7 +37,7 @@ A Module extends a `scene` in order provide additional features at scene level. 
 - [HighLightJs](modules/highlightjs)
 - [Toast](modules/toast)
 
-::: tip Want to create your own **Module**?
+::: tip Want to create your own Module?
 
 Awesome! There's a [guide](development) for that!. If you plan to make it public, [let us know](mailto:support@presenta.cc)!
 
@@ -51,7 +51,7 @@ A Controller extends the presentation as a whole by adding global capabilities:
 - [Swiper](controllers/swiper) to add touch gesture for easier navigation on mobile devices
 - [Console Notes](controllers/console-notes) to add dev-minded speaker notes 
 
-::: tip Want to create your own **Controller**?
+::: tip Want to create your own Controller?
 
 Awesome! There's a [guide](development) for that!. If you plan to make it public, [let us know](mailto:support@presenta.cc)!
 

@@ -4,6 +4,8 @@ title: Plugin Development
 
 # Plugin development
 
+In this guide you'll learn the fundamental bits to create your own **PRESENTA Lib** plugin.
+
 ## What is a PRESENTA Lib Plugin?
 
 It's a javascript function that exploits the **PRESENTA Lib** APIs in order to add further capabilities. To give a glimpse, this is a valid **PRESENTA Lib** plugin (a Block plugin) that does nothing but a console.log:
@@ -127,7 +129,11 @@ function myH1(blockElement, blockConfig){
 }
 ```
 
+::: tip
 
+If you want to use the same dev setup of the official plugins, here the [block starterkit](https://github.com/presenta-software/presenta-block-starter).
+
+:::
 
 ## Create your first Module
 
@@ -171,6 +177,14 @@ new Presenta('#app', config)
 ```
 
 Here the above example up and running in [Codepen](https://codepen.io/abusedmedia/pen/eYBKBpg).
+
+::: tip
+
+If you want to use the same dev setup of the official plugins, here the [module starterkit](https://github.com/presenta-software/presenta-module-starter).
+
+:::
+
+
 
 
 
@@ -225,3 +239,8 @@ new Presenta('#app', config)
 
 Here the above example up and running in [Codepen](https://codepen.io/abusedmedia/pen/PobabKM).
 
+::: tip
+
+If you want to use the same dev setup of the official plugins, here the [controller starterkit](https://github.com/presenta-software/presenta-controller-starter).
+
+:::
