@@ -4,7 +4,7 @@ title: Plugin Installation
 
 ## Plugin Installation
 
-This section describes the installation possibilities followed by official plugins.
+This section describes the installation possibilities enforced by official plugins.
 
 First off, you need to know the unique `name` of the plugin and replace the `<PLUGIN-NAME>` placeholder with it (i.e. `block-youtube` or `controller-shuffle` or `module-markdown`)
 

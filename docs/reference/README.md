@@ -659,11 +659,7 @@ console.log(Presenta.version)
 | Property    | Description                                     |
 | ----------- | ----------------------------------------------- |
 | version     | The version of the library                      |
-| colors      | The array of the built-in colors names          |
-| fonts       | The array of the built-in fonts names           |
-| transitions | The array of the built-in transition names      |
-| layouts     | The array of the built-in layout names          |
-| colorvars   | The array of the built-in color variation names |
+| installed   | The array of installed plugins                  |
 |             |                                                 |
 
 | Method | Description                           |
