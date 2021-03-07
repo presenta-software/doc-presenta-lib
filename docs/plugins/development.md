@@ -129,6 +129,10 @@ function myH1(blockElement, blockConfig){
 }
 ```
 
+### Use a Promise if you need it
+
+A Block can return a Promise if internally it needs to performe some async stuff. **PRESENTA Lib** will wait for all block resolutions before render the scene.
+
 ::: tip
 
 If you want to use the same dev setup of the official plugins, here the [block starterkit](https://github.com/presenta-software/presenta-block-starter).
@@ -177,6 +181,10 @@ new Presenta('#app', config)
 ```
 
 Here the above example up and running in [Codepen](https://codepen.io/abusedmedia/pen/eYBKBpg).
+
+### Use a Promise if you need it
+
+A Module can return a Promise if internally it needs to performe some async stuff. **PRESENTA Lib** will wait for all module resolutions before render the scene.
 
 ::: tip
 
@@ -238,6 +246,10 @@ new Presenta('#app', config)
 ```
 
 Here the above example up and running in [Codepen](https://codepen.io/abusedmedia/pen/PobabKM).
+
+### Use a Promise if you need it
+
+A Controller can return a Promise if internally it needs to performe some async stuff. **PRESENTA Lib** will wait for all controller resolutions before start the presentation.
 
 ::: tip
 
