@@ -116,19 +116,37 @@ Modules are scene extensions.
 
 ### Steps
 
-So far, there's just one built-in: `steps`, that handles the in-block fragments, such as:
+**Steps** module handles the in-block fragments progressive show/hide behaviour, such as:
 
 <pEditSteps />
 
-::: tip Learn more!
+It's already active and it needs to be configured within the scene context.
 
 There's a [section with examples](steps) to learn all the details of this module.
 
-:::
+
+
+
+
+### Jump
+
+**Jump** module allows to go to specific scene by clicking any HTML element that contains the `jump` attribute with a valid value, such as:
+
+```html
+<h1 jump="3">
+  Go to scene 3
+</h1>
+```
+
+Here an example:
+
+<pEditJump />
+
+::: tip More modules!
 
 Modules can be created as external **PRESENTA Lib** plugin. You can find additional modules [here](/plugins/#modules).
 
-
+:::
 
 ## Blocks
 
