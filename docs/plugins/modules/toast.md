@@ -11,28 +11,30 @@ This module adds a little and handy toast message to scenes.
 
 ## Usage
 
-To configure this module use this setting:
+You can configure the module globally or within each specific scene config:
 
 ```js
 modules:{
-  toast: true
+  toast: 'Hey! This is my message'
 }
 ```
 
-To use the module in a specific scene, here a sample code within a single `scene` chunk:
+Further options can be added:
 
 ```js
 {
   scenes:[
     {
-      toast:{
-        text: 'Hi... here a mini toast tip!',
-        enter: 'click', // wait for click
-        exit: 3 // last 3 seconds
-      },
+      modules:{
+        toast:{
+          text: 'Hi... here a mini toast tip!',
+          enter: 'click', // wait for click
+          exit: 3 // last 3 seconds
+        }
+      }
       
       blocks:[{
-        type:'text', text:'Hello text'
+        type:'text', text:'<h1>Hello</h1>'
       }]
     }
   ]
@@ -45,6 +47,12 @@ To use the module in a specific scene, here a sample code within a single `scene
 | enter | The enter mode option: 'click', 'keychar', 'integer' |         | String/Number |
 | exit | The exit mode option: 'click', 'integer' | | String/Number |
 |        |                                                              |         |           |
+
+| Style         | Description                 | Default | Values |
+| ------------- | --------------------------- | ------- | ------ |
+| toastPosition | The position of the message |         | String |
+|               |                             |         |        |
+|               |                             |         |        |
 
 ## Enter/Exit options
 
