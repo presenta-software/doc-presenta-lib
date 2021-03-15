@@ -12,13 +12,17 @@ In this section you'll learn the basics of **PRESENTA Lib**.
 
 You can start with the library in several ways depending of your favorite setup.
 
+### Playground
+
+This is the quickest way to get started using our hosted [playground tool](https://play.presenta.cc) where you can play with **PRESENTA Lib** using **Markdown**, **Text**, **JSON**, **YAML** or **Javascript** code, your call!
+
 ### Local starterkit
 
-You can download this [zip](https://github.com/presenta-software/presenta-lib-starterkit/archive/master.zip) that contains a **markdown based** example you can edit locally. This is the quickest way to get started for those who want to write markdown to create slides locally. A free and hosted version can be experienced [here](https://play.presenta.cc).
+You can download this [zip](https://github.com/presenta-software/presenta-lib-starterkit/archive/master.zip) that contains a **markdown based** setup with an example you can edit locally. 
 
 ### Remote starterkit
 
-You can start with a **config based** example by forking this [Codepen](https://codepen.io/abusedmedia/full/ZEOWyqM), [Glitch](https://glitch.com/edit/#!/presenta-starterkit?path=config.js) or [Repl](https://repl.it/@fabiofranchino/presenta-starterkit#config.js) project. This is a bit more technical that the previous one since you have to deal with the JSON object. 
+You can start with a **config based** example by forking this [Codepen](https://codepen.io/abusedmedia/full/ZEOWyqM), [Glitch](https://glitch.com/edit/#!/presenta-starterkit?path=config.js),[Repl](https://repl.it/@fabiofranchino/presenta-starterkit#config.js) or [CodeSandox](https://codesandbox.io/s/presenta-starterkit-o2oif) project. This is a bit more technical that the previous one since you have to deal with the JSON object. 
 
 ### Unpkg
 
@@ -50,7 +54,7 @@ import * as Presenta from '@presenta/lib'
 
 
 
-## Getting started with the library
+## Getting started with the config
 
 First thing first: each **PRESENTA Lib** document requires an HTML wrapper:
 
