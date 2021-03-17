@@ -50,6 +50,7 @@ A Controller extends the presentation as a whole by adding global capabilities:
 - [Markdown](controllers/markdown) to convert markdown into HTML in supported blocks
 - [Swiper](controllers/swiper) to add touch gesture for easier navigation on mobile devices
 - [Console Notes](controllers/console-notes) to add dev-minded speaker notes 
+- [Styles](controllers/styles) adds a bunch of color/font sets for easy look&feel
 
 ::: tip Want to create your own Controller?
 
