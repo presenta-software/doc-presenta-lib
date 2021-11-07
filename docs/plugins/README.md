@@ -13,12 +13,15 @@ In this section you can find the list of officially supported **PRESENTA Lib** p
 
 A Block renders a content. When you need a different type of media or render a content in a different way, external blocks might help, such as:
 
-- [Youtube](blocks/youtube)
-- [Chartjs](blocks/chartjs)
-- [Fitty](blocks/fitty)
-- [Vega-Lite](blocks/vegalite)
-- [ModelViewer](blocks/modelviewer)
-- [Flowchart.js](blocks/flowchartjs)
+- [Youtube](https://github.com/presenta-software/presenta-block-youtube)
+- [Chartjs](https://github.com/presenta-software/presenta-block-chartjs)
+- [Fitty](https://github.com/presenta-software/presenta-block-fitty)
+- [Vega-Lite](https://github.com/presenta-software/presenta-block-vegalite)
+- [ModelViewer](https://github.com/presenta-software/presenta-block-modelviewer)
+- [Flowchart.js](https://github.com/presenta-software/presenta-block-flowchartjs)
+- [Emoji](https://github.com/presenta-software/presenta-block-emoji)
+- [Barcode](https://github.com/presenta-software/presenta-block-barcode)
+- [QRCode](https://github.com/presenta-software/presenta-block-qrcode)
 
 
 
@@ -34,8 +37,9 @@ Awesome! There's a [guide](development) for that!. If you plan to make it public
 
 A Module extends a `scene` in order provide additional features at scene level. Here some examples:
 
-- [HighLightJs](modules/highlightjs)
-- [Toast](modules/toast)
+- [HighLightJs](https://github.com/presenta-software/presenta-module-highlightjs)
+- [Toast](https://github.com/presenta-software/presenta-module-toast)
+- [CSS](https://github.com/presenta-software/presenta-module-css)
 
 ::: tip Want to create your own Module?
 
@@ -47,10 +51,9 @@ Awesome! There's a [guide](development) for that!. If you plan to make it public
 
 A Controller extends the presentation as a whole by adding global capabilities:
 
-- [Markdown](controllers/markdown) to convert markdown into HTML in supported blocks
-- [Swiper](controllers/swiper) to add touch gesture for easier navigation on mobile devices
-- [Console Notes](controllers/console-notes) to add dev-minded speaker notes 
-- [Styles](controllers/styles) adds a bunch of color/font sets for easy look&feel
+- [Markdown](https://github.com/presenta-software/presenta-controller-markdown) 
+- [Swiper](https://github.com/presenta-software/presenta-controller-swiper) 
+- [Console Notes](https://github.com/presenta-software/presenta-controller-console-notes)  
 
 ::: tip Want to create your own Controller?
 
@@ -62,7 +65,43 @@ Awesome! There's a [guide](development) for that!. If you plan to make it public
 
 ## Installation
 
-[Go to this page](installation) to learn about official installation possibilities.
+This section describes the installation possibilities enforced by official plugins.
+
+First off, you need to know the unique `name` of the plugin and replace the `<PLUGIN-NAME>` placeholder with it (i.e. `block-youtube` or `controller-shuffle` or `module-markdown`)
+
+#### From `unpkg`:
+
+Using the script tag in the HTML document (**recommended**):
+
+```html
+<script src="https://unpkg.com/@presenta/<PLUGIN-NAME>"></script>
+```
+
+#### From `npm`:
+
+If you are in a local dev enviroment with the common node.js based toolchain already installed, you can run `npm` with:
+
+```shell
+npm install @presenta/<PLUGIN-NAME>
+```
+
+now you can include the plugin in the browser with (it needs to be included after **PRESENTA Lib**):
+
+```html
+<script src="/node_modules/@presenta/lib/dist/presenta.min.js"></script>
+<script src="/node_modules/@presenta/<PLUGIN-NAME>/dist/presenta-<PLUGIN-NAME>.min.js"></script>
+```
+
+If you're using a bundler you have to explicitly install it after import:
+
+```js
+import * as Presenta from '@presenta/lib'
+import myPluginName from '@presenta/<PLUGIN-NAME>'
+
+Presenta.use(myPluginName)
+```
+
+
 
 
 

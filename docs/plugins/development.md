@@ -266,6 +266,6 @@ If you want to use the same dev setup of the official plugins, here the [control
 You can learn more from:
 
 - The official [blocks](https://github.com/presenta-software?q=presenta-block&type=&language=), [controllers](https://github.com/presenta-software?q=presenta-controller&type=&language=) and [modules](https://github.com/presenta-software?q=presenta-module&type=&language=) source code
-- A [growing list](https://github.com/presenta-software/unsorted-plugins) of experimental plugins
 - The [Issues](https://github.com/presenta-software/presenta-lib/issues) section of the library
+- The [Discussion](https://github.com/presenta-software/presenta-lib/discussions) section for suggestions and ideas
 
