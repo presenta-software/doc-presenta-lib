@@ -259,10 +259,11 @@ Modules are scene and/or block extensions. They need to be set within the `modul
 
 ### Autoplay
 
-It start the scene progression automatically passing the delay in milliseconds as additional parameter (default is 4000ms).
+It run the router playback automatically. You can set the delay between scenes in milliseconds as additional parameter (default is 4000ms).
 
 ```js
-autoplay: 4000
+autoplay: true
+// or autoplay: 5000
 ```
 
 
@@ -328,7 +329,7 @@ styles:{
 
 Modules can be created as **PRESENTA** plugin. You can find additional modules [here](/plugins/#modules).
 
-###
+
 
 
 
