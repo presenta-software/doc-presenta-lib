@@ -92,7 +92,22 @@ now you can include the plugin in the browser with (it needs to be included afte
 <script src="/node_modules/@presenta/<PLUGIN-NAME>/dist/presenta-<PLUGIN-NAME>.min.js"></script>
 ```
 
-If you're using a bundler you have to explicitly install it after import:
+
+
+Or using SkyPack service in ES6:
+
+```html
+<script type="module">
+	import Presenta from 'https://cdn.skypack.dev/@presenta/lib'
+	import myPluginName from 'https://cdn.skypack.dev/@presenta/<PLUGIN-NAME>'
+
+	Presenta.use(myPluginName)
+</script>
+```
+
+
+
+Or using a bundler:
 
 ```js
 import * as Presenta from '@presenta/lib'

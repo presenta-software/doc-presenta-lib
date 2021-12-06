@@ -50,7 +50,7 @@ Same as before but in ES6:
 ```html
 <script type="module">
 
-  import * as Presenta from 'https://cdn.skypack.dev/@presenta/lib'
+  import Presenta from 'https://cdn.skypack.dev/@presenta/lib'
 
   new Presenta()
 

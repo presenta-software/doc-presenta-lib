@@ -237,6 +237,8 @@ The `svg` block allows to inject and render an external SVG file.
 {
   type: 'svg', // required
   code: '<svg viewBox="0 0 100 80"><circle cx="50" cy="40" r="20"></circle></svg>', // required
+  // this property allows to manipulate element attributes to specific elements using the following notation:
+  query: 'selector:attribute:value,selector...',
   aspect: '' // SVG preserveAspectRatio attribute valid value
 }
 ```
