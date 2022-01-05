@@ -197,38 +197,6 @@ If you have the embed code (the **iframe** code) you can use the `code` property
 
 
 
-### Shape
-
-The `shape` block renders a basic CSS shape made with the `clip-path` definition, such as [these](https://bennettfeely.com/clippy/):
-
-```js
-{
-  type: 'shape',
-  shape: 'rect', // rect, circle, triangle, rhombus, star
-  color: 'black',
-  path: 'polygon(20% 0%, 0% 70%, 100% 100%)' // pass your custom path, override the shape property
-}
-```
-
-
-
-### Line
-
-The `line` block renders a line:
-
-```js
-{
-  type: 'line',
-  direction: 'horizontal', // horizontal, vertical
-  color: 'black',
-  tickness: '1px'
-}
-```
-
-
-
-
-
 ### Svg
 
 The `svg` block allows to inject and render an external SVG file. 
@@ -323,7 +291,19 @@ styles:{
 
 
 
+### ShowIf
 
+It allows to specify the property to monitor its value in order to show or hide a Scene or Block:
+
+```js
+showif:{
+  key: 'myProp',
+  op: '==' // it can be '==' or '!=',
+  value: 'some value'
+}
+```
+
+By setting this module on a specific Scene or Block, only if `myProp` is `==` to `some value` will allow to show the block, otherwise it'll be hidden.
 
 
 
